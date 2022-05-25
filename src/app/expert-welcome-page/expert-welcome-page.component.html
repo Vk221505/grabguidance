@@ -1,0 +1,24 @@
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189120084-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-189120084-1');
+  </script>
+  </head>
+<section class="container-fluid boxModelForExperWelcome">
+    <app-user-expert-navbar></app-user-expert-navbar>
+    <div class="text-center mt-4">
+        <h3 class="" *ngIf="isSignUp"><b>Welcome {{expertName | titlecase}}</b></h3>
+        <p class="" *ngIf="isSignUp">Your GrabGuidance journey starts here. Now, let’s get some details about you in few simple steps before you go live.</p>
+        <div class="mt-4 justify-content-center">
+            <app-expert-detail-tabs></app-expert-detail-tabs>
+        </div>
+        <hr class="line">
+    </div>
+    <div class="mt-5 text-center">
+        <router-outlet></router-outlet>
+    </div>
+</section>

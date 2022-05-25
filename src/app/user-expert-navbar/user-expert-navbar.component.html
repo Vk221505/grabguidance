@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg blackBg">
+
+  <a class="navbar-brand" (click)="navigate()">
+    <div class="brand-icon">
+      <img src="../../assets/images/logo-whitebg.png" style="object-fit: contain" width="148" height="46"
+        class="d-inline-block align-center logo-img-expert" alt="" />
+      <span class="greyCE ml-2 slash">|</span>
+      <span class="ml-2 small-text text-white confusion"> Confusion to Conclusion</span>
+    </div>
+  </a>
+
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon" [ngClass]="open ? 'open' : 'close'" (click)="openSideNav()"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" *ngIf='userType' id="navbarNav">
+    <ul class="navbar-nav ml-auto text-left">
+
+      <li class="nav-item mt-1 profile-show px-3 pt-3 pb-1" *ngIf="isUserLoggedIn == 'true'">
+        <div class="row mx-0">
+          <div class="col-4 px-0">
+            <img [src]="Imgurl" style="object-fit: cover" width="55" height="55" class="rounded-circle" />
+          </div>
+          <div class="col-8 px-0">
+            <ul class="list-unstyled">
+              <li>{{ username }}</li>
+            </ul>
+          </div>
+        </div>
+        <hr class="profile-line" />
+        <div class="nav-item margin-right mt-lg-1 mr-0 school">
+          <a class="nav-link paragraph p-0" (click)="logout()">Log Out</a>
+        </div>
+      </li>
+
+      <li class="nav-item margin-right mt-1 ml-2 mr-0 expert">
+        <a target="_blank" (click)="navigate()" class="nav-link paragraph pb-0">
+          Home
+        </a>
+      </li>
+      <li class="nav-item margin-right mt-1 ml-2 mr-0 school">
+        <a href="https://www.grabguidance.com/for-schools-colleges/" target="_blank" class="nav-link paragraph pb-0">
+          For Schools/Colleges
+        </a>
+      </li>
+      <li class="nav-item margin-right mt-1 ml-2 mr-0 expert">
+        <a href="https://www.grabguidance.com/for-expert/" target="_blank" class="nav-link paragraph pb-0">
+          For Expert
+        </a>
+      </li>
+
+      <li class="nav-item margin-right mt-1 ml-2 mr-0 expert about">
+        <a href="https://www.grabguidance.com/for-expert/" target="_blank" class="nav-link paragraph pb-0">
+          About Us
+        </a>
+      </li>
+      <li class="nav-item margin-right mt-1 ml-2 mr-0 expert contact">
+        <a href="https://www.grabguidance.com/for-expert/" target="_blank" class="nav-link paragraph pb-0">
+          Contact Us
+        </a>
+      </li>
+      <li class="nav-item dropdown ml-3 navpic">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img [src]="Imgurl" width="40" height="40" class="rounded-circle" [title]="loggedInUserName">
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click)="navigateToDashboard()">Dashboard</a>
+          <a class="dropdown-item" *ngIf="!isAdmin">Edit Profile</a>
+          <a class="dropdown-item" (click)="logout()">Log Out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

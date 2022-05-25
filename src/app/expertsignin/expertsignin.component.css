@@ -1,0 +1,273 @@
+a {
+  text-decoration: underline;
+}
+
+.errorMsg {
+  color: red;
+  display: inline-block;
+}
+
+.modal-content {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  max-width: 400px !important;
+  pointer-events: auto !important;
+  background-color: #fff !important;
+  background-clip: padding-box !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 12px !important;
+  outline: 0 !important;
+}
+
+.backGround {
+  background-color: #000 !important;
+  /* height: 100vh !important; */
+  /* padding: 100px 70px 100px 70px; */
+  padding-top: 70px !important;
+  padding-left: 70px;
+  padding-right: 70px;
+  min-height: 100vh !important;
+}
+
+.logog {
+  margin-bottom: 40px;
+  width: 190px;
+}
+
+h1 {
+  font-size: 40px !important;
+  line-height: 44px !important;
+  color: #fff !important;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px !important;
+  line-height: 23px !important;
+  color: #fff !important;
+}
+
+/* .log-img {
+  margin-top: 20px;
+} */
+
+.log-img img {
+  width: 96px !important;
+  height: 96px !important;
+  margin: 10px;
+}
+
+.log-img p {
+  font-size: 14px !important;
+  line-height: 18px !important;
+  text-align: center;
+  width: 70%;
+}
+
+.small-text {
+  font-size: 14px !important;
+  color: #8e8e93 !important;
+}
+
+.from {
+  margin: 30px 140px;
+  box-shadow: 0 3px 13px #00000029;
+  border-radius: 12px !important;
+  -webkit-border-radius: 12px !important;
+  -moz-border-radius: 12px !important;
+  -ms-border-radius: 12px !important;
+  -o-border-radius: 12px !important;
+}
+
+.from form {
+  padding: 50px;
+}
+
+.from form {
+  padding: 50px;
+}
+
+.top-form {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #00000029;
+}
+
+.top-form a {
+  color: #ceced2;
+  text-decoration: none;
+}
+
+.top-form span {
+  padding: 0 50px 0 30px;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+/* carousel */
+
+.carousel h3 {
+  color: #fff;
+  font-size: 30px !important;
+  line-height: 38px !important;
+}
+
+.carousel p {
+  font-size: 18px !important;
+  line-height: 23px !important;
+}
+
+.carousel span {
+  font-size: 14px !important;
+}
+
+/* .logog {
+  margin-left: 20px;
+} */
+
+.caro p {
+  font-size: 21px !important;
+  line-height: 31px !important;
+  color: #ffcc00 !important;
+}
+
+.caro2 {
+  color: #fff !important;
+}
+
+.caro2 li {
+  list-style: none;
+}
+
+.caro2 img {
+  width: 10%;
+  filter: invert(79%) sepia(44%) saturate(3050%) hue-rotate(1deg)
+    brightness(107%) contrast(105%);
+}
+
+.imgh {
+  position: relative !important;
+  left: 55px !important;
+  top: 30px !important;
+  /* margin-left: 50px!important; */
+  margin-bottom: -28px !important;
+}
+
+/* .caro2 {
+  margin-left: 7px;
+}
+
+.caro {
+  margin-left: 7px;
+} */
+
+/* Mobilesection */
+
+.section-login-mobile h1 {
+  font-size: 35px !important;
+}
+
+.section-login-mobile .log-img {
+  text-align: center;
+}
+
+.section-login-mobile .log-img p {
+  width: 100%;
+}
+
+.section-login-mobile {
+  display: none;
+}
+
+.last {
+  margin-bottom: 70px;
+}
+
+@media screen and (max-width: 575px) {
+  .logog {
+    display: none !important;
+  }
+  .caro2 img {
+    width: 8%;
+  }
+  .imgh {
+    position: relative !important;
+    left: 0px !important;
+    bottom: 0 !important;
+  }
+  .backGround {
+    height: 100% !important;
+  }
+  .from {
+    margin-bottom: 50px;
+  }
+  .top-form span {
+    padding: 0 10px 0 10px;
+  }
+  .from form {
+    padding: 25px;
+  }
+  .section-login {
+    display: none !important;
+  }
+  .section-login-mobile .backGround {
+    padding: 60px 20px 100px 20px;
+    height: auto !important;
+  }
+  .section-login-mobile {
+    display: block;
+  }
+  .logo-mobile {
+    width: 110px !important;
+    margin: 15px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .logo-mobile {
+    width: 110px !important;
+    margin: 15px;
+  }
+  .caro2 img {
+    width: 8%;
+  }
+  .imgh {
+    position: relative !important;
+    left: 0px !important;
+    bottom: 0 !important;
+  }
+  .section-login-mobile {
+    display: block;
+  }
+  .logog {
+    display: none !important;
+  }
+  .section-login {
+    display: none;
+  }
+  .backGround {
+    padding: 60px 20px 100px 20px;
+    height: auto !important;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .from {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+  .imgh {
+    position: relative !important;
+    left: 0px !important;
+    bottom: 0 !important;
+  }
+  .caro2 img {
+    width: 8%;
+  }
+  .backGround {
+    padding: 60px 40px 20px 40px;
+    height: auto !important;
+  }
+}

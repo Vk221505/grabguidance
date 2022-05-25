@@ -1,0 +1,26 @@
+a{
+    color: #000000;
+}
+
+.nav-link.is-active{
+    border-bottom: 3px solid #FFDF32;
+    border-width: 5px;
+}
+
+.disabled{
+    pointer-events: none;
+}
+
+.border-bottom {
+  border-bottom: 4px solid #FF9500 !important;
+  padding-bottom: 20px;
+}
+
+bs-datepicker-container, bs-daterangepicker-container {
+  left: 72px!important;
+}
+
+.end-date bs-datepicker-container, bs-daterangepicker-container {
+  left:0;
+  right: 72px!important;
+}

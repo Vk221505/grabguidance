@@ -1,0 +1,27 @@
+.marginBoxModel{
+  margin-left: 11rem !important;
+  margin-right: 10rem !important;
+}
+
+
+@media screen and (max-width: 992px) {
+  .marginBoxModel{
+    margin-left: 4rem !important;
+    margin-right: 4rem !important;
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .marginBoxModel{
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .marginBoxModel{
+    margin-left: 0rem !important;
+    margin-right: 0rem !important;
+  }
+}

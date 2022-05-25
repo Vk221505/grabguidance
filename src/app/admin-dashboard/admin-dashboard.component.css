@@ -1,0 +1,51 @@
+.main-card{
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+.img-position{
+  width: 18px;
+  position: relative;
+  top: -24px;
+  right: -18px
+}
+
+.business-summary-card{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.5px solid #5F5F5F;
+    border-radius: 12px;
+    opacity: 1;
+}
+
+.service-card-body{
+    background-color: #F5F5F5;
+}
+
+.class-tag {
+  display: inline-block;
+  border: 1px solid #CECED2;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #CECED2;
+  background-color: #FFFFFF;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.cross {
+  width: 12px;
+  color: #CECED2;
+}
+
+.edit-input {
+    width: 60px;
+    border: 1px solid #CECED2;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none;
+}
+
+.edit-input::placeholder {
+  padding: 0 5px;
+}

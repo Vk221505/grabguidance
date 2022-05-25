@@ -1,0 +1,282 @@
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    position: relative !important;
+    bottom: 0 !important;
+    margin-top: 100px;
+}
+
+.panel_img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.card_hr hr {
+    border-top: 1px solid #2e2e2e;
+    margin: 2rem 0;
+}
+
+.panel_heading p {
+    line-height: 8px;
+}
+
+.upperImg {
+    margin-bottom: 40px;
+}
+
+.panel_heading {
+    position: relative;
+    top: 50%;
+    transform: translate(10%, -50%);
+    -webkit-transform: translate(10%, -50%);
+    -moz-transform: translate(10%, -50%);
+    -ms-transform: translate(10%, -50%);
+    -o-transform: translate(10%, -50%);
+    padding: 25px 0;
+}
+
+
+/* .margin p {
+    color: #fff;
+} */
+
+.panel_img img {
+    width: 102px;
+    height: 102px;
+}
+
+#page-section img {
+    width: 95px;
+    padding-right: 18px;
+}
+
+.footerData {
+    margin-left: 7rem;
+    margin-right: 7rem;
+    margin-top: 5rem;
+}
+
+.footerCopyRight {
+    margin-left: 7rem;
+    margin-right: 7rem;
+}
+
+.footerUl {
+    list-style: none;
+    padding: 0;
+}
+
+.footerLi {
+    margin-bottom: 3px !important;
+    list-style-type: none;
+}
+
+.footerBoxModel {
+    margin-top: 5rem;
+}
+
+.privacyPolicy {
+    margin-left: 20rem;
+}
+
+.text-color {
+    color: rgba(95, 95, 95, 1);
+}
+
+.headphone {
+    color: rgba(255, 204, 0, 1);
+    font-size: 22px;
+    margin-right: 16px;
+}
+
+.col {
+    padding: 0 25px;
+}
+
+a:hover {
+    /* display: inline-block; */
+    position: relative;
+    font-weight: 400;
+    color: #fcc301 !important;
+    text-decoration: none;
+    left: 7px;
+}
+
+.icon a:hover {
+    left: 0 !important;
+}
+
+.margin {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+p,
+.paragraph {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.img-size {
+    width: 100px;
+}
+
+.tatsu-icon_card-title-caption>p {
+    font-size: 12px;
+}
+
+.extra-space {
+    padding: 15px;
+}
+
+@media screen and (max-width: 575px) {
+    .extra-space {
+        padding: 15px;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+    .col-4 {
+        max-width: 100%;
+        text-align: center;
+    }
+    .col-3 {
+        max-width: 100%;
+        text-align: center;
+    }
+    .col-2 {
+        max-width: 100%;
+        text-align: center;
+    }
+    .w-50 {
+        width: 100% !important;
+        justify-content: center;
+    }
+    .footerLi {
+        justify-content: center;
+    }
+    #page-section img {
+        width: 93%;
+        padding-bottom: 10px;
+    }
+    .deep {
+        position: absolute;
+        top: -155px;
+        width: 143px;
+        height: 154px;
+        left: 169px;
+    }
+    .panel_heading {
+        margin-top: 60px;
+        padding: 8px;
+    }
+    .panel_img {
+        margin-bottom: -30px;
+        padding-left: 5px;
+        padding-right: 5px;
+        /* padding: 8px; */
+    }
+    .card_hr {
+        margin-top: -30px;
+    }
+}
+
+
+/* for all window widths */
+
+#content {
+    float: right;
+    width: 37%;
+    margin-right: -8px;
+}
+
+#navbar {
+    float: right;
+    width: 33%;
+}
+
+#navbar1 {
+    float: right;
+    width: 33%;
+}
+
+#navbar2 {
+    float: right;
+    width: 33%;
+    margin-right: -8px;
+    margin-top: 10px;
+}
+
+#navbar3 {
+    float: right;
+    width: 37%;
+    margin-top: 10px;
+}
+
+#navbar4 {
+    float: right;
+    width: 33%;
+    margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    #page-section img {
+        width: 82px;
+        padding-right: 18px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    /* for widths less than or equal to 629 pixels */
+    #page-section img {
+        padding-right: 0 !important;
+    }
+    #content {
+        float: right;
+        width: 50%;
+        margin-right: 0 !important;
+    }
+    #navbar {
+        float: none;
+        width: 50%;
+    }
+    #navbar1 {
+        float: right;
+        width: 50%;
+    }
+    #navbar2 {
+        float: none;
+        width: 50%;
+        margin-top: 0 !important;
+    }
+    #navbar3 {
+        float: right;
+        width: 50%;
+        margin-top: 0 !important;
+    }
+    #navbar4 {
+        float: left;
+        width: 50%;
+        margin-top: 0 !important;
+    }
+    .panel_heading p {
+        line-height: normal;
+    }
+    .hide-on-mobile {
+        display: none !important;
+    }
+    .hide-on-desktop {
+        display: block;
+    }
+}
+
+.hide-on-desktop {
+    display: none !important;
+}

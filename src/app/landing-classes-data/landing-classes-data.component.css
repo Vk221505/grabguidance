@@ -1,0 +1,55 @@
+a {
+    color: #ACA8A7;
+}
+
+button:hover {
+    display: inline-block;
+    font-weight: 400;
+    color: #212121!important;
+    text-decoration: none;
+}
+
+.middle p {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top-color: currentcolor;
+    border-top-style: none;
+    border-top-width: 0px;
+    color: #77797d;
+}
+
+.middle p:before,
+.middle p:after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid #2e2e2e;
+    margin: auto;
+}
+
+.middle p {
+    width: 98%;
+    margin-left: 12px;
+}
+
+.middle .career {
+    width: 102%;
+    margin-left: -3px;
+}
+
+
+/*mobile*/
+
+@media screen and (max-width: 575px) {
+    .middle p {
+        width: 100%;
+        margin-left: 0px
+    }
+    .middle .career {
+        width: 108%;
+        margin-right: 0px;
+        margin-left: -10px
+    }
+}

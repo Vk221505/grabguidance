@@ -1,0 +1,81 @@
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-189120084-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'UA-189120084-1');
+  </script>
+  </head>
+<div *ngIf="spinnerFlag">
+    <div class="myOverlay text-center">
+        <div class="btn btn-static font-xl bg-light">
+            <span class="fa fa-spinner rotate"> </span> Processing request...
+        </div>
+    </div>
+</div>
+<section class="services padding-bottom-90">
+    <form [formGroup]="servicesForm">
+        <p class="">Kindly share which classes/courses you will be able to
+            guide for across various academic subjects and career areas.</p>
+        <span *ngIf="submitted && erroMessage" class="text-left error-span">Please enter all required
+            fields</span>
+        <div class="mt-4">
+            <h6 class="text-left">Class</h6>
+            <div class="row ml-1">
+                <div *ngFor="let class of classes">
+                    <input type="checkbox" class="greyCE mr-2 checkboxsize mt-3" formControlName="class"
+                        [value]="class.id_class" (change)="onChangeClass(class, $event)" [checked]="class.checked">
+                    <span class="mr-3 greyCE">
+                        {{class.class_name}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <h6 class="text-left circularBold"><b>Boards</b></h6>
+            <div class="row ml-1">
+                <div *ngFor="let board of boards">
+                    <input type="checkbox" class="greyCE mr-2 checkboxsize mt-3" formControlName="boards"
+                        [value]="board.id_board" (change)="onChangeBoard(board, $event)" [checked]="board.checked">
+                    <span class="mr-3 greyCE">
+                        {{board.board_name}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <h6 class="text-left circularBold"><b>Academic Guidance</b></h6>
+            <div class="row ml-1">
+                <div *ngFor="let subject of subjectGuidance">
+                    <input type="checkbox" class="greyCE mr-2 checkboxsize mt-3" [value]="subject.id_subject"
+                        formControlName="subjectGuidance" (change)="onChangeSubject(subject, $event)"
+                        [checked]="subject.checked">
+                    <span class="mr-3 greyCE">{{subject.subject_name}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <h6 class="text-left circularBold"><b>Career Guidance</b></h6>
+            <div class="row ml-1">
+                <div *ngFor="let personal of personalGuidance">
+                    <input type="checkbox" class="greyCE mr-2 checkboxsize mt-3" [value]="personal.id_guidance"
+                        (change)="onChangePersonal(personal, $event)" formControlName="personalGuidance"
+                        [checked]="personal.checked">
+                    <span class="mr-3 greyCE">{{personal.guidance_name}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+<footer class="footerBackAndNext bloating mt-5 text-center">
+  <div class="mt-2 pt-2">
+      <button class="btn circularMedium" (click)="back()"><span style="font-size: 25px;">&larr;</span>
+          Back</button>
+      <button *ngIf="!isSignUp" type="button" class="btn buttons ml-3 circularMedium" (click)="onSubmit('exit')">Save and Exit</button>
+      <button class="btn ml-3 circularMedium" type="submit" (click)="onSubmit('next')">Save & Next  <span style="font-size: 25px;">&rarr;</span></button>
+  </div>
+</footer>

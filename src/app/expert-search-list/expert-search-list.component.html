@@ -1,0 +1,1615 @@
+<section class="container-fluid boxModel">
+    <app-navbar></app-navbar>
+    <section class="top-section mb-3 margin-top">
+        <div class="section-text row">
+            <div class="col-12 col-sm-8 mt-4 px-0">
+                <!-- <h1 class="circularBlack" *ngIf="searchCount > 0">
+                    Book an online session <span *ngIf="this.subject != null || this.class != null">for</span><span *ngIf="this.class != null"> class</span>{{class}} {{subject}} with our {{ filterCount }} experts
+                </h1> -->
+
+
+
+                <container-element [ngSwitch]="activatedClass && activatedSubject">
+                    <some-element *ngSwitchCase="activatedClass =='10th' && 'Maths'">
+                        <h1 class="circularBlack"> Get Online Experts for 10th Class Maths </h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='11th' && 'Maths'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book a session for online class 11th maths with our experts </h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='12th' && 'Maths'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book 12th maths online classes with our top experts </h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='10th' && 'Science'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Get Experts for online class 10th Science </h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='11th' && 'Physics'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book with our experts online classes for class 11 Science </h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='11th' && 'Chemistry'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book with our experts online classes for class 11th Science </h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='11th' && 'Biology'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book with our experts online classes for class 11th Science </h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='12th' && 'Physics'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book online classes for 12th science with our experts </h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='12th' && 'Chemistry'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book online classes for 12th science with our experts</h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='12th' && 'Biology'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book with our experts online classes for class 11 Science</h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='11th' && 'Accounts'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book online classes for class 11th accounts with our experts</h1>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass=='12th' && 'Accounts'">
+                        <h1 class="circularBlack" *ngIf="searchCount > 0"> Book class 12th accounts online classes with our top experts</h1>
+                    </some-element>
+
+                    <some-element *ngSwitchDefault>
+                        <h1 class="circularBlack" *ngIf="searchCount > 0">
+                            Book an online session <span *ngIf="this.subject != null || this.class != null">for</span><span *ngIf="this.class != null"> class</span>{{class}} {{subject}} with our {{ filterCount }} experts
+                        </h1>
+                    </some-element>
+                </container-element>
+
+
+                <h1 class="circularBlack" *ngIf="searchCount == 0">
+                    No expert for {{ subject }}
+                </h1>
+
+
+
+                <container-element [ngSwitch]="activatedClass && activatedSubject">
+                    <some-element *ngSwitchCase="activatedClass =='11th' && 'Physics'">
+                        <p class="mt-3 small-text">We have India’s top experts to help you with your queries and doubts. We provide best online classes for class 11 science through sessions.There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple
+                            sessions. So go ahead and book one.</p>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass =='11th' && 'Chemistry'">
+                        <p class="mt-3 small-text">We have India’s top experts to help you with your queries and doubts. We provide best online classes for class 11 science through sessions.There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple
+                            sessions. So go ahead and book one.</p>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass =='11th' && 'Biology'">
+                        <p class="mt-3 small-text">We have India’s top experts to help you with your queries and doubts. We provide best online classes for class 11 science through sessions.There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple
+                            sessions. So go ahead and book one.</p>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass =='12th' && 'Physics'">
+                        <p class="mt-3 small-text">We have India’s top experts to help you with your queries and doubts. We provide best online classes for class 11 science through sessions.There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple
+                            sessions. So go ahead and book one.</p>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass =='12th' && 'Chemistry'">
+                        <p class="mt-3 small-text">We have India’s top experts to help you with your queries and doubts. We provide best online classes for class 11 science through sessions.There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple
+                            sessions. So go ahead and book one. </p>
+                    </some-element>
+                    <some-element *ngSwitchCase="activatedClass =='12th' && 'Biology'">
+                        <p class="mt-3 small-text">We have India’s top experts to help you with your queries and doubts. We provide best online classes for class 11 science through sessions.There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple
+                            sessions. So go ahead and book one. </p>
+                    </some-element>
+
+                    <some-element *ngSwitchDefault>
+                        <p class="mt-3 small-text">
+                            We have India’s top experts to help you with your queries and doubts.There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple sessions. So go ahead and book one.
+                            <!-- Our experts are handpicked for this query. There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple sessions. Go ahead and book one. -->
+                        </p>
+                    </some-element>
+                </container-element>
+            </div>
+            <div class="section-image col-12 col-sm-4 px-0">
+                <img src="../assets/images/GG listing@2x.png" class="h-100 img" alt="banner-img" />
+            </div>
+        </div>
+    </section>
+    <!-- top 5 expert teachers -->
+    <div class="container" *ngIf="expertsList.length > 10">
+        <h2 class="circularBlack" style="padding:35px 0; font-size:30px!important">Top 5 Expert <span *ngIf="this.subject != null || this.class != null">for </span> <span *ngIf="this.class != null">class</span>{{class}} {{ subject }} </h2>
+    </div>
+    <div class="container" style="margin-top:-20px;">
+        <div class="row" *ngIf="expertsList.length > 10">
+            <div class="col-medium-20 mt-4" *ngFor="let data of expertsList | slice: 0: 5">
+                <div class="main-card">
+                    <div class="card-body">
+                        <div class="card-img">
+                            <img [src]="createImageUrl(data.pic)" alt="expert" (click)="gotoProfile(data)" (mouseenter)="mouseEnter(data, i)" (mouseleave)="mouseLeave(data, i)" class="rounded profile-img" />
+                            <img src="../assets/ggsvg/heart.svg" alt="heart" *ngIf="!isLoggedIn || data.selected == 0" class="favourite" aria-hidden="true" (click)="bookmarkExpert(data)" />
+                            <img src="../assets/ggsvg/like.svg" alt="like" *ngIf="isLoggedIn && data.selected == 1" class="favourite-selected" aria-hidden="true" (click)="bookmarkExpert(data)" />
+                        </div>
+
+                        <div class="font-size12 circularBook" style="margin-top: 10px !important">
+                            <i class="pi pi-star icon-style"></i>
+                            <span class="mr-1 small-text" style="color: black">{{
+  data.rating.rating
+   }}</span>
+                            <span class="small-text">({{ data.rating.review }})</span>
+                            <span style="font-size: 6px" class="mr-1 ml-1">&bull;</span>
+                            <span class="small-text">{{ data.place }}</span>
+                        </div>
+                        <h6 class="m-6">{{ data.name | titlecase }}</h6>
+                        <p class="m-6" style="line-height: 24px">
+                            {{ data?.education?.degree }} in {{ data?.education?.specialization }} <br /> {{ data?.total_experience }} Years Experience Overall <br />
+                        </p>
+                        <p class="m-6">
+                            <b style="color: black">From &#x20B9; {{ data.ratePerSession }}</b>/Session
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- top 5 expert teachers end -->
+
+    <div class="container">
+        <h2 class="circularBlack" style="padding:35px 0;font-size: 30px!important;">All Experts <span *ngIf="this.subject != null || this.class != null">for </span> <span *ngIf="this.class != null">class</span>{{class}} {{ subject }} </h2>
+    </div>
+
+    <div class="filter-container expert-filter-container">
+        <div class="col-2" style="max-width: 213px !important">
+            <label for="sortBy" class="small-text">Sort By</label>
+            <select name="" id="" class="form-control filter" [(ngModel)]="selectedSortBy">
+                <option *ngFor="let sort of sortByCriteria" value="{{ sort }}">
+                    {{ sort }}
+                </option>
+            </select>
+        </div>
+        <div class="col-2" style="max-width: 165px !important">
+            <label for="sortBy" class="small-text">Price</label>
+            <select name="" id="" style="width: 150px !important" class="form-control filter" [(ngModel)]="selectedPrize">
+                <option *ngFor="let prize of prizeCriteria" value="{{ prize }}">
+                    {{ prize }}
+                </option>
+            </select>
+        </div>
+        <div class="col-2" style="max-width: 165px !important">
+            <label for="sortBy" class="small-text">Language offered</label>
+            <select name="" id="" style="width: 150px !important" class="form-control filter" [(ngModel)]="selectedLanguage">
+                <option *ngFor="let language of languageCritria" value="{{ language }}">
+                    {{ language }}
+                </option>
+            </select>
+        </div>
+        <div class="col-2" style="max-width: 213px !important">
+            <label for="sortBy" class="small-text">Accessibility</label>
+            <select name="" id="" class="form-control filter" [(ngModel)]="selectedAccessbility">
+                <option *ngFor="let accessebility of accessibilityCriteria" value="{{ accessebility }}">
+                    {{ accessebility }}
+                </option>
+            </select>
+        </div>
+        <div class="col-2" style="max-width: 165px !important">
+            <label for="sortBy" class="small-text">Gender</label>
+            <select name="" id="" style="width: 150px !important" class="form-control filter" [(ngModel)]="selectedGender" (change)="createFilterCriteria()">
+                <option *ngFor="let gender of genderCriteria" value="{{ gender.id_gender }}">
+                    {{ gender.gender_name }}
+                </option>
+            </select>
+        </div>
+        <div class="col-2" style="max-width: 165px !important">
+            <button class="btn buttons" style="margin-top: 30px;" (click)="applyFilter()">
+                Apply
+            </button>
+        </div>
+    </div>
+
+    <div class="expert-box-model mb-5">
+        <div class="filter-count">
+            Total <span><b>{{filterCount}} Results.</b></span> <span><b> {{totalFilterApplied()}} Filter</b></span> Applied.
+            <a class="text-warning" (click)="clearFilters()">Clear All Filter</a>
+        </div>
+
+        <div class="jumbotron mt-5 text-center" *ngIf="expertsList.length == 0">
+            <p>No expert found for the in the search</p>
+        </div>
+
+        <div *ngIf="expertsList.length > 10; else elseBlock">
+            <div class="row">
+                <div class="col-medium-20 mt-4" *ngFor="let data of expertsList | slice : 5">
+                    <div class="main-card">
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img [src]="createImageUrl(data.pic)" alt="expert" (click)="gotoProfile(data)" (mouseenter)="mouseEnter(data, i)" (mouseleave)="mouseLeave(data, i)" class="rounded profile-img" />
+                                <img src="../assets/ggsvg/heart.svg" alt="heart" *ngIf="!isLoggedIn || data.selected == 0" class="favourite" aria-hidden="true" (click)="bookmarkExpert(data)" />
+                                <img src="../assets/ggsvg/like.svg" alt="like" *ngIf="isLoggedIn && data.selected == 1" class="favourite-selected" aria-hidden="true" (click)="bookmarkExpert(data)" />
+                            </div>
+
+                            <div class="font-size12 circularBook" style="margin-top: 10px !important">
+                                <i class="pi pi-star icon-style"></i>
+                                <span class="mr-1 small-text" style="color: black">{{
+        data.rating.rating
+         }}</span>
+                                <span class="small-text">({{ data.rating.review }})</span>
+                                <span style="font-size: 6px" class="mr-1 ml-1">&bull;</span>
+                                <span class="small-text">{{ data.place }}</span>
+                            </div>
+                            <h6 class="m-6">{{ data.name | titlecase }}</h6>
+                            <p class="m-6" style="line-height: 24px">
+                                {{ data?.education?.degree }} in {{ data?.education?.specialization }} <br /> {{ data?.total_experience }} Years Experience Overall <br />
+                            </p>
+                            <p class="m-6">
+                                <b style="color: black">From &#x20B9; {{ data.ratePerSession }}</b>/Session
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <div class="row">
+                <div class="col-medium-20 mt-4" *ngFor="let data of expertsList | slice : 0">
+                    <div class="main-card">
+                        <div class="card-body">
+                            <div class="card-img">
+                                <img [src]="createImageUrl(data.pic)" alt="expert" (click)="gotoProfile(data)" (mouseenter)="mouseEnter(data, i)" (mouseleave)="mouseLeave(data, i)" class="rounded profile-img" />
+                                <img src="../assets/ggsvg/heart.svg" alt="heart" *ngIf="!isLoggedIn || data.selected == 0" class="favourite" aria-hidden="true" (click)="bookmarkExpert(data)" />
+                                <img src="../assets/ggsvg/like.svg" alt="like" *ngIf="isLoggedIn && data.selected == 1" class="favourite-selected" aria-hidden="true" (click)="bookmarkExpert(data)" />
+                            </div>
+
+                            <div class="font-size12 circularBook" style="margin-top: 10px !important">
+                                <i class="pi pi-star icon-style"></i>
+                                <span class="mr-1 small-text" style="color: black">{{
+        data.rating.rating
+         }}</span>
+                                <span class="small-text">({{ data.rating.review }})</span>
+                                <span style="font-size: 6px" class="mr-1 ml-1">&bull;</span>
+                                <span class="small-text">{{ data.place }}</span>
+                            </div>
+                            <h6 class="m-6">{{ data.name | titlecase }}</h6>
+                            <p class="m-6" style="line-height: 24px">
+                                {{ data?.education?.degree }} in {{ data?.education?.specialization }} <br /> {{ data?.total_experience }} Years Experience Overall <br />
+                            </p>
+                            <p class="m-6">
+                                <b style="color: black">From &#x20B9; {{ data.ratePerSession }}</b>/Session
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    <div class="d-flex justify-content-center" *ngIf="LoadMoreCount()">
+        <button class="btn buttons" (click)="loadMoreData()">Load More</button>
+    </div>
+
+
+    <!--Seo Content for clases-->
+
+    <div class="container mt-5 text_seo" *ngIf="activatedClass && activatedSubject">
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '10th' && activatedSubject == 'Maths'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '10th' && activatedSubject == 'Science'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '11th' && activatedSubject == 'Maths'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '11th' && activatedSubject == 'Physics'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '11th' && activatedSubject == 'Chemistry'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '11th' && activatedSubject == 'Biology'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '11th' && activatedSubject == 'Accounts'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '12th' && activatedSubject == 'Maths'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '12th' && activatedSubject == 'Physics'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '12th' && activatedSubject == 'Chemistry'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '12th' && activatedSubject == 'Biology'">
+            <hr />
+        </div>
+        <div class="container mt-5" style="margin-bottom: 3rem" *ngIf="activatedClass == '12th' && activatedSubject == 'Accounts'">
+            <hr />
+        </div>
+
+        <div class="text_seo text-center">
+            <p *ngIf="activatedClass == '10th' && activatedSubject == 'Maths'">
+                Students often find the maths subject challenging as compared to other subjects. So, we here at Grab Guidance have the best experts to help you to ace in this subject and score well . You can get online classes for 10th maths from experienced teachers
+                and get all your doubts cleared. There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple sessions. We also provide ncert solutions for class 10 maths. So, go ahead and book one.
+            </p>
+            <p *ngIf="activatedClass == '10th' && activatedSubject == 'Science'">
+                Getting trouble in learning concepts like chemical reactions, heredity and evolution, magnetism and others? Don’t stress yourself anymore because we here at Grab Guidance have the best experts to help you to master this subject and score well. You can
+                get online classes for 10th Science from experienced teachers and get all your doubts cleared. There are various options for booking a session - 20 mins, 40 mins, 60 mins or even multiple sessions. We also provide ncert solutions for class
+                10 maths. So, go ahead and book one.
+            </p>
+            <p *ngIf="activatedClass == '11th' && activatedSubject == 'Maths'">
+                Many students find the maths subject very difficult to understand as compared to the other subjects. But if studied with interest and with the right methodology makes it quite easy. So, we are here at your service to help you with solving the doubts through
+                online sessions. Grab Guidance has the best maths teaching experts to help you to understand and perform well in this subject . You can get guidance online for class 11th maths from experienced teachers and get all your doubts cleared.
+                There are various sessions available like 20 minutes , 40 minutes, 60 minutes or even multiple sessions. You can also get cbse online class 11th maths guidance from us. So, don’t think anymore and book a session now.
+            </p>
+            <p *ngIf="activatedClass == '11th' && activatedSubject == 'Physics'">
+                Finding it difficult to understand the concepts like oscillations and waves, thermodynamics, kinetic theory and other concepts of class 11th Physics? Then worry less because we are here at your service to help you with understanding the concepts better
+                through online sessions. Grab Guidance has the best Physics teaching experts to help you to understand and perform well in this subject . You can get class 11th physics online coaching from experienced teachers and get all your concepts
+                cleared. There are various sessions available like 20 minutes , 40 minutes, 60 minutes or even multiple sessions. So, don’t think anymore and book a session now.
+            </p>
+
+            <p *ngIf="activatedClass == '11th' && activatedSubject == 'Chemistry'">
+                Finding it difficult to understand the concepts like chemical bonding and molecular structure, redox reactions, hydrocarbons and other concepts of class 11th Chemistry? Then worry less because we are here at your service to help you with understanding
+                the concepts better through online sessions. Grab Guidance has the best Chemistry teaching experts to help you to understand and perform well in this subject . You can get
+                <b>online chemistry classes for class 11th</b> from experienced teachers and get all your concepts cleared. There are various sessions available like 20 minutes , 40 minutes, 60 minutes or even multiple sessions. So, don’t think anymore
+                and book a session now.
+            </p>
+
+            <p *ngIf="activatedClass == '11th' && activatedSubject == 'Biology'">
+                Finding it difficult to understand the concepts like chemical bonding and molecular structure, redox reactions, hydrocarbons and other concepts of class 11th Biology? Then worry less because we are here at your service to help you with understanding the
+                concepts better through online sessions. Grab Guidance has the best Biology teaching experts to help you to understand and perform well in this subject. You can get class 11th biology online classes from experienced teachers and get all
+                your concepts cleared. There are various sessions available like 20 minutes , 40 minutes, 60 minutes or even multiple sessions. So, don’t think anymore and book a session now.
+            </p>
+            <p *ngIf="activatedClass == '11th' && activatedSubject == 'Accounts'">
+                Many students find the accounts subject hard to understand. But studying it with interest and with the right methodology makes it quite easy. So, we are here at your service to help you with understanding the concepts and clearing the doubts through online
+                sessions. Grab Guidance has the best accounts teaching experts to help you to understand and score well in this subject . You can get guidance online for class 11th accounts from experienced teachers and get all your doubts cleared. There
+                are various sessions available like 20 minutes , 40 minutes, 60 minutes or even multiple sessions. So, don’t think anymore and book a session now.
+            </p>
+
+            <p *ngIf="activatedClass == '12th' && activatedSubject == 'Maths'">
+                Many students often struggle with the maths subject and there could be many reasons for that. If you are also facing the same problem, then we are here at your service to help you with solving the doubts through online sessions and making you understand
+                the concepts better. Grab Guidance has got the best maths teaching experts to help you to understand and score well in this subject . You can book 12th maths online classes with us and get guidance from experienced teachers who will help
+                you with all your doubts. There are many sessions available to choose from like 20 minutes , 40 minutes, 60 minutes sessions or you can even book multiple sessions. So, don’t think anymore and book a session with us.
+            </p>
+            <p *ngIf="activatedClass == '12th' && activatedSubject == 'Physics'">
+                Having trouble understanding the concepts like alternating current, electromagnetic waves, moving charges and magnetism and other concepts of class 12th Physics? Then leave your stress behind because Grab Guidance is here at your service to help you with
+                understanding the concepts and clearing doubts through online sessions. Grab Guidance has the top Physics teaching experts to help you to guide and perform well in this subject. You can book online physics classes for class 12th from experienced
+                teachers and get all your concepts cleared. There are various sessions available like 20 minutes , 40 minutes, 60 minutes or even multiple sessions. So, don’t think anymore and book one now.
+            </p>
+
+            <p *ngIf="activatedClass == '12th' && activatedSubject == 'Chemistry'">
+                Having trouble understanding the concepts like polymers, biomolecules, electrochemistry and other concepts of class 12th chemistry? Then leave your stress behind because Grab Guidance is here at your service to help you with understanding the concepts
+                and clearing doubts through online sessions. Grab Guidance has the top chemistry teaching experts to help you to guide and perform well in this subject. You can book class 12th chemistry live classes from experienced teachers and get all
+                your concepts cleared. There are various sessions available like 20 minutes , 40 minutes, 60 minutes or even multiple sessions. So, don’t think anymore and book one now.
+            </p>
+
+            <p *ngIf="activatedClass == '12th' && activatedSubject == 'Biology'">
+                Finding it difficult to understand the concepts like DNA replication, Chromosomes and genes, Transcription, genetic code, translation and other concepts of class 12th Biology? Then worry less because we are here at your service to help you with understanding
+                the concepts better through online sessions. Grab Guidance has the best Biology teaching experts to help you to understand and perform well in this subject. You can get class 12th biology online classes from experienced teachers and get
+                all your concepts cleared. There are various sessions available like 20 minutes , 40 minutes, 60 minutes or even multiple sessions. So, don’t think anymore and book a session now.
+            </p>
+            <p *ngIf="activatedClass == '12th' && activatedSubject == 'Accounts'">
+                Many students often struggle with the accounts subject and there could be many reasons for that. If you are also facing the same problem, then we are here at your service to help you with solving the doubts through online sessions and making you understand
+                the concepts better. Grab Guidance has got the best accounts teaching experts to help you to understand and score well in this subject. You can book class 12th accounts online classes with us and get guidance from experienced teachers
+                who will help you with all your doubts. There are many sessions available to choose from like 20 minutes , 40 minutes, 60 minutes sessions or you can even book multiple sessions. So, don’t think anymore and book a session with us.
+            </p>
+        </div>
+
+
+
+
+        <div class="seo_heading text-center mt-5">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2 *ngIf="activatedClass == '10th' && activatedSubject == 'Maths'">
+                        Why take online classes for {{ activatedClass }}
+                        <span>{{ activatedSubject }}</span> at Grab Guidance ?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '10th' && activatedSubject == 'Science'">
+                        Why take online classes for {{ activatedClass }}
+                        <span>{{ activatedSubject }}</span> at Grab Guidance ?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Maths'">
+                        Why take online classes for class 11th maths at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Physics'">
+                        Why take class 11th Physics online coaching sessions at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Chemistry'">
+                        Why take online chemistry classes for class 11th at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Biology'">
+                        Why take class 11th biology online classes at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Accounts'">
+                        Why take online classes for class 11th accounts at Grab Guidance?
+                    </h2>
+
+
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Maths'">
+                        Why take class 12th maths online classes at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Physics'">
+                        Why take online physics classes for class 12th at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Chemistry'">
+                        Why take class 12th chemistry live classes at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Biology'">
+                        Why take class 12th biology live sessions at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Accounts'">
+                        Why take class 12th accounts online classes at Grab Guidance?
+                    </h2>
+
+
+
+                    <p *ngIf="activatedClass == '10th' && activatedSubject == 'Maths'">
+                        There are many reasons why you should take online classes for {{ activatedClass }} {{ activatedSubject }} at Grab Guidance some of which are explained below:
+                    </p>
+                    <p *ngIf="activatedClass == '10th' && activatedSubject == 'Science'">
+                        There are many reasons why you should take online classes for 10th science at Grab Guidance some of which are explained below:
+                    </p>
+
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Maths'">
+                        There are many pros of taking
+                        <b>online classes for {{ activatedClass }} {{ activatedSubject }}</b> at Grab Guidance like there is flexibility, interactive online sessions, guidance from expert teachers and much more. Some of them are mentioned below:
+                    </p>
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Physics'">
+                        There are many pros of taking class 11th Physics online coaching sessions at Grab Guidance like there is flexibility, interactive online sessions, guidance from expert teachers and much more. Some of them are mentioned below:
+                    </p>
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Chemistry'">
+                        Grab Guidance bridges the gap between experts and learners.There are many reasons why you should take online chemistry classes for class 11th with us.Some of them are explained as follows:
+                    </p>
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Biology'">
+                        There are many reasons why you should take class 11th biology online classes at Grab Guidance some of which are explained below:
+                    </p>
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Accounts'">
+                        There are many pros of taking online classes for 11th accounts at Grab Guidance like there is flexibility, interactive online sessions, guidance from expert teachers and much more. Some of them are mentioned below:
+                    </p>
+
+
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Maths'">
+                        Grab Guidance bridges the gap between experts and learners.There are many reasons why you should take 12th math online classes with us.Some of them are explained as follows:
+                    </p>
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Physics'">
+                        There are many good reasons for taking online physics classes for class 12th at Grab Guidance like there is flexibility, interactive online sessions, guidance from expert teachers and much more. Some of them are explained below:
+                    </p>
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Chemistry'">
+                        Grab Guidance bridges the gap between experts and learners.There are many reasons why you should take class 12th chemistry live classes with us.Some of them are explained as follows:
+                    </p>
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Biology'">
+                        There are many reasons why you should take live sessions for class 12th biology at Grab Guidance some of which are explained below:
+                    </p>
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Accounts'">
+                        Grab Guidance bridges the gap between experts and learners.There are many reasons why you should take class 12th accounts online classes with us.Some of them are explained as follows:
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Class 10th Maths -->
+
+        <div class="row mt-5 head" *ngIf="activatedClass == '10th' && activatedSubject == 'Maths'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    Grab Guidance provides <b>interactive 1:1 online classes for 10th maths</b> by the most experienced teachers. You can book the session from your chosen expert. As the sessions are one to one, you will get individual attention.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the best expert teachers from India to help you with
+                    <b>your {{ activatedClass }} {{ activatedSubject }} doubts.</b> Our experts have several years of experience. Whether you are a cbse board student or ncert or icse or any other board, you can get your maths doubts cleared here as we
+                    have teachers on board who have expertise of different boards. So, don’t wait anymore and book an online class for {{ activatedClass }} {{ activatedSubject }} now at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    At Grab Guidance, you can reschedule any booked session 24 hours before the scheduled time. Session can also be cancelled and refunded 24 hours before it starts.
+                </p>
+                <div class="text-lg-left">
+                    <h3>Flexibility</h3>
+                    <p>
+                        One of the main advantages that you will get at Grab guidance is flexibility. You can choose an online class for 10th maths according to your choice from the time availability of the experts.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance offers online classes for 11th maths in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam and many others. You can choose from any of the languages offered. This will also help you understand
+                    the concepts clearly.
+                </p>
+            </div>
+        </div>
+
+        <!-- Class 10th Science -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '10th' && activatedSubject == 'Science'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    Grab Guidance provides interactive one on one online classes for 10th Science by the most experienced teachers. You can book the session from your chosen expert. As the sessions are one to one, you will get individual attention.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the best expert teachers from India to help you with your 10th science concepts. Our experts have several years of experience. Whether you are a cbse board student or ncert or icse or any other board, you can get your science doubts
+                    cleared here as we have teachers on board who have expertise of different boards. So, don’t wait anymore and book an online class for 10th science now at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    At Grab Guidance, you can reschedule any booked session 24 hours before the scheduled time. Session can also be cancelled and refunded 24 hours before it starts.
+                </p>
+                <div class="text-lg-left">
+                    <h3>Flexibility</h3>
+                    <p>
+                        One of the main advantages that you will get at Grab guidance is flexibility. You can choose an online class for 10th Science according to your choice from the time availability of the experts.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance offers online classes for 10th Science in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam and many others. So, you can choose from any of the languages offered that will help you in understanding
+                    things better.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- Class 11th maths -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '11th' && activatedSubject == 'Maths'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    Grab Guidance provides interactive one to one <b>online classes for 11th maths</b>. The teachers at Grab guidance are very well experienced and have a lot of expertise. You can book the session with any of our maths experts. You will
+                    get individual attention as the sessions are one to one which will help you in better understanding.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the most experienced teachers from India who will help you with <b>your class 11th maths doubts</b>. All of our experts have years of experience. You can check the qualification, experience and expertise of all our
+                    teachers from our website. This will help you choose the better expert for your guidance according to your requirements. We provide guidance for class 11th maths of all boards whether it be cbse, ncert, icse or any other board. So,
+                    don’t wait anymore and book an online class for 11th maths now with our experts at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    Grab Guidance has a cancellation policy through which you can reschedule any booked session 24 hours before the scheduled time. You can also cancel the session 24 hours before it starts and get a refund.
+                </p>
+                <div class="text-lg-left">
+                    <h3>Flexibility</h3>
+                    <p>
+                        Grab Guidance offers One of the benefits that you will get at Grab guidance is flexibility. You can book an online class for 11th maths according to your choice from the time slots available at the experts page.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance offers online classes for 11th maths in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam and many others. You can choose from any of the languages offered. This will also help you understand
+                    the concepts clearly. </p>
+            </div>
+        </div>
+
+        <!-- class 11th Physics -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '11th' && activatedSubject == 'Physics'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    Grab Guidance provides interactive one to one class 11th Physics online coaching sessions. The teachers at Grab guidance are very well experienced and have a lot of expertise. You can book the session with any of our maths experts. You will get individual
+                    attention as the sessions are one to one which will help you in better understanding.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the most experienced teachers from India who will help you with your class 11th Physics doubts. All of our experts have years of experience. You can check the qualification, experience and expertise of all our teachers from our website.
+                    This will help you choose the better expert for your guidance according to your requirements. We provide guidance for class 11th Physics of all boards whether it be cbse, ncert, icse or any other board. So, don’t wait anymore and book
+                    with us class 11th Physics online coaching sessions with our experts.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    Grab Guidance has a cancellation policy through which you can reschedule any booked session 24 hours before the scheduled time. You can also cancel the session 24 hours before it starts and get a refund.
+                </p>
+                <div class="text-lg-left">
+
+                    <h3>Flexibility</h3>
+                    <p>
+                        One of the benefits that you will get at Grab guidance is flexibility. You can book class 11th Physics online coaching sessions according to your choice from the time slots available at the experts page.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance offers class 11th Physics online coaching sessions in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam and many others. You can choose from any of the languages offered. This will also help
+                    you understand the concepts clearly.
+                </p>
+            </div>
+        </div>
+
+        <!-- class 11th chemistry -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '11th' && activatedSubject == 'Chemistry'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    The online chemistry classes for class 11th that Grab Guidance provides are quite interactive and interesting. Our teachers have years of experience and are verified experts. You can book the session with any of our math experts. The sessions are one
+                    to one. Therefore, you will get individual attention. This will also help you in understanding the concepts more clearly.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the top most experienced teachers from India who will help you with your class 11th Chemistry doubts and help you in understanding the concepts better. Our Chemistry teaching experts have several years of experience. You can check the
+                    qualification, experience and expertise of all our teachers by just clicking on the expert you want to know about. This will help you in choosing the expert more better for your guidance. We provide guidance for all boards of class
+                    11th Chemistry whether it be cbse, ncert, icse or any other board. So, book online chemistry classes for class 11th now with our experts at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    Grab Guidance has a cancellation policy through which you can reschedule any booked session 24 hours before the scheduled time. You can also cancel the session 24 hours before it starts and get a refund. So, if you get stuck into something and can’t attend
+                    the session, you can cancel or reschedule it.
+                </p>
+                <div class="text-lg-left">
+
+                    <h3>Flexibility</h3>
+                    <p>
+                        Flexibility is another benefit that you will get at Grab Guidance. You can book online chemistry classes for class 11th at your own chosen time from the time slots available at the experts page.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance bridges the gap of language barrier. We offer online chemistry classes for class 11th in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam, Nepali, Kannada, Khasi and many others. You can choose
+                    any language you are comfortable with. This will help you understand things more clearly.
+                </p>
+            </div>
+        </div>
+
+        <!-- class 11th bio -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '11th' && activatedSubject == 'Biology'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    Grab Guidance provides interactive 1:1 online classes for 11th biology by the most experienced teachers. You can book the session from your chosen expert. As the sessions are one to one, you will get individual attention.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the best expert teachers from India to help you with your 11th biology doubts. Our experts have several years of experience. Whether you are a cbse board student or ncert or icse or any other board, you can get your biology concepts
+                    cleared here as we have teachers on board who have expertise of different boards. So, don’t wait anymore and book class 11th biology online classes now at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    At Grab Guidance, you can reschedule any booked session 24 hours before the scheduled time. Session can also be cancelled and refunded 24 hours before it starts.
+                </p>
+                <div class="text-lg-left">
+
+                    <h3>Flexibility</h3>
+                    <p>
+                        One of the main advantages that you will get at Grab guidance is flexibility. You can choose class 11th biology online classes according to your choice from the time availability of the experts.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance offers class 11th biology online classes in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam and many others. So, you can choose from any of the languages offered that will help you in understanding
+                    things better.
+                </p>
+            </div>
+        </div>
+        <!-- class 11th account -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '11th' && activatedSubject == 'Accounts'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    Grab Guidance provides interactive one to one online classes for 11th accounts. The teachers at Grab guidance are very well experienced and have a lot of expertise. You can book the session with any of our accounts experts whichever suits you best. You
+                    will get individual attention as the sessions are one to one which will help you in better understanding.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the most experienced teachers from India who will help you with your class 11th accounts doubts. All of our experts have years of experience. You can check the qualification, experience and expertise of all our teachers from our website.
+                    This will help you choose the better expert for your guidance according to your requirements. We provide guidance for class 11th accounts of all boards whether it be cbse, ncert, icse or any other board. So, don’t wait anymore and
+                    book an online class for 11th accounts now with our experts at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    Grab Guidance has a cancellation policy through which you can reschedule any booked session 24 hours before the scheduled time. You can also cancel the session 24 hours before it starts and get a refund.
+                </p>
+                <div class="text-lg-left">
+                    <h3>Flexibility</h3>
+                    <p>
+                        One of the benefits that you will get at Grab guidance is flexibility. You can book an online class for 11th accounts according to your choice from the time slots available at the experts page.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>Grab Guidance offers online classes for 11th accounts in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam and many others. You can choose from any of the languages offered. This will also
+                    help you understand the concepts clearly.
+                </p>
+            </div>
+        </div>
+
+        <!-- class 12th maths -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '12th' && activatedSubject == 'Maths'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    The 12th Math online classes that Grab Guidance provides are quite interactive and interesting. Our teachers have years of experience and are verified experts. You can book the session with any of our math experts. The sessions are one to one. Therefore,
+                    you will get individual attention. This will also help you in understanding the concepts more clearly.
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the top most experienced teachers from India who will help you with your class 12th maths doubts and help you in understanding the concepts better. Our math teaching experts have several years of experience. You can check the qualification,
+                    experience and expertise of all our teachers by just clicking on the expert you want to know about. This will help you in choosing the expert more better for your guidance. We provide guidance for all boards of class 12th math whether
+                    it be cbse, ncert, icse or any other board. So, book a 12th maths online class now with our experts at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    Grab Guidance has a cancellation policy through which you can reschedule any booked session 24 hours before the scheduled time. You can also cancel the session 24 hours before it starts and get a refund. So, if you get stuck into something and can’t attend
+                    the session, you can cancel or reschedule it.
+                </p>
+                <div class="text-lg-left">
+                    <h3>Flexibility</h3>
+                    <p>
+                        Flexibility is another benefit that you will get at Grab Guidance. You can book 12th maths online class at your own chosen time from the time slots available at the experts page.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance bridges the gap of language barrier. We offer 12th maths online classes in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam, Nepali, Kannada, Khasi and many others. You can choose any language
+                    you are comfortable with. This will help you understand things more clearly.
+                </p>
+            </div>
+        </div>
+        <!-- class 12th physics -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '12th' && activatedSubject == 'Physics'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    Grab Guidance provides interactive one to one online physics classes for class 12th. The teachers are very well experienced and have a lot of expertise. You can book the session with any of our Physics experts. You will get individual attention as the
+                    sessions are one to one which will help you in better understanding.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the most experienced teachers from India who will help you with your class 12th Physics doubts. All of our experts have years of experience. You can check the qualification, experience and expertise of all of our teachers from our website.
+                    This will help you choose the better expert for your guidance according to your requirements. We provide guidance for class 12th Physics of all boards whether it be cbse, ncert, icse or any other board. So, don’t wait anymore and book
+                    with us online physics classes for class 12th with our experts.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    Grab Guidance has a cancellation policy through which you can reschedule any booked session 24 hours before the scheduled time. You can also cancel the session 24 hours before it starts and get a refund.
+                </p>
+                <div class="text-lg-left">
+                    <h3>Flexibility</h3>
+                    <p>
+                        One of the benefits that you will get at Grab guidance is flexibility. You can book online physics classes for class 12th according to your choice from the time slots available at the experts page.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance offers online physics classes for class 12th in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam and many others. You can choose from any of the languages offered. This will also help you understand
+                    the concepts clearly.
+                </p>
+            </div>
+        </div>
+        <!-- class 12th chemistry -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '12th' && activatedSubject == 'Chemistry'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    The class 12th chemistry live classes that Grab Guidance provides are quite interactive and interesting. Our teachers have years of experience and are verified experts. You can book the session with any of our math experts. The sessions are one to one.
+                    Therefore, you will get individual attention. This will also help you in understanding the concepts more clearly.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the top most experienced teachers from India who will help you with your class 12th Chemistry doubts and help you in understanding the concepts better. Our Chemistry teaching experts have several years of experience. You can check the
+                    qualification, experience and expertise of all our teachers by just clicking on the expert you want to know about. This will help you in choosing the expert more better for your guidance. We provide guidance for all boards of class
+                    12th Chemistry whether it be cbse, ncert, icse or any other board. So, book class 12th chemistry live classes now with our experts at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    Grab Guidance has a cancellation policy through which you can reschedule any booked session 24 hours before the scheduled time. You can also cancel the session 24 hours before it starts and get a refund. So, if you get stuck into something and can’t attend
+                    the session, you can cancel or reschedule it.
+                </p>
+                <div class="text-lg-left">
+                    <h3>No Language Barrier</h3>
+                    <p>
+                        Grab Guidance bridges the gap of language barrier. We offer class 12th chemistry live classes in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam, Nepali, Kannada, Khasi and many others. You can choose any
+                        language you are comfortable with. This will help you understand things more clearly.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>Flexibility</h3>
+                <p>
+                    Flexibility is another benefit that you will get at Grab Guidance. You can book class 12th chemistry live classes at your own chosen time from the time slots available at the experts page.
+                </p>
+            </div>
+        </div>
+        <!-- class 12th biology -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '12th' && activatedSubject == 'Biology'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    Grab Guidance provides interactive 1:1 live sessions for class 12th biology by the most experienced teachers. You can book the session from your chosen expert. As the sessions are one to one, you will get individual attention.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the best expert teachers from India to help you with your class 12th biology doubts. Our experts have several years of experience. Whether you are a cbse board student or ncert or icse or any other board, you can get your biology concepts
+                    cleared here as we have teachers on board who have expertise of different boards. So, don’t wait anymore and book online sessions for class 12th biology now at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    At Grab Guidance, you can reschedule any booked session 24 hours before the scheduled time. Session can also be cancelled and refunded 24 hours before it starts.
+                </p>
+                <div class="text-lg-left">
+                    <h3>Flexibility</h3>
+                    <p>
+                        One of the main advantages that you will get at Grab guidance is flexibility. You can choose class 12th biology one to one sessions according to your choice from the time availability of the experts.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance offers live sessions for class 12th biology in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam and many others. So, you can choose from any of the languages offered that will help you in understanding
+                    things better.
+                </p>
+            </div>
+        </div>
+        <!-- class 12th accounts -->
+        <div class="row mt-5 head" *ngIf="activatedClass == '12th' && activatedSubject == 'Accounts'">
+            <div class="col-lg-3">
+                <h3>Interactive Online Sessions</h3>
+                <p>
+                    The class 12th accounts online classes that Grab Guidance provides are quite interactive and interesting. Our teachers have years of experience and are verified experts. You can book the session with any of our accounts experts. The sessions are one to
+                    one. Therefore, you will get individual attention. This will also help you in understanding the concepts more clearly.
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h3>Expert Teachers</h3>
+                <p>
+                    Grab Guidance has the top most experienced teachers from India who will help you with your class 12th accounts doubts and help you in understanding the concepts better. Our accounts teaching experts have several years of experience. You can check the
+                    qualification, experience and expertise of all our teachers by just clicking on the expert you want to know about. This will help you in choosing the expert more better for your guidance. We provide guidance for all boards of class
+                    12th accounts whether it be cbse, ncert, icse or any other board. So, book a class 12th accounts online classes now with our experts at Grab Guidance.
+                </p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <h3>Rescheduling and Cancellation</h3>
+                <p>
+                    Grab Guidance has a cancellation policy through which you can reschedule any booked session 24 hours before the scheduled time. You can also cancel the session 24 hours before it starts and get a refund. So, if you get stuck into something and can’t attend
+                    the session, you can cancel or reschedule it
+                </p>
+                <div class="text-lg-left">
+
+                    <h3>Flexibility</h3>
+                    <p>
+                        Flexibility is another benefit that you will get at Grab Guidance. You can book class 12th accounts online classes at your own chosen time from the time slots available at the experts page.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h3>No Language Barrier</h3>
+                <p>
+                    Grab Guidance bridges the gap of language barrier. We offer class 12th accounts online classes in many languages like Hindi, English, Punjabi, Gujarati, Manipuri, Telugu, Oriya, Tamil, Malayalam, Nepali, Kannada, Khasi and many others. You can choose
+                    any language you are comfortable with. This will help you understand things more clearly
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- mid -->
+
+
+
+        <div class="seo_heading text-center mt-5">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-9">
+                    <h2 *ngIf="activatedClass == '10th' && activatedSubject == 'Maths'">
+                        How to Book Online Classes for 10th maths at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '10th' && activatedSubject == 'Science'">
+                        How to Book Online Classes for 10th Science at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Maths'">
+                        How to Book online classes for class 11th maths at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Physics'">
+                        How to Book class 11th Physics online coaching session at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Chemistry'">
+                        How to Book Online chemistry classes for class 11th at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Biology'">
+                        How to Book class 11th biology online classes at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '11th' && activatedSubject == 'Accounts'">
+                        How to Book Online classes for class 11th accounts at Grab Guidance?
+                    </h2>
+
+
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Maths'">
+                        How to Book class 12th maths online classes at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Physics'">
+                        How to Book physics classes for class 12th at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Chemistry'">
+                        How to Book a Session for class 12th chemistry live classes at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Biology'">
+                        How to Book class 12th biology live sessions at Grab Guidance?
+                    </h2>
+                    <h2 *ngIf="activatedClass == '12th' && activatedSubject == 'Accounts'">
+                        How to Book class 12th accounts online classes at Grab Guidance?
+                    </h2>
+
+
+
+                    <p *ngIf="activatedClass == '10th' && activatedSubject == 'Maths'">
+                        You can join either from your computer, phone, laptop or tablet. You’ll need a stable internet connection and the ability to stream audio and video to participate . You will get a link and the details of how to join in your booking confirmation email.
+                        The joining link will be activated 10 minutes prior to the session. So, don't think anymore and book an online class for 10th maths at a well lit place to get all your 10th class maths doubts cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '10th' && activatedSubject == 'Science'">
+                        You can join either from your computer, phone, laptop or tablet. You’ll need a stable internet connection and the ability to stream audio and video to participate . You will get a link and the details of how to join in your booking confirmation email.
+                        The joining link will be activated 10 minutes prior to the session. So, don't think anymore and book an online class for 10th Science at a well lit place to get all your 10th class Science concepts cleared.
+                    </p>
+
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Maths'">
+                        For joining a session you are required to have a stable internet connection and the ability to stream audio and video to participate. You can join either from your computer, phone, laptop or tablet. You will get a link and the details of how to join in
+                        your booking confirmation email. The joining link received will be activated 10 minutes before the session starts. So, don't think anymore and book an online class for 11th maths at a well lit place to get all your maths doubts
+                        cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Physics'">
+                        For joining a session you are required to have a stable internet connection and the ability to stream audio and video to participate. You can join either from your computer, phone, laptop or tablet. You will get a link and the details of how to join in
+                        your booking confirmation email. The joining link received will be activated 10 minutes before the session starts. So, don't think anymore and book a class 11th Physics online coaching session at a well lit place to get all your
+                        Physics doubts cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Chemistry'">
+                        For joining a session you are required to have a stable internet connection and the ability to stream audio and video to participate. You can join either from your computer, phone, laptop or tablet. You will get a link and the details of how to join in
+                        your booking confirmation email. The joining link received will be activated 10 minutes before the session starts. So, don't think anymore and book online chemistry classes for class 11th at a well lit place to get all your maths
+                        doubts cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Biology'">
+                        You can join either from your computer, phone, laptop or tablet. You’ll need a stable internet connection and the ability to stream audio and video to participate . You will get a link and the details of how to join in your booking confirmation email.
+                        The joining link will be activated 10 minutes prior to the session. So, don't think anymore and book class 11th biology online classes at a well lit place to get all your 11th class biology concepts cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '11th' && activatedSubject == 'Accounts'">
+                        You need to have an internet connection and the ability to stream audio and video to participate in joining the session. You can join either from your computer, phone, laptop or tablet. You will get a link and the details of how to join in your booking
+                        confirmation email. The joining link received will be activated 10 minutes before the session starts. So, don't think anymore and book an online class for 11th accounts at a well lit place to get all your accounts doubts cleared.
+                    </p>
+
+
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Maths'">
+                        For joining a session you are required to have a stable internet connection and the ability to stream audio and video to participate. You can join either from your computer, phone, laptop or tablet. You will get a link and the details of how to join in
+                        your booking confirmation email. The joining link received will be activated 10 minutes before the session starts. So, don't think anymore and book an online class for 11th maths at a well lit place to get all your maths doubts
+                        cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Physics'">
+                        For joining a session you are required to have a stable internet connection and the ability to stream audio and video to participate. You can join either from your computer, phone, laptop or tablet. You will get a link and the details of how to join in
+                        your booking confirmation email. The joining link received will be activated 10 minutes before the session starts. So, don't think anymore and book online physics classes for class 12th at a well lit place to get all your Physics
+                        doubts cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Chemistry'">
+                        For joining a session you are required to have a stable internet connection and the ability to stream audio and video to participate. You can join either from your computer, phone, laptop or tablet. You will get a link and the details of how to join in
+                        your booking confirmation email. The joining link received will be activated 10 minutes before the session starts. So, don't think anymore and book class 12th chemistry live classes at a well lit place to get all your maths doubts
+                        cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Biology'">
+                        You can join either from your computer, phone, laptop or tablet. You’ll need a stable internet connection and the ability to stream audio and video to participate . You will get a link and the details of how to join in your booking confirmation email.
+                        The joining link will be activated 10 minutes prior to the session. So, don't think anymore and book a live session with top experts for class 12th biology online classes at a well lit place to get all your class 12th biology concepts
+                        cleared.
+                    </p>
+                    <p *ngIf="activatedClass == '12th' && activatedSubject == 'Accounts'">
+                        For joining a session you are required to have a stable internet connection and the ability to stream audio and video to participate. You can join either from your computer, phone, laptop or tablet. You will get a link and the details of how to join in
+                        your booking confirmation email. The joining link received will be activated 10 minutes before the session starts. So, don't think anymore and book class 12th accounts online classes at a well lit place to get all your maths doubts
+                        cleared.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- faq -->
+
+        <div *ngIf="activatedClass == '10th' && activatedSubject == 'Maths'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for online classes for 10th maths</h2>
+                    <p>
+                        Following are the questions and answers regarding 10th maths online classes at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">What is the price per session?
+                                            </h3>
+                                            <p class="text-white">There are different pricings available for different experts. The basic pricing starts from Rs.123/ Session.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">What is the duration of the session?</h3>
+                                            <p class="text-white">There are 20 minutes, 40 minutes and 60 minutes sessions available and even multiple sessions. You can choose any based on your requirement.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="activatedClass == '10th' && activatedSubject == 'Science'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for online classes for 10th Science</h2>
+                    <p>
+                        Following are the questions and answers regarding 10th Science online classes at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">What is the price per session?
+                                            </h3>
+                                            <p class="text-white">There are different pricings available for different experts. The basic pricing starts from Rs.123/ Session.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">What is the duration of the session?</h3>
+                                            <p class="text-white">There are 20 minutes, 40 minutes and 60 minutes sessions available and even multiple sessions. You can choose any based on your requirement.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 11 -->
+
+        <div *ngIf="activatedClass == '11th' && activatedSubject == 'Maths'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for online classes for class 11th maths</h2>
+                    <p>
+                        Below listed are the questions and answers regarding 11th maths online classes at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                Are all the math experts verified?
+                                            </h3>
+                                            <p class="text-white">
+                                                Yes, the experts have to clear certain phases to become verified on GrabGuidance.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What is the duration of the session?
+                                            </h3>
+                                            <p class="text-white">
+                                                There are 20 minutes, 40 minutes and 60 minutes sessions available and even multiple sessions. You can choose any based on your requirement.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="activatedClass == '11th' && activatedSubject == 'Physics'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2> FAQs for class 11th Physics online coaching </h2>
+                    <p>
+                        Below listed are the questions and answers regarding class 11th Physics online coaching sessions at Grab Guidance
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                Are all the physics experts verified?
+                                            </h3>
+                                            <p class="text-white">
+                                                Yes, the experts have to clear certain phases to become verified on GrabGuidance.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What is the duration of the session?
+                                            </h3>
+                                            <p class="text-white">
+                                                There are 20 minutes, 40 minutes and 60 minutes sessions available and even multiple sessions. You can choose any based on your requirement.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="activatedClass == '11th' && activatedSubject == 'Biology'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for class 11th biology online classes</h2>
+                    <p>
+                        Following are the questions and answers regarding class 11th biology online classes at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                How will the session be conducted ?
+                                            </h3>
+                                            <p class="text-white">
+                                                The session will be conducted on an inbuilt virtual video conferencing solution of GrabGuidance.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What is the price per session?
+                                            </h3>
+                                            <p class="text-white">
+                                                There are different pricings available for different experts. The basic pricing starts from Rs.123/ Session.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="activatedClass == '11th' && activatedSubject == 'Chemistry'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for online chemistry classes for class 11th</h2>
+                    <p>
+                        Below listed are the questions and answers regarding online chemistry classes for class 11th at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What can I expect in my session?
+                                            </h3>
+                                            <p class="text-white">
+                                                The session can be taken for the following:
+                                                <li>Concept clarity on essential topics
+                                                </li>
+                                                <li>Doubts clarification on subject related questions.</li>
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                How will I pay for these sessions?
+                                            </h3>
+                                            <p class="text-white">
+                                                Once you are done with selecting the expert and choosing available and preferred time slots, you will be redirected to the payment gateway for making the payment.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="activatedClass == '11th' && activatedSubject == 'Accounts'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for online classes for class 11th accounts</h2>
+                    <p>
+                        Below listed are the questions and answers regarding 11th accounts online classes at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What if the expert is not there for the session that I booked?
+                                            </h3>
+                                            <p class="text-white">
+                                                Experts will always be available to attend the sessions booked but only under some exceptional circumstances if the expert is not able to join, then your money will be refunded or another session will be rescheduled as per your availability.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What is the duration of the session?
+                                            </h3>
+                                            <p class="text-white">
+                                                There are 20 minutes, 40 minutes and 60 minutes sessions available and even multiple sessions. You can choose any based on your requirement.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Class 12th maths -->
+
+        <div *ngIf="activatedClass == '12th' && activatedSubject == 'Maths'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for class 12th Maths online classes</h2>
+                    <p>
+                        Below listed are the questions and answers regarding 11th maths online classes at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                Are all the math experts verified?
+                                            </h3>
+                                            <p class="text-white">
+                                                Yes, the experts have to clear certain phases to become verified on GrabGuidance.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                How will I pay for these sessions?
+                                            </h3>
+                                            <p class="text-white">
+                                                Once you are done with selecting the expert and choosing available and preferred time slots, you will be redirected to the payment gateway for making the payment.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="activatedClass == '12th' && activatedSubject == 'Physics'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for online physics classes for class 12th</h2>
+                    <p>
+                        Below listed are the questions and answers regarding online physics classes for class 12th at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                Are all the physics experts verified?
+                                            </h3>
+                                            <p class="text-white">
+                                                Yes, the experts have to clear certain phases to become verified on GrabGuidance.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What if the expert is not there for the session that I booked?
+                                            </h3>
+                                            <p class="text-white">
+                                                Experts will always be available to attend the sessions booked but only under some exceptional circumstances if the expert is not able to join, then your money will be refunded or another session will be rescheduled as per your availability.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="activatedClass == '12th' && activatedSubject == 'Biology'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for class 12th biology live sessions</h2>
+                    <p>
+                        Following are the questions and answers regarding class 12th biology live sessions at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                How will the session be conducted ? </h3>
+                                            <p class="text-white">
+                                                The session will be conducted on an inbuilt virtual video conferencing solution of GrabGuidance.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What is the price per session?
+                                            </h3>
+                                            <p class="text-white">
+                                                There are different pricings available for different experts. The basic pricing starts from Rs.123/ Session.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="activatedClass == '12th' && activatedSubject == 'Chemistry'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for class 12th chemistry live classes </h2>
+                    <p>
+                        Below listed are the questions and answers regarding class 12th chemistry live classes at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                What can I expect in my session?
+                                            </h3>
+                                            <p class="text-white">
+                                                The session can be taken for the following:
+                                                <li>Concept clarity on essential topics</li>
+                                                <li> Doubts clarification on subject related questions.</li>
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                How will I pay for these sessions?
+                                            </h3>
+                                            <p class="text-white">
+                                                Once you are done with selecting the expert and choosing available and preferred time slots, you will be redirected to the payment gateway for making the payment.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="activatedClass == '12th' && activatedSubject == 'Accounts'">
+            <div class="row text-center mt-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
+                    <h2>FAQs for class 12th accounts online classes</h2>
+                    <p>
+                        Below listed are the questions and answers regarding class 12th accounts online classes at Grab Guidance.
+                    </p>
+                </div>
+            </div>
+            <div class="container head">
+                <div class="row justify-content-center mx-0">
+                    <div class="card card-black">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="pad-Seo">
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                Are all the accounts experts verified?
+                                            </h3>
+                                            <p class="text-white">
+                                                Yes, the experts have to clear certain phases to become verified on GrabGuidance.
+                                            </p>
+                                        </div>
+                                        <div class="card_hr">
+                                            <hr />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="card-body">
+                                            <h3 class="text-white">
+                                                How will I pay for these sessions?
+                                            </h3>
+                                            <p class="text-white">
+                                                Once you are done with selecting the expert and choosing available and preferred time slots, you will be redirected to the payment gateway for making the payment.
+                                            </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<app-footer></app-footer>

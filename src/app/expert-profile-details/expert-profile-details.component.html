@@ -1,0 +1,644 @@
+<app-navbar *ngIf="screenWidth >= 991"></app-navbar>
+<app-navbar *ngIf="(screenWidth < 991) && showNaveBar"></app-navbar>
+
+
+<header class="header header-div header-top ">
+    <div class="row ml-n4 mt-3">
+        <div class="col-6 d-flex justify-content-start backresponsive">
+            <button type="button" class="btn text-buttons d-flex p-5" (click)="back()" style="height: 32px">
+                <span><img src="../assets/ggsvg/back.svg" style="width: 30px; position: relative;
+          top: -5px;"></span> <span class="mt-1">Back </span>
+            </button>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <button type="button" class="btn text-buttons d-flex p-5" (click)="shareExpert()" style="height: 32px">
+                <span><img src="../assets/ggsvg/share.svg" style="width: 30px; position: relative;top: -4px"></span>
+                <span class="mt-1">Share</span>
+            </button>
+
+            <button type="button" class="btn text-buttons d-flex p-5" style="height: 32px">
+                <span><img src="../assets/ggsvg/heart.svg" *ngIf="!isSelected || isSelected == 0" style="width: 30px; position: relative;
+          top: -5px" aria-hidden="true" (click)="bookmarkExpert()"></span>
+                <span><img src="../assets/ggsvg/like.svg" *ngIf="isSelected && isSelected == 1" style="width: 30px;"
+                        aria-hidden="true" (click)="bookmarkExpert()"></span>
+                <span class="mt-1">Save</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+
+<!-- Main Section -->
+<section id="topmargin">
+    <section class="expert-box-model mt-2 mt-sm-5">
+        <div class="row mx-0">
+            <div class="col-12">
+                <div class="row mx-0">
+                    <div class="col-12 col-lg-8">
+                        <div class="row cutome-flex-wrap" style="margin-left:0">
+                            <div class="col-6 col-sm-4 px-0 ml-2 ml-sm-0">
+                                <img class="profilr-pitcher rounded " [src]="imgUrl" alt="" style="object-fit: cover;">
+                            </div>
+                            <!-- <div class="text-left ml-2 ml-md-4 ml-lg-3 ml-xl-5 col-sm-8 col-12 px-0 mt-5 mt-sm-0"> -->
+                            <div class="text-left col-sm-8 col-12 px-0 mt-5 mt-sm-0 paddind1">
+                                <div class="mb-2" *ngIf="approved == 1">
+                                    <img src="../assets/images/verified.png" class="verified">
+                                    <span class="small-text" style="color: black;">VERIFIED EXPERT</span>
+                                </div>
+                                <div class="mb-2" *ngIf="approved == 0">
+                                    <img src="../assets/images/un-verified.png" class="verified">
+                                    <span class="small-text" style="color: black;">UNVERIFIED EXPERT</span>
+                                </div>
+                                <h3 class="circularBlack mt-1">{{ name }}</h3>
+                                <p class="m-0" style="line-height: 24px;">{{degree }} in {{spec }} <br> {{total_experience}} Years Experience Overall</p>
+                                <div class="mt-2">
+                                    <i class="pi pi-star" style="font-size: 1em;color: #FFCC00;"></i>
+                                    <!-- <span class="ml-1 mr-2">5.0</span><span class="grey8E mr-2">(34)</span> -->
+                                    <span class="ml-1 mr-2 small-text" style="color: black;">{{overAllRating}}</span><span class="small-text mr-2">({{countReview}})</span>
+                                    <span style="font-size: 6px;" class="mr-2 mt-2">&bull;</span>
+                                    <!-- <span class="grey8E">Banglore</span> -->
+                                    <span class="grey8E small-text">{{ place }}</span>
+                                </div>
+                                <div class="mt-1 ml-3">
+                                    <div class="row flex-column">
+                                        <div class="p-0 mt-2 mr-3">
+                                            <h6 class="text-left mt-1">Expert in</h6>
+                                        </div>
+                                        <div class="mr-4">
+                                            <span class="tags mr-1 mb-1 d-inline-block" *ngFor="let subject of dummySubject">
+                                                {{subject.subject_name}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-3 mt-3">
+                                    <div class="row flex-column">
+                                        <div class="col-12 p-0 mt-1">
+                                            <h6 class="mr-5">Availability</h6>
+                                        </div>
+                                        <div class="col-12 p-0 mt-n2">
+                                            <ng-container *ngIf="slotDisplay">
+                                                <div class="mt-1 mb-1 text-dark" *ngFor="let day of slotDisplay">
+                                                    <span class="slot-display slot-day-width"><b>{{day.weekday}}:</b></span>
+                                                    <span *ngFor="let slotTime of day.timing" class=".availablity-margin-left slot-width">
+                                                        <ng-container *ngIf="slotTime.start && slotTime.end">
+                                                            {{slotTime.start != "00:00:00" ?
+                                                            createTimeFormat(slotTime.start) : '' }}-{{ slotTime.end !=
+                                                            "00:00:00" ? createTimeFormat(slotTime.end) : ''}}
+                                                        </ng-container>
+                                                    </span>
+                                                </div>
+                                            </ng-container>
+                                            <ng-container *ngIf="!slotDisplay">
+                                                <div class="font-size14 circularBook ml-2">
+                                                    All Day
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-5">
+                        <div class="mt-4">
+                            <h5 class="circularMedium">Online guidance hosted by {{ name }}</h5>
+                            <div class="row black2E mt-4">
+                                <div class="text-left col-12 col-sm-6 lt">
+                                    <p class="">
+                                        <img src="../assets/ggsvg/session time.svg" style="height: 20px;">
+                                        <!-- <i class="fa fa-clock-o" aria-hidden="true"></i> -->
+                                        20 mins, 40 mins & 60 mins
+                                    </p>
+                                </div>
+                                <div class="text-left col-12 col-sm-6 lt">
+                                    <p class="">
+                                        <img src="../assets/ggsvg/join computer.svg" style="height: 20px;">
+                                        <!-- <i class="fa fa-desktop" aria-hidden="true"></i> -->
+                                        Join from your computer, phone or tablet
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row black2E">
+                                <div class="text-left col-12 col-sm-6">
+                                    <p class="">
+                                        <img src="../assets/ggsvg/Hosted Eng- Hindi.svg" style="height: 20px;">
+                                        <!-- Hosted in English, Hindi -->
+                                        Hosted in {{languages}}
+                                    </p>
+                                </div>
+                                <div class="text-left col-12 col-sm-6">
+                                    <p class="">
+                                        <!-- <i class="fa fa-users" aria-hidden="true"></i> -->
+                                        <img src="../assets/ggsvg/sign language.svg" style="height: 20px;"> Can guide {{sin}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mt-2">
+                            <h5 class="ex">Experiences</h5>
+                            <div class="row mt-3 font-size14">
+                                <div class="text-left col-12 col-sm-6 mt-2 mt-p" *ngFor="let item of experience">
+                                    <h6 class="">{{item.designation | titlecase}}</h6>
+                                    <p class="" style="line-height: 24px;"> {{item.company_name | titlecase}}<br> {{item.duration}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h5>Education</h5>
+                            <div class="row mt-3 font-size14">
+                                <div class="text-left col-12 col-sm-6 mt-2" *ngFor="let item of education">
+                                    <h6 class="">{{item.school }}</h6>
+                                    <p class="" style="line-height: 24px;"> {{item.degree}}, {{item.specialization}}
+                                        <br> Passed in {{item.passed_year}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-4">
+                        <div class="mt-4">
+                            <div class="row">
+                                <div class="col-3 col-sm-2 mt-sm-n1">
+                                    <img [src]="imgUrl" alt="" class="rounded-circle" style="object-fit: cover;" width="55" height="55">
+                                </div>
+                                <div class="col-9 col-sm-10 ml-n3 ml-md-n5">
+                                    <!-- <span class="circularMedium"><b>Meet your guide, Vijaya Pawar</b></span> <br> -->
+                                    <h5 class="">Meet your guide, {{name}}</h5>
+                                    <p class="small-text mt-n2">Expert on Grab Guidance since 2020</p>
+                                </div>
+                            </div>
+                            <div *ngIf="descLength>0">
+                                <div [ngClass]="{'show-less': showShortDesciption && descLength > 85 }" class="paragraph" (click)="onClick($event)">
+                                    {{desc}}
+                                </div>
+                                <a *ngIf="descLength > 85" style="color: #FF9500;" (click)="showShortDesciption=!showShortDesciption" class="orangeFF">
+                                    {{showShortDesciption? 'Read more...': 'Read less'}}
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="mt-4">
+                        <div class="mt-4">
+                            <h6 class="">The Expertise</h6>
+                            <div class="row mt-3 font-size14 ml-1">
+                                <div class="col-sm-3 px-0">
+                                    <span class="paragraph" style="color: black;"><b>Classes</b></span>
+                                </div>
+                                <div class="col-sm-9 px-0">
+                                    <span class="paragraph mr-4" *ngFor="let class of classes">
+                                        <!-- <i class="fa fa-check mr-1" aria-hidden="true"></i> -->
+                                        <img src="../assets/ggsvg/right.svg" style="height: 20px;">
+                                        <span>{{class.class_name}}</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row mt-3 font-size14 ml-1">
+                                <div class="col-sm-3 px-0">
+                                    <span class="paragraph boards" style="color: black;"><b>Boards</b></span> <br>
+                                </div>
+                                <div class="col-sm-9 px-0">
+                                    <span class="paragraph mr-4" *ngFor="let board of boards">
+                                        <img src="../assets/ggsvg/right.svg" style="height: 20px;">
+                                        <span>{{board.board_name}}</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row mt-3 font-size14 ml-1 d-flex">
+                                <div class="col-sm-3 px-0">
+                                    <span class="paragraph subject p-0" style="color: black;"><b>Subject
+                                            Guidance</b></span>
+                                    <br>
+                                </div>
+                                <div class="col-sm-9 px-0">
+                                    <span class="paragraph mr-4" *ngFor="let subject of dummySubject">
+                                        <img src="../assets/ggsvg/right.svg" style="height: 20px;">
+                                        <span>{{subject.subject_name}}</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row mt-3 font-size14 ml-1">
+                                <div class="col-sm-3 px-0">
+                                    <span class="paragraph" style="color: black;"><b>Career Guidance</b></span> <br>
+                                </div>
+                                <div class="col-sm-9 px-0">
+                                    <span class="paragraph mr-4" *ngFor="let guidance of personalGuidance">
+                                        <img src="../assets/ggsvg/right.svg" style="height: 20px;">
+                                        <span>{{guidance.guidance_name}}</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-4">
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex">
+                                    <i class="pi pi-star mt-2 mr-2" style="font-size: 1em;color: #FFCC00;"></i>
+                                    <h5 class="">{{overAllRating}} ({{countReview}} reviews)</h5>
+                                </div>
+                                <div *ngIf="reviews?.length > 0">
+                                    <button class="btn text-buttons" (click)="showAllReview()"><b>Show All</b></button>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="row" style="margin-left: 0;">
+                                    <div class="col-6 col-sm-6 my-2" *ngFor="let review of reviews | slice: 0: 4; let i = index">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-3 col-xl-2">
+                                                <img [src]="createImageUrl(review.user_pic)" style="object-fit: cover;" alt="" class="rounded-circle" width="55" height="55">
+                                            </div>
+                                            <div class="col-12 col-sm-9 col-xl-10">
+                                                <h6 class="">{{review.user_name}}</h6>
+                                                <p class="small-text mt-n2">{{review.review_date | date:'mediumDate'}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <p class="mb-0 reviewParagraph" [ngClass]="{'show-less-review': getReviewShortDescription(i) && calculateStringData(review.review) > 17}">
+                                            {{review.review}}
+                                        </p>
+                                        <a *ngIf="calculateStringData(review.review) > 17" (click)="toggleReviewShowMore(i)" class="orangeFF font-size14">
+                                            {{getReviewShortDescription(i)? 'Read more...': 'Read less'}}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 mb-5 h-100 h-sm-75 px-0 cardShow" [ngClass]="cardShow ? 'show' : 'hide'">
+                        <div class="card box">
+                            <div class="card-body p-0">
+                                <div class="my-3" (click)="showResponsiveCard()" *ngIf="screenWidth < 992">
+                                    <img src="../../assets/ggsvg/noun_Arrow Left_2682937.svg">
+                                </div>
+                                <div>
+                                    <h5 class="text-left">From ₹{{sessionPrices?.twenty}}/session</h5>
+                                    <p class="small-text mt-n2">To save cost, book multiple sessions</p>
+                                </div>
+                                <div>
+                                    <h6 class="">Choose a duration</h6>
+                                    <div class="mt-2">
+                                        <ul class="nav nav-tabs nav-justified" role="tablist" id="myTab">
+                                            <li class="nav-item mr-2">
+                                                <a class="nav-link text-left pt-1" data-toggle="tab" role="tab" id="20_tab" aria-selected="true" (click)="sessionTimingChange('20')">
+                                                    <h6 class="mb-0" [ngClass]="{'text-white': selectedSessionTiming == '20'}">20 min
+                                                    </h6>
+                                                    <p class="small-text mb-0" [ngClass]="{'text-white': selectedSessionTiming == '20'}">
+                                                        &#8377;{{sessionPrices?.twenty}}/session</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item mr-2">
+                                                <a class="nav-link text-left pt-1" data-toggle="tab" role="tab" id="40_tab" aria-selected="true" (click)="sessionTimingChange('40')">
+                                                    <h6 class="mb-0" [ngClass]="{'text-white': selectedSessionTiming == '40'}">40 min
+                                                    </h6>
+                                                    <p class="small-text mb-0" [ngClass]="{'text-white': selectedSessionTiming == '40'}">
+                                                        &#8377;{{sessionPrices?.forty}}/session</p>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item mr-2 margin-top">
+                                                <a class="nav-link active text-left pt-1" data-toggle="tab" role="tab" id="60_tab" aria-selected="true" (click)="sessionTimingChange('60')">
+                                                    <h6 class="mb-0" [ngClass]="{'text-white': selectedSessionTiming == '60'}">60 min
+                                                    </h6>
+                                                    <p class="small-text mb-0" [ngClass]="{'text-white': selectedSessionTiming == '60'}">
+                                                        &#8377;{{sessionPrices?.sixty}}/session</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p class="small-text mt-2" *ngIf="selectedSessionTiming == '20'">20 Mins. session may cover a couple of doubts or a single topic on an average</p>
+                                    <p class="small-text mt-2" *ngIf="selectedSessionTiming == '40'">40 Mins. session may cover 3-4 doubts or a couple of topics on an average</p>
+                                    <p class="small-text mt-2" *ngIf="selectedSessionTiming == '60'">60 Mins. session may cover 4-5 doubts or a few topics on an average</p>
+                                </div>
+                                <hr>
+                                <div class="card-text">
+                                    <h6 class="">Next Availability</h6>
+                                    <div class="show-less-dates-height" [ngClass]="{'show-less-dates': showMoreDates}">
+                                        <div class="row font-size14 mt-3" *ngFor="let session of showSessions" style="border-bottom: 1px solid rgba(0,0,0,.1);">
+                                            <div class="col-7 text-left">
+                                                <h6 class="" style="font-size: 15px!important;">
+                                                    {{formatSessionDate(session.date)}}</h6>
+                                                <p class="small-text mt-n2" style="color: black;">
+                                                    {{createTimeFormat(session.start_time)}} {{createTimeFormat(session.end_time)}}
+
+                                                    <br> {{calculateSessionDuration(session.start_time,session.end_time, session.date)}} min session
+                                                </p>
+                                            </div>
+                                            <div class="col-4 font-size12 text-right px-0">
+                                                <p class="small-text mb-1 text-right">
+                                                    &#8377;{{showSessionPrice}}/session
+                                                </p>
+                                                <button type="button" class="btn small-buttons" (click)="createSingleSession(session, showSessionPrice, 1)">Choose
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="w-100 mt-0" *ngIf="(screenWidth >= 992)">
+                                </div>
+                                <div class="text-center multi-btn-fixed">
+                                    <button type="button" class="btn transparentBtn w-100 circularMedium" (click)="openBookMultipleSessions()">Book
+                                        Multiple Sessions
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="video_section">
+                    <hr class="hr_video">
+                    <div class="mt-4 col-12 px-0">
+                        <h5 class="px-3" style="margin-bottom: 20px;">View Demo Session by Expert</h5>
+                        <div class="row img-margin" *ngIf="videos">
+                            <div class="col-lg-3 col-md-6 mb-4" *ngFor="let data of videos">
+                                <img data-toggle="modal" data-target="#myModal" [src]="getSafeUrl(data.thumbnail)" class="thumbnail_img" frameborder="0" allowtransparency="true">
+
+                                <a href="#Geeks2" data-toggle="modal">
+                                    <button data-toggle="modal" data-target="#myModal" class="btn_play" style="border:none"></button>
+                                    <span class="ply" data-toggle="modal" data-target="#myModal"><img class="play_image"
+                                            src="../../assets/images/Group_64299-removebg-preview.png" alt=""
+                                            data-toggle="modal" data-target="#myModal"
+                                            (click)="openModal(data.video_url)"></span></a>
+
+                                <!-- <button data-toggle="modal" data-target="#myModal" class="btn_play" style="border:none"></button>
+                  <span class="ply" data-toggle="modal" data-target="#myModal"><img class="play_image"
+                      src="../../assets/images/Group_64299-removebg-preview.png" (click)="openModal(data.video_url)"></span> -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <div class="modal fade" id="Geeks2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed; top:0px; left:800px;width:100vw;background-color: rgba(0,0,0, 0.8); " role="dialog">
+                        <span class="closeframe"></span>
+                        <img class="close" data-dismiss="modal" aria-hidden="true" class="close-svg" src="../../assets/ggsvg/cross.svg" style="width: 30px;">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content top" id="iframe">
+                                <div class="modal-body test">
+                                    <iframe id="Geeks3" [src]="video_url" frameborder="0" allowtransparency="true"></iframe>
+                                    <!-- <iframe [src]="video_url" frameborder="0" allowtransparency="true"></iframe> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <img _ngcontent-jhn-c195="" class="close-svg" src="../../assets/ggsvg/cross.svg"
+                style="filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);width: 30px;">
+              <div class="modal-content top">
+                <div class="modal-body1 md">
+                  <iframe [src]="video_url" frameborder="0" allowtransparency="true"></iframe>
+                </div>
+              </div>
+    
+            </div>
+          </div> -->
+
+
+                <div class="mt-4 col-12 px-0">
+                    <!-- <div _ngcontent-ytp-c209="" class="text-center container mt-5">
+              <hr _ngcontent-ytp-c209="" style="margin-top:-20px">
+            </div> -->
+                    <hr class="hr_video">
+                    <h5 class="px-3 hw">Things to know</h5>
+                    <div class="col-12 mt-4 font-size14">
+                        <div class="row mh1">
+                            <div class="col-12 col-sm-6 col-md-4 pr-md-5">
+                                <!-- pl-md-0
+    pl-md-0
+    pl-md-0 -->
+                                <h6 class="">Cancellation policy</h6>
+                                <p class=" mt-1">
+                                    Any booked session can be rescheduled 24 hours before the scheduled time and can be cancelled and refunded 24 hours before the session starts.
+                                </p>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 pr-md-5">
+                                <h6 class="">Student requirements</h6>
+                                <p class="mt-1">
+                                    You’ll need an internet connection and the ability to stream audio and video to participate.
+                                </p>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 pr-md-5">
+                                <h6 class="">How To Join</h6>
+                                <p class="mt-1">
+                                    A link and details on how to join will be included in your booking confirmation email. The Join the session link will be activated 10min prior to the session. Be comfortable and take the session at a well lit place.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <hr> -->
+
+            </div>
+        </div>
+        <app-signin *ngIf="(screenWidth < 992)"></app-signin>
+        <app-login-confirmation *ngIf="(screenWidth < 992)"></app-login-confirmation>
+    </section>
+
+    <div class="fixed-btn" (click)="showNavBar()">
+        <div class="text-center my-2">From ₹{{sessionPrices?.twenty}}/session</div>
+        <button type="button" class="btn buttons circularBold w-100 mb-3" (click)="showResponsiveCard()">Check
+            Availability</button>
+    </div>
+
+    <section>
+        <div id="bookMultipleSessions" class="modal fade m-sm-5" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name2" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content" style="height: 605px;">
+                    <div class="modal-header">
+                        <h6 class="mb-0" style="margin-left: 30%;">{{name}}</h6>
+                        <button type="button" class="close" aria-label="Close" (click)="closeMulipleSAession()" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body py-2">
+                        <form action="">
+                            <div>
+                                <h6 class="circularMedium">Book multiple sessions</h6>
+                                <p class="small-text text-left mt-2 mb-2">Book multiple session with {{name}} and plan your schedule
+                                </p>
+                                <div class="mt-3">
+                                    <h6 class="circularBold">Multiple Session Duration</h6>
+                                    <ul class="nav nav-tabs nav-justified row" role="tablist" id="myTab">
+                                        <li class="nav-item px-3">
+                                            <div class="d-flex flex-column align-items-start" data-toggle="tab" role="tab" id="60_tab" aria-selected="true">
+                                                <span class="font-size14 circularBold"><b>60 min</b></span>
+                                                <span class="font-size12">&#8377;
+                                                    {{sessionPrices?.sixty}}/session</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="mt-2">
+                                    <h6 class="circularBold">Choose time frame</h6>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <select name="timeFrame" id="" class="education-inputs w-100" value="selectTimeFrame" (change)="onTimeFrame($event)">
+                                                <option value="" default>Select Time Frame</option>
+                                                <option *ngFor="let time of timeframeArray" value="{{time}}">{{time}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <h6 class="circularBold">Repeat Session on every</h6>
+                                    <div class="col-12">
+                                        <div class="row custom-checkbox">
+                                            <div class="form-group">
+                                                <input type="checkbox" name="week" [disabled]="checkDays(1)" id="mon" (change)="onSelect(1, $event)" class="checkbox-input">
+                                                <label for="mon" class="circularBook">M</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" name="week" [disabled]="checkDays(2)" id="tue" (change)="onSelect(2, $event)" class="checkbox-input">
+                                                <label for="tue" class="circularBook">T</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" name="week" [disabled]="checkDays(3)" id="wed" (change)="onSelect(3, $event)" class="checkbox-input">
+                                                <label for="wed" class="circularBook">W</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" name="week" [disabled]="checkDays(4)" id="thu" (change)="onSelect(4, $event)" class="checkbox-input">
+                                                <label for="thu" class="circularBook">T</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" name="week" [disabled]="checkDays(5)" id="fri" (change)="onSelect(5, $event)" class="checkbox-input">
+                                                <label for="fri" class="circularBook">F</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" name="week" [disabled]="checkDays(6)" id="sat" (change)="onSelect(6, $event)" class="checkbox-input">
+                                                <label for="sat" class="circularBook">S</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" name="week" [disabled]="checkDays(0)" id="sun" (change)="onSelect(0, $event)" class="checkbox-input">
+                                                <label for="sun">S</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-2">
+                                    <h6 class="circularBold">Choose duration</h6>
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 start-date">
+                                            <label for="startDate" class="circularBook font-size12"><b>Start</b></label>
+                                            <div class="w-100 form-group">
+                                                <input type="text" placeholder="Start" class="form-control" [disabled]="startDateDisabled" bsDatepicker [minDate]="minDate" (bsValueChange)="onstartValueChange($event)" [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD',containerClass: 'theme-orange',adaptivePosition: true }">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 end-date">
+                                            <label for="endDate" class="circularBook font-size12"><b>End</b></label>
+                                            <div class="w-100 form-group">
+                                                <input type="text" placeholder="End" class="form-control" [disabled]="endDateDisabled" bsDatepicker [minDate]="minDate" (bsValueChange)="onEndValueChange($event)" [bsConfig]="{ isAnimated: true, dateInputFormat: 'YYYY-MM-DD',containerClass: 'theme-orange',adaptivePosition: true   }">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer-div">
+                        <p class="text-center" *ngIf="multiSessionCount > 0">Total {{multiSessionCount}} Sessions</p>
+                        <p class="text-center text-danger" *ngIf="multiSessionError">All fields are required</p>
+                        <button type="button" class="btn buttons circularBold w-100 mt-1 mb-3" (click)="createMultiSession()">Review</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="ShareExpertModal" class="modal fade m-sm-5" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name2" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header py-2">
+                        <h6 class="circularBold mt-2" style="margin-left: 28%;">Share Expert’s Profile</h6>
+                        <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body py-2" style="height: auto">
+                        <div class="row" style="padding-top: 15px;">
+                            <div class="col-8 ml-1">
+                                <h5 class="text-left mb-0"><b>{{ name | titlecase }}</b></h5>
+                                <p class="mb-0">{{degree | titlecase }} in {{spec | titlecase}}</p>
+                                <p class="mb-0">{{total_experience}} Years Experience Overall</p>
+                            </div>
+                            <div class="img-size px-0">
+                                <img [src]="imgUrl" alt="" class="w-100 h-100 rounded" style="width: 88px !important;
+                  height: 95px !important; object-fit: cover;">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mt-3">
+                            <div class="share-btn-container d-flex justify-content-center">
+                                <a [href]="facebookLocation">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a [href]="twitterLocation">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a [href]="pinterestLocation">
+                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                </a>
+                                <a [href]="linkedInLocation">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                </a>
+                                <a [href]="whatsappLocation">
+                                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-3">
+                            <div class="col-10 w-100" style="padding-bottom: 22px;">
+                                <input type="text" id="shareInput" #shareUrl class="form-control" [(ngModel)]="shareLocation">
+                            </div>
+                            <div class="col-2 px-0" (click)="CopyUrl()">
+                                <i class="fa fa-clone copy-icon mt-2" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div id="showAllReview" class="modal fade m-sm-5" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name2" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content modal-paragraph">
+                    <div class="modal-header py-2 fixed w-100">
+                        <h6 class="circularBold mt-2" style="margin-left: 30%;">All Reviews</h6>
+                        <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body py-2" style="height: auto">
+                        <div class="row">
+                            <div class="col-12 py-3 border-bottomh mb-2" *ngFor="let review of reviews; let i = index">
+                                <div class="row mx-0">
+                                    <div class="col-3 col-xl-2">
+                                        <img [src]="createImageUrl(review.user_pic)" style="object-fit: cover;" alt="" class="rounded-circle" width="55" height="55">
+                                    </div>
+                                    <div class="col-9 col-xl-10">
+                                        <h6 class="">{{review.user_name}}</h6>
+                                        <p class="small-text mt-n2">{{review.review_date | date:'mediumDate'}}</p>
+                                        <p class="mb-0"> {{review.review}}</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<app-footer></app-footer>

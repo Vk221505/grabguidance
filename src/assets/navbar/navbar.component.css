@@ -1,0 +1,194 @@
+.responsivePara {
+  display: none;
+}
+
+.black-bg {
+  background-color: black;
+  color: white;
+}
+
+.blue-bg {
+  background-color: #e3e7e9;
+  color: black;
+}
+
+.blue-bg a {
+  color: black;
+}
+
+.black-bg a {
+  color: white;
+}
+
+.welcome-links {
+  margin-right: 17rem;
+}
+
+a.dropdown-item {
+  color: black !important;
+}
+
+.margin-right {
+  margin-right: 10px;
+}
+
+.searchbar {
+  display: none;
+}
+
+#searchBar > select {
+  height: auto !important;
+}
+
+.navbar-toggler {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none;
+  padding: 0 !important;
+  z-index: 200;
+}
+
+button.navbar-toggler.ml-auto:focus {
+  border: none;
+  outline: none;
+}
+
+.navbar-toggler-icon.close {
+  background-image: url("../../assets/images/humberg.png");
+  background-repeat: no-repeat;
+  background-size: center center;
+  width: 22px;
+  height: 16px;
+  transition: 1s;
+  opacity: 1;
+}
+
+.navbar-toggler-icon.open {
+  background-image: url("../../assets/images/close.png");
+  background-repeat: no-repeat;
+  background-size: center center;
+  width: 1.3em;
+  height: 1.2em;
+  transition: 1s;
+}
+
+.navbar {
+  padding: 16px !important;
+}
+
+.profile-show {
+  display: none;
+}
+
+.profile-line {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #575757;
+}
+
+.about,
+.contact {
+  display: none;
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .logo-img-expert {
+    margin-left: 10px !important;
+  }
+
+  .profile-show {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .logo-img-expert {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse.collapsing .navbar-nav {
+    display: block;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    right: -245px;
+    transition: 1s;
+    margin-left: auto !important;
+    text-align: center;
+    padding-top: 90px;
+  }
+
+  .navbar-collapse.show .navbar-nav {
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    right: 0;
+    flex-direction: column;
+    height: auto;
+    width: 245px;
+    transition: 1s;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    background-color: black;
+    color: white;
+    margin-left: auto !important;
+    text-align: center;
+    padding-top: 85px;
+  }
+
+  .profile-show {
+    display: block;
+    font-size: 20px;
+    background-color: #2e2e2e;
+  }
+
+  .profile-img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+  }
+
+  .navpic {
+    display: none;
+  }
+
+  .navbar-nav > .nav-item > a {
+    color: white !important;
+    cursor: pointer;
+  }
+
+  .navbar-nav > .nav-item > a:hover {
+    background-color: whitesmoke;
+    color: black !important;
+  }
+
+  .expert-account {
+    display: none;
+  }
+
+  .about,
+  .contact {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .brand-icon {
+    display: none;
+  }
+
+  .searchbar {
+    display: block;
+  }
+
+  .navbar {
+    flex-wrap: nowrap;
+  }
+
+  .non-flex {
+    flex-basis: unset;
+    flex-grow: unset;
+  }
+}

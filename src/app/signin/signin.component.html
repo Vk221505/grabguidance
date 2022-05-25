@@ -1,0 +1,55 @@
+<div *ngIf="spinnerFlag">
+  <div class="myOverlay text-center">
+    <div class="btn btn-static font-xl bg-light">
+      <span class="fa fa-spinner rotate"> </span> Logging in, please wait...
+    </div>
+  </div>
+</div>
+<section>
+  <div id="signInModal" class="modal fade m-sm-5" role="dialog" tabindex="-1" aria-labelledby="dialog-sizes-name2" data-backdrop="static">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark modal-header-margin" id="ModalLabel">LogIn</h5>
+          <button type="button" class="close" aria-label="Close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="padding:26px">
+          <form [formGroup]="signInForm">
+            <div>
+              <div class="input-group mt-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text pargraph" id="basic-addon1"
+                    [ngClass]="{'input-error': submitted && signInForm.controls.phNumber?.errors}">+91</span>
+                </div>
+                <input  type="text" class="form-control" placeholder="Phone Number" aria-label="contactNumber"
+                  aria-describedby="basic-addon1" formControlName="phNumber" maxlength="10" style="height: auto;"
+                  [ngClass]="{'input-error': submitted && signInForm.controls.phNumber.invalid}" maxlength="10">
+              </div>
+              <p class="small-text text-left my-2">We’ll text you OTP to confirm your
+                number.
+              </p>
+              <span class="errorMsg paragraph" *ngIf="errorMsg">{{errorMsg}}</span>
+              <span class="errorMsg paragraph" *ngIf="submitted && signInForm.controls.phNumber?.errors?.required">Phone
+                Number Is Required</span>
+              <span class="errorMsg paragraph" *ngIf="submitted && signInForm.controls.phNumber?.errors?.pattern">Phone
+                Number Is invalid</span>
+              <div class="mt-4">
+                <button type="button" class="btn buttons w-100" (click)="login()">Log in</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <p class="paragraph" style="color: black;">Don't have an account?
+            <a (click)="signup()" class="circularMedium" style="color: black;">
+              Sign up
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-signup></app-signup>

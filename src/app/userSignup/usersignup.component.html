@@ -1,0 +1,52 @@
+<section>
+    <!-- <button class="btn btn-primary" (click)="openModal()">Sign Up</button> -->
+
+    <div id="userSignupModal" class="modal fade m-5" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name2" data-backdrop="static">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content signup">
+                <div class="modal-header">
+                    <h6 class="circularBold signUpHeading">Sign Up</h6>
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="signupForm">
+                        <div>
+                            <div class="input-group mt-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text contactNumber-addon" id="basic-addon1" [ngClass]="{ 'input-error': submitted && signupForm.controls.expert_mobile.invalid }">+91</span>
+                                </div>
+                                <input type="text" class="form-control contactnumber-input" placeholder="Phone Number" aria-label="contactNumber" aria-describedby="basic-addon1" formControlName="expert_mobile" [ngClass]="{ 'input-error': submitted && signupForm.controls.expert_mobile.invalid }">
+                            </div>
+                            <p class="circularBook font-size12 grey8E text-left mt-2">We’ll text you to confirm your number.
+                            </p>
+                            <input type="text" class="education-inputs w-100" placeholder="Full Name" formControlName="full_name" [ngClass]="{ 'input-error': submitted && signupForm.controls.full_name.invalid }">
+                            <input type="email" class="education-inputs w-100 mt-3" placeholder="Email Address" formControlName="expert_email" [ngClass]="{ 'input-error': (submitted && signupForm.controls.expert_email.invalid ) }">
+
+                            <!-- <p class="circularBook font-size12 grey8E text-left mt-2">We’ll email you session
+                              confirmations with VC
+                              link and receipts.</p> -->
+                            <span class="mt-3 errorMsg" *ngIf="errorMsg">{{errorMsg}}</span>
+                            <p class="circularBook font-size12 grey8E text-left mt-4">By selecting Agree and continue below, I agree to GrabGuidance’s
+                                <a href="">Terms of Service</a> ,
+                                <a href="">Payments Terms of Service</a> &
+                                <a href="">Privacy Policy</a> .
+                            </p>
+                            <div class="mt-4">
+                                <button type="button" class="btn buttons nextBtn circularBold w-100" (click)="signup()">Agree and
+                                  Continue</button>
+                                <p class="black2E circularBook mt-3 font-size12">Already have an account?
+                                    <a (click)="signin()" class="circularMedium">
+                                      Log in
+                                      <!-- <app-signin></app-signin> -->
+                                  </a>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

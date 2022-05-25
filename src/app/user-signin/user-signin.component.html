@@ -1,0 +1,318 @@
+<div *ngIf="spinnerFlag">
+    <div class="myOverlay text-center">
+        <div class="btn btn-static font-xl bg-light">
+            <span class="fa fa-spinner rotate"> </span> Logging in, please wait...
+        </div>
+    </div>
+</div>
+<section class="section-login">
+    <div class="fluid-container">
+        <div class="row">
+            <div class="col-lg-6" style="margin-right: -15px">
+                <div class="backGround">
+                    <a href="https://www.grabguidance.com/">
+                        <img src="../../assets/images/GG Logo Asset 2.png" alt="" class="logog" />
+                    </a>
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <h1>Get Personalised Online Guidance Anytime</h1>
+                            <p>
+                                Marketplace of Experts & Learners for Live 1-on-1 Sessions on Academic & Career Guidance
+                            </p>
+                        </div>
+                        <div class="col-lg-5 col-sm-6 col-md-6">
+                            <img src="../../assets/images/GG Illustration-02.png" alt="" width="250px" height="250px" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="log-img">
+                                <img src="../../assets/images/GG Illustration-04.png" alt="" />
+                                <p>Choose an Experienced & Qualified Experts yourself</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="log-img">
+                                <img src="../../assets/images/GG Illustration-05.png" alt="" />
+                                <p>
+                                    Have Live Virtual Session Solution In-built on the Platform
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="log-img">
+                                <img src="../../assets/images/GG Illustration-06.png" alt="" />
+                                <p>Grab Quick Guidance through Short Sessions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" style="display: flex; justify-content: center; align-items: center">
+                <div class="from">
+                    <form [formGroup]="signInForm">
+                        <div style="display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      position: relative;
+                      top:-30px;
+                      border-bottom: 1px solid #00000029">
+                            <h5 style="margin:1rem">User Sign Up</h5>
+                        </div>
+                        <div style="position: relative; top: -10px">
+                            <div class="top-form">
+                                <span>
+                  <p>
+                    <a
+                      class="circularMedium"
+                      routerLink="/user-signup"
+                      routerLinkActive="active"
+                    >
+                      Sign up
+                    </a>
+                  </p>
+                </span>
+                                <span>
+                  <p>
+                    <a
+                      class="circularMedium"
+                      routerLink="/user-signin"
+                      routerLinkActive="active"
+                    >
+                      Sign In
+                    </a>
+                  </p>
+                </span>
+                            </div>
+                            <div class="input-group" style="margin-top: 1.4rem">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text pargraph" id="basic-addon1" [ngClass]="{
+                      'input-error':
+                        submitted && signInForm.controls.phNumber?.errors
+                    }">+91</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Phone Number"
+                  aria-label="contactNumber"
+                  aria-describedby="basic-addon1"
+                  formControlName="phNumber"
+                  maxlength="10"
+                  style="height: auto"
+                  [ngClass]="{
+                    'input-error':
+                      submitted && signInForm.controls.phNumber.invalid
+                  }"
+                  maxlength="10"
+                />
+              </div>
+              <p
+                class="small-text text-left my-2"
+                style="color: #b2b3b4 !important; font-size: 14px !important"
+              >
+                We’ll text you OTP to confirm your number.
+              </p>
+              <span class="errorMsg paragraph" *ngIf="errorMsg">{{
+                errorMsg
+              }}</span>
+                                    <span class="errorMsg paragraph" *ngIf="
+                  submitted && signInForm.controls.phNumber?.errors?.required
+                ">Phone Number Is Required</span
+              >
+              <span
+                class="errorMsg paragraph"
+                *ngIf="
+                  submitted && signInForm.controls.phNumber?.errors?.pattern
+                "
+                >Phone Number Is invalid</span
+              >
+              <div class="">
+                <button
+                  type="button"
+                  class="btn buttons w-100"
+                  (click)="login()"
+                >
+                  Log in
+                </button>
+              </div>
+            </div>
+            <div style="display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid #00000029;
+            position: relative;
+            top:15px;">
+                <p style="color: black!important;margin: .9rem;">
+                  Don't have an account? 
+                    <a routerLink="/user-signup" class="circularMedium" style="color: black;text-decoration: none;">
+                 Sign up
+               </a>
+                </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-login-mobile">
+  <div class="fluid-container">
+    <div class="row">
+      <div class="col-lg-6">
+        <a href="https://www.grabguidance.com/">
+          <img src="../../assets/images/responsive-logo.png" alt="" class="logo-mobile">
+          </a>
+        <div class="from">
+          <form [formGroup]="signInForm">
+            <div style="display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top:-30px;
+            border-bottom: 1px solid #00000029">
+                <h5 style="margin:1rem">User Sign Up</h5>
+            </div>
+            <div style="position: relative; top: -10px">
+              <div class="top-form">
+                <span>
+                  <p>
+                    <a
+                      class="circularMedium"
+                      routerLink="/user-signup"
+                      routerLinkActive="active"
+                    >
+                      Sign up
+                    </a>
+                  </p>
+                </span>
+                                    <span>
+                  <p>
+                    <a
+                      class="circularMedium"
+                      routerLink="/user-signin"
+                      routerLinkActive="active"
+                    >
+                      Sign In
+                    </a>
+                  </p>
+                </span>
+                                </div>
+                                <div class="input-group" style="margin-top: 1.4rem">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text pargraph" id="basic-addon1" [ngClass]="{
+                      'input-error':
+                        submitted && signInForm.controls.phNumber?.errors
+                    }">+91</span
+                  >
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Phone Number"
+                  aria-label="contactNumber"
+                  aria-describedby="basic-addon1"
+                  formControlName="phNumber"
+                  maxlength="10"
+                  style="height: auto"
+                  [ngClass]="{
+                    'input-error':
+                      submitted && signInForm.controls.phNumber.invalid
+                  }"
+                  maxlength="10"
+                />
+              </div>
+              <p
+                class="small-text text-left my-2"
+                style="color: #b2b3b4 !important; font-size: 14px !important"
+              >
+                We’ll text you OTP to confirm your number.
+              </p>
+              <span class="errorMsg paragraph" *ngIf="errorMsg">{{
+                errorMsg
+              }}</span>
+                                        <span class="errorMsg paragraph" *ngIf="
+                  submitted && signInForm.controls.phNumber?.errors?.required
+                ">Phone Number Is Required</span
+              >
+              <span
+                class="errorMsg paragraph"
+                *ngIf="
+                  submitted && signInForm.controls.phNumber?.errors?.pattern
+                "
+                >Phone Number Is invalid</span
+              >
+              <div class="">
+                <button
+                  type="button"
+                  class="btn buttons w-100"
+                  (click)="login()"
+                >
+                  Log in
+                </button>
+              </div>
+            </div>
+            <div style="display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid #00000029;
+            position: relative;
+            top:15px;">
+                <p style="color: black!important;margin: .9rem;">
+                  Don't have an account? 
+                    <a routerLink="/user-signup" class="circularMedium" style="color: black;text-decoration: none;">
+                 Sign up
+               </a>
+                </p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="backGround">
+          <img src="../../assets/images/GG Logo Asset 2.png" alt="" class="logog" />
+          <div class="row">
+            <div class="col-lg-7">
+              <h1>Get Personalised Online Guidance Anytime</h1>
+              <p>
+                Marketplace of Experts & Learners for Live 1-on-1 Sessions on
+                Academic & Career Guidance
+              </p>
+            </div>
+            <div class="col-lg-5">
+              <img
+                src="../../assets/images/GG Illustration-02.png"
+                alt=""
+                width="100%"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="log-img">
+                <img src="../../assets/images/GG Illustration-04.png" alt="" />
+                <p>Choose an Experienced & Qualified Experts yourself</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="log-img">
+                <img src="../../assets/images/GG Illustration-05.png" alt="" />
+                <p>
+                  Have Live Virtual Session Solution In-built on the Platform
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="log-img">
+                <img src="../../assets/images/GG Illustration-06.png" alt="" />
+                <p class="last">Grab Quick Guidance through Short Sessions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

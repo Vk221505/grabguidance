@@ -1,0 +1,54 @@
+select{
+    background: #F0F0F0 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.marginBoxModel25{
+    margin-left: 25rem;
+    margin-right: 25rem;
+}
+
+.nav-link{
+    color: black;
+    background: transparent 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+
+.addBg{
+    color: #FFFFFF !important;
+    background: black 0% 0% no-repeat padding-box !important;
+    border-radius: 5px !important;
+    border: 1px solid transparent !important;
+}
+
+.nav-tabs{
+    border-bottom: 0;
+}
+
+.slot-select {
+    border: 0.5px solid #f0f0f0;
+    background-color: #f0f0f0 !important;
+    background-image: none!important;
+    color: #000!important;
+}
+
+.border-radius-left {
+  border-radius: 6px 0 0 6px!important;
+}
+
+.border-radius-right {
+  border-radius: 0 6px 6px 0!important;
+}
+
+.from-option {
+  background-color: #c0bfc2;
+}
+
+.option-color {
+  background-color:green;
+}
+
+
+

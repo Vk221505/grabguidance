@@ -1,0 +1,21 @@
+.show-less-review {
+    height: 1.5rem;
+    overflow: hidden;
+}
+
+.font-size14 {
+    margin: 10px 0 0 0;
+}
+
+.mt-n1 {
+    margin-right: -1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .show-less-review {
+        width: 100%;
+    }
+    .mt-n1 {
+        margin-right: 0rem;
+    }
+}

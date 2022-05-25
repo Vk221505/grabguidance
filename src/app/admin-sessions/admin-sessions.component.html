@@ -1,0 +1,43 @@
+<app-admin-navbar></app-admin-navbar>
+<section class="mt-4 mx-3">
+    <div>
+        <span class="circularBlack font-size26"><b>Total Sessions ({{totalSessions}})</b></span>
+        <a><img src="../assets/ggsvg/download.svg" style="width: 30px;" class="ml-2" (click)="downloadSession()"></a><br>
+        <span class="circularBook grey5F font-size16">Last created {{lastCreatedDate}}</span>
+    </div>
+    <div class="mt-4">
+        <p-table #dt [columns]="cols" [value]="resultSet" [paginator]="true" [rows]="25" totalRecords="{{totalSessions}}" pageLinks="3" [style]="{'overflow': 'inherit'}" class="noWrapDataTable" autoLayout="true" styleClass="p-datatable-striped" [resizableColumns]="true"
+            [showCurrentPageReport]="true" [rowHover]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field" [style]="{'font-size': '12px', 'color': '#566881', 'font-family': 'CircularBook' , 'width': col.width }">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                        <input pInputText type="text" style="width: 100%;" (input)="dt.filter($event.target.value, col.field, 'contains')" />
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-ri="rowIndex">
+                <tr>
+                    <td *ngFor="let col of columns" [style]="{'font-size': '14px', 'color': '#171E27', 'font-family': 'CircularBook'}">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td>
+                        <button type="button" class="btn" placement="left" (click)="navigateToSession(rowData['expertId'], rowData['sessionId'], rowData['multi'], rowData['status'])">
+                          <img src="../assets/ggsvg/editprofile.svg" style="height: 18px;" aria-hidden="true">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+    </div>
+</section>

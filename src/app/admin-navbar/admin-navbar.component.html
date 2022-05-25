@@ -1,0 +1,170 @@
+<section class="expert-navbar-boxModel">
+    <nav class="navbar navbar-expand-lg blackBg">
+        <a class="navbar-brand expert-navbar-margins" href="#">
+            <div>
+                <a href="https://www.grabguidance.com/"> <img src="../../assets/images/logo-blackbg.png" width="135" height="40" style="object-fit: contain;" class="d-inline-block align-center mt-1" alt=""></a>
+
+                <span class="greyCE ml-2">|</span>
+                <span class="ml-2 small-text"> Confusion to Conclusion</span>
+            </div>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse items-center-align" id="navbarNav">
+            <ul class="navbar-nav" *ngIf="isLoggedIn">
+                <li class="nav-item">
+                    <a class="nav-link circularBold mt-2 mr-5" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-5 circularBold mt-2" routerLink="/admin-sessions" routerLinkActive="active">Sessions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-5 circularBold mt-2" routerLink="/admin-users" routerLinkActive="active">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-5 circularBold mt-2" routerLink="/admin-experts" routerLinkActive="active">Experts</a>
+                </li>
+
+                <!-- PlusButton Modal -->
+                <li class="nav-item">
+                    <div class="plusModal dropdown">
+                        <button type="button" class="btn" (click)="openBookMultipleSessions()"><i class="fa fa-plus"
+                                aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                </li>
+
+
+                <li class="nav-item dropdown" style="margin-left: 25%; margin-top: 8px;;">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img [src]="imageUrl" width="40" height="40" class="rounded-circle">
+                        <i class="fa fa-angle-down" aria-hidden="true" style="margin-left: 8px; font-size: 22px;"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" (click)="dasboard()">Dashboard</a>
+                        <a class="dropdown-item" (click)="ChangePassword()" data-toggle="modal" data-target="#exampleModal">Change
+                            Password</a>
+                        <a class="dropdown-item" (click)="logout()">Log Out</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</section>
+<section>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #f="ngForm">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Old Password</label>
+                            <input type="password" class="form-control" id="oldPassword" name="oldPassword" required [(ngModel)]="oldpass" placeholder="Enter Your Old Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">New Password</label>
+                            <input type="password" class="form-control" name="newPassword" required [(ngModel)]="newpass" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button (click)="onSubmit()" class="btn btn-primary" data-dismiss="modal">Save
+                                changes</button>
+                            <!-- <input type = "submit" class="btn btn-primary" value = "Save changes"> -->
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section>
+    <div id="bookMultipleSessions" class="modal fade m-sm-5" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name2" data-backdrop="static" style="overflow: scroll;">
+        <div class="modal-dialog">
+            <div class="modal-content" style="height: auto; margin-bottom: 100px;">
+                <div class="modal-header">
+                    <h6 class="mb-0" style="margin-left: 30%;">Schedule A Session</h6>
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body py-2">
+                    <form action="">
+                        <div>
+                            <h4 class="circularMedium">Book sessions</h4>
+                            <p class="small-text text-left mt-1 mb-2">You can choose multiple users at once to book one to many session.
+                            </p>
+                            <div class="mt-1 moadalmt">
+                                <h6 class="circularBold">Multiple session duration</h6>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ng-multiselect-dropdown [placeholder]="'Select Duration'" [settings]="dropdownSettingsDuration" [data]="sessDur" (onSelect)="onItemSelect($event, 'dur')" (onDeSelect)="onItemDeSelect($event, 'dur')">
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-1 moadalmt">
+                                <h6 class="circularBold">Choose Users</h6>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ng-multiselect-dropdown [placeholder]="'Select Users'" [settings]="dropdownSettings" [data]="usrSession" (onDeSelect)="onItemDeSelect($event, 'user')" (onSelect)="onItemSelect($event, 'user')">
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-1 moadalmt">
+                                <h6 class="circularBold">Choose Expert</h6>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ng-multiselect-dropdown [placeholder]="'Select experts'" [settings]="dropdownSettingsExperts" [data]="expSession" (onDeSelect)="onItemDeSelect($event, 'expert')" (onSelect)="onItemSelect($event, 'expert')"></ng-multiselect-dropdown>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-1 moadalmt">
+                                <h6 class="circularBold">When do you want to schedule?</h6>
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 start-date">
+                                        <label for="startDate" class="circularBook font-size12"><b>Date</b></label>
+                                        <div class="w-100 form-group">
+                                            <input type="date" class="circularBook" [formControl]="date" placeholder="date" id="startDate" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 end-date">
+                                        <label for="endDate" class="circularBook font-size12"><b>Time</b></label>
+                                        <div class="w-100 form-group">
+                                            <input type="time" id="myTime" value="" [formControl]="time" time range="00:00–23:59" class="form-control" max="23:59" />
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer-div">
+                    <!-- <p class="text-center" *ngIf="multiSessionCount > 0">Total {{multiSessionCount}} Sessions</p>
+                    <p class="text-center text-danger" *ngIf="multiSessionError">All fields are required</p> -->
+                    <button type="button" class="btn buttons circularBold w-100 mt-1 mb-3" (click)="book()">Book</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

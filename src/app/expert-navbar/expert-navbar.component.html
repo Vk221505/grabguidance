@@ -1,0 +1,43 @@
+<section class="expert-navbar-boxModel">
+    <nav class="navbar navbar-expand-lg blackBg">
+        <a class="navbar-brand expert-navbar-margins" (click)="navigateToLogin()">
+            <div>
+                <a href="https://www.grabguidance.com/"> <img src="../../assets/images/logo-whitebg.png" width="135" height="40" style="object-fit: contain;" class="d-inline-block align-center logo-img" alt=""></a>
+
+                <span class="greyCE ml-3">|</span>
+                <span class="circularBook font-size12 greyCE ml-2"> Confusion to Conclusion.</span>
+            </div>
+        </a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+    </button> -->
+        <span class="navbar-toggler-icon" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i></span>
+        <div class="collapse navbar-collapse items-center-align" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link mt-2 mr-2 paragraph" [routerLink]="'dashboard'" routerLinkActive="active">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-2 paragraph mt-2" [routerLink]="'sessions'" routerLinkActive="active">Sessions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mr-2 paragraph mt-2" [routerLink]="'reviews'" routerLinkActive="active">Reviews</a>
+                </li>
+                <li class="nav-item margin-left">
+                    <button type="button" class="btn small-buttons" (click)="viewPublicProfile()">View Public Profile</button>
+                </li>
+                <li class="nav-item dropdown ml-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img [src]="Imgurl" width="40" height="40" class="rounded-circle">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" (click)="dashboard()">Dashboard</a>
+                        <a *ngIf="!isAdmin" class="dropdown-item" (click)="editProfile()">Edit Profile</a>
+                        <a class="dropdown-item" (click)="logout()">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>

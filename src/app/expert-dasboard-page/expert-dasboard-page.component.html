@@ -1,0 +1,296 @@
+<section class="expert-box-model mt-5">
+    <div>
+        <ng-container *ngIf="!isAdmin">
+            <h3 class="">Welcome {{ expertDetails?.name }}</h3>
+            <p class="">
+                You can manage your details, bookings and know how much you have earned.
+            </p>
+        </ng-container>
+        <div class="card main-card mt-4">
+            <div class="card-body">
+                <div class="card-deck">
+                    <ng-container *ngIf="currentSessions && currentSessions.length > 0">
+                        <div class="card upcoming-card col-lg-4 col-md-12 col-sm-12" style="height: auto!important;" (click)="upcomingSession(data)" *ngFor="let data of currentSessions">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h6 class="mb-0 paragraph text-white">
+                                        {{ formatSessionDate(data.session_date) }}
+                                    </h6>
+                                    <span class="circularBook paragraph" style="color: #CECED2; line-height: 25px!important;">
+                                        At {{createTimeFormat(data.session_start)}},
+                                        {{ calculateSessionDuration( data.session_start, data.session_end, data.session_date ) }}
+                                        min session <br />
+                                    </span>
+                                    <div class="mt-1">
+                                        <span class="mr-1 paragraph" style="color: #CECED2;">With:</span>
+                                        <span class="paragraph text-white" style="color: #CECED2; line-height: 25px!important;">{{ data.user_name }}</span>
+                                    </div>
+
+                                    <div class="row mt-1 mx-0">
+                                        <div class="col-xl-12 col-md-12 text-left px-0">
+                                            <span *ngIf="data.class  && data.subject" class=" mr-1 paragraph" style="color: #CECED2;">Related to:</span>
+                                            <span *ngIf="data.class && data.class != 'null'" class="paragrap tags">{{ data.class }}</span>
+                                            <span *ngIf="data.subject && data.subject != 'null'" class="paragraph tags ml-2">{{ data.subject }}</span>
+                                            <span *ngIf="data.subject =='null' && data.subject == 'null'" class="paragraph tags">General</span>
+                                        </div>
+                                    </div>
+                                    <!--
+                  <div class="row mt-1">
+                    <div class="col-8 text-left">
+                      <span class="greyCE mr-1 circularBook">Related to </span>
+                      <span class="circularMedium"></span>
+                    </div>
+                  </div> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container class="row" *ngIf="currentSessions && currentSessions.length == 0">
+                        <div class="card-text">
+                            <h6 class="card-title ml-3 mb-0 text-white">Upcoming Events</h6>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 mt-5">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="row mx-0">
+                        <div class="row mx-0">
+                            <div class="col-lg-4">
+                                <div class="Img-Size px-0">
+                                    <img class="rounded w-100 h-100" style="object-fit: cover" [src]="imgUrl" alt="" />
+                                </div>
+                            </div>
+                            <div class="text-left ml-5 col-lg-8 col-md-12 px-0" style="width: 100%">
+                                <div class="mb-2" *ngIf="expertDetails?.approved == 1">
+                                    <img src="../assets/images/verified.png" class="verified" />
+                                    <span class="small-text" style="color: black">VERIFIED EXPERT</span>
+                                </div>
+
+                                <div class="mb-2" *ngIf="expertDetails?.approved == 0">
+                                    <img src="../assets/images/un-verified.png" class="verified" />
+                                    <span class="small-text" style="color: black">UNVERIFIED EXPERT</span>
+                                </div>
+
+                                <h3 class="circularBlack mt-1">{{ expertDetails?.name }}</h3>
+                                <p class="m-0" style="line-height: 24px">
+                                    {{ expertDetails?.education[0]?.degree }} in {{ expertDetails?.education[0]?.specialization }} <br /> {{ expertDetails?.total_experience }} Years Experience Overall
+                                </p>
+                                <div class="mt-2">
+                                    <i class="pi pi-star" style="font-size: 1em; color: #ffcc00"></i>
+                                    <!-- <span class="ml-1 mr-2">5.0</span><span class="grey8E mr-2">(34)</span> -->
+                                    <span class="ml-1 mr-2 small-text" style="color: black">4</span><span class="small-text mr-2">(2)</span>
+                                    <span style="font-size: 6px" class="mr-2 mt-2">&bull;</span>
+                                    <!-- <span class="grey8E">Banglore</span> -->
+                                    <span class="grey8E small-text">{{ expertDetails?.place }}</span>
+                                </div>
+                                <div class="mt-1 ml-3">
+                                    <div class="row flex-column mr-3">
+                                        <div class="p-0 mt-2 mr-3">
+                                            <h6 class="text-left mt-1">Expert in</h6>
+                                        </div>
+                                        <div class="">
+                                            <span class="tags mr-1 mb-1 d-inline-block" *ngFor="let data of expertIn">
+                                                {{ data }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ml-3 mt-3">
+                                    <div class="row flex-column">
+                                        <div class="col-1 p-0 mt-1">
+                                            <h6 class="">Availability</h6>
+                                        </div>
+                                        <div class="col-11 p-0">
+                                            <ng-container *ngIf="slotDisplay">
+                                                <table style="width:100%">
+
+                                                    <tr class="mt-1 mb-1" *ngFor="let day of slotDisplay">
+                                                        <td><b>{{ day.weekday }}:</b></td>
+                                                        <td *ngFor="let slotTime of day.timing">
+                                                            {{ slotTime.start != "00:00:00" ? createTimeFormat(slotTime.start) : "" }}-{{ slotTime.end != "00:00:00" ? createTimeFormat(slotTime.end) : "" }}
+                                                        </td>
+
+
+                                                    </tr>
+                                                </table>
+                                            </ng-container>
+                                            <ng-container *ngIf="!slotDisplay">
+                                                <div class="font-size14 circularBook ml-2">All Day</div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="mt-4">
+                        <h5 class="mb-0">Attached Documents</h5>
+                        <div class="d-flex">
+                            <a class="document mr-3 mt-3 mb-3" [href]="document.pic" target="_blank" *ngFor="let document of documents" style="display: inline-block">
+                                <img [src]="document.pic" style="object-fit: cover" class="w-100 h-100" />
+                            </a>
+                        </div>
+                        <hr />
+
+                        <h5 class="mb-0">Address</h5>
+                        <div class="d-flex">
+                            <p>{{address?.address | titlecase}},{{address?.city | titlecase}},{{address?.state | titlecase}}
+                            </p>
+                        </div>
+                        <hr />
+                        <h5 class="mb-0">PAN No.</h5>
+                        <div class="d-flex">
+                            <p>{{pan}}</p>
+                        </div>
+                        <hr />
+
+                        <div class="mt-4">
+                            <h5 class="">Listing Details</h5>
+                            <p class="small-text">
+                                All the details related to listing can be edited and updated from here.
+                            </p>
+                            <a class="mr-3 paragraph" (click)="navigateToEditProfile('/expert/profile')">Profile
+                                Details</a>
+                            <a class="mr-3 paragraph" (click)="navigateToEditProfile('/expert/education')">Education &
+                                Experience</a>
+                            <a class="mr-3 paragraph" (click)="navigateToEditProfile('/expert/services')">Service
+                                offerings</a>
+                            <a class="mr-3 paragraph" (click)="navigateToEditProfile('/expert/availability')">Availability</a>
+                            <br />
+                            <a class="mr-3 paragraph" (click)="navigateToEditProfile('/expert/listing')">Listing
+                                Details</a>
+
+                            <div class="mt-4 mb-4">
+                                <button type="button" class="btn buttons" (click)="editListing()">
+                                    Edit your Listing
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-12 mb-5">
+                    <div class="card box">
+                        <div class="card-body p-0">
+                            <h5 class="text-left">Your Summary</h5>
+                            <div class="card-text">
+                                <p class="col-12 text-left small-text px-0">
+                                    Overview of your relationship with GrabGuidance.
+                                </p>
+                                <hr />
+                                <h5 class="circularBold">
+                                    &#8377;{{ setTwoPointer(expertDetails?.total) }}
+                                </h5>
+                                <div class="d-flex justify-content-between">
+                                    <p class="">Total earnings till now!</p>
+                                    <a (click)="downloadSessionDetails()" target="_blank"><img src="../assets/ggsvg/download.svg" style="height: 20px;"></a>
+                                </div>
+
+                                <hr />
+                                <div class="row mx-0 justify-content-between">
+                                    <div class="mb-0 px-0 paragraph" style="color: black">
+                                        This Month Earnings
+                                    </div>
+                                    <div class="paragraph" style="color: black">
+                                        &#8377;{{ setTwoPointer(expertDetails?.curr_month) }}
+                                    </div>
+                                </div>
+                                <hr />
+
+                                <div class="row mx-0 justify-content-between">
+                                    <p class="mb-0 px-0" style="color: black">Overall rating</p>
+                                    <div class="d-flex justify-content-end">
+                                        <p class="" style="color: black">
+                                            <i class="pi pi-star" style="font-size: 1em; color: #ffdf32"></i> {{ overallRating }}/5
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-0 justify-content-between">
+                                    <p class="mb-0 px-0" style="color: black">Total Reviews</p>
+                                    <div class="d-flex justify-content-end">
+                                        <p class="" style="color: black">
+                                            {{ expertDetails?.review.length }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <hr />
+
+                                <div class="row mx-0 justify-content-between">
+                                    <p class="mb-0 px-0" style="color: black">
+                                        {{ getCurrentMonth() }} Sessions
+                                    </p>
+                                    <div class="d-flex justify-content-end">
+                                        <p class="" style="color: black">
+                                            {{ expertDetails?.curr_month_session ? expertDetails?.curr_month_session : 0 }}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-0 justify-content-between">
+                                    <p class="mb-0 px-0" style="color: black">Total Sessions</p>
+                                    <div class="d-flex justify-content-end">
+                                        <p class="" style="color: black">
+                                            {{ expertDetails?.total_session ? expertDetails?.total_session : 0 }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div id="addBankDetailsModal" class="modal fade m-5" role="dialog" aria-labelledby="dialog-sizes-name2" data-backdrop="static">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="circularBold signUpHeading">Add Bank Details</h6>
+                <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div>
+                        <input type="text" class="education-inputs w-100" placeholder="Full Name" />
+                        <input type="text" class="education-inputs w-100 mt-3" placeholder="Account Number" />
+                        <input type="text" class="education-inputs w-100 mt-3" placeholder="IFSC Number" />
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text contactNumber-addon" id="basic-addon1">+91</span>
+                            </div>
+                            <input type="text" class="form-control contactnumber-input" placeholder="Phone Number" aria-label="contactNumber" aria-describedby="basic-addon1" />
+                        </div>
+                        <p class="circularBook font-size12 grey8E text-left mt-2">
+                            We’ll text you to confirm your number. Standard message rates apply.
+                        </p>
+                        <p class="circularBook font-size12 grey8E text-left mt-4">
+                            By selecting Agree and continue below, I agree to GrabGuidance’s
+                            <a href="">Terms of Service</a> ,
+                            <a href="">Payments Terms of Service</a> &
+                            <a href="">Privacy Policy</a> .
+                        </p>
+                        <div class="mt-4">
+                            <button type="button" class="btn buttons circularBold w-100">
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

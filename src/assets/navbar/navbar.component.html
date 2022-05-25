@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg" [ngClass]="isFromLogin ? 'black-bg' : 'black-bg'">
+  <a class="navbar-brand" (click)="navigate()">
+    <div class="brand-icon">
+      <img src="../../assets/images/logo-whitebg.png" style="object-fit: contain" width="148" height="46"
+        class="d-inline-block align-center logo-img-expert" alt="" />
+      <span class="greyCE ml-2">|</span>
+      <span class="ml-2 small-text text-white"> Confusion to Conclusion</span>
+    </div>
+  </a>
+  <div class="searchbar" *ngIf="
+      currentUrl == 'expert-list' || currentUrl == 'expert' || currentUrl == ''
+    " id="searchBar">
+    <app-search-expert [searchCriteria]="criteria"></app-search-expert>
+  </div>
+
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon" [ngClass]="open ? 'open' : 'close'" (click)="openSideNav()"></span>
+  </button>
+
+  <div class="collapse navbar-collapse non-flex" id="navbarNav">
+    <ul class="navbar-nav ml-auto text-left">
+
+      <li class="nav-item mt-1 profile-show px-3 pt-3 pb-1" *ngIf="isUserLoggedIn == 'true'">
+        <div class="row mx-0">
+          <div class="col-4 px-0">
+            <img [src]="Imgurl" style="object-fit: cover" width="55" height="55" class="rounded-circle" />
+          </div>
+          <div class="col-8 px-0">
+            <ul class="list-unstyled">
+              <li>{{ username }}</li>
+              <li>
+                <a class="nav-link paragraph p-0" *ngIf="!isAdmin" (click)="editProfile()">Edit Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="profile-line" />
+        <div class="nav-item margin-right mt-lg-1 mr-0 school">
+          <a class="nav-link paragraph p-0" (click)="logout()">Log Out</a>
+        </div>
+      </li>
+
+      <li *ngIf="currentUrl != 'expert-list' && currentUrl != 'expert'"
+        class="nav-item margin-right mt-lg-1 ml-2 mr-0 school">
+        <a href="https://www.grabguidance.com/for-schools-colleges/" target="_blank" class="nav-link paragraph pb-0">
+          For Schools/Colleges
+        </a>
+      </li>
+
+      <li *ngIf="currentUrl != 'expert-list' && currentUrl != 'expert'"
+        class="nav-item margin-right mt-lg-1 ml-2 mr-0 expert">
+        <a href="https://www.grabguidance.com/for-expert/" target="_blank" class="nav-link paragraph pb-0">
+          For Experts
+        </a>
+      </li>
+
+      <li
+        class="nav-item margin-right mt-lg-1 ml-2 mr-0 about">
+        <a href="https://www.grabguidance.com/about/" target="_blank" class="nav-link paragraph pb-0">
+          About Us
+        </a>
+      </li>
+
+      <li
+        class="nav-item margin-right mt-lg-1 ml-2 mr-0 contact">
+        <a href="https://www.grabguidance.com/contact/" target="_blank" class="nav-link paragraph">
+          Contact Us
+        </a>
+      </li>
+
+      <li class="nav-item mt-1 expert-account" *ngIf="isUserLoggedIn != 'true'">
+        <a class="nav-link margin-right paragraph" (click)="becomeAnExpert()">
+          <b>Expert Account</b>
+        </a>
+      </li>
+
+      <li class="nav-item dropdown mr-2 navpic" *ngIf="isUserLoggedIn == 'true'">
+        <a class="nav-link dropdown-toggle" *ngIf="isUserLoggedIn == 'true'" href="#" id="navbarDropdownMenuLink"
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img [src]="Imgurl" style="object-fit: cover" width="40" height="40" class="rounded-circle" />
+          <i class="fa fa-angle-down" aria-hidden="true" style="margin-left: 8px; font-size: 22px"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click)="dashBoard()">Dashboard</a>
+          <a class="dropdown-item" *ngIf="!isAdmin" (click)="editProfile()">Edit Profile</a>
+          <a class="dropdown-item" (click)="logout()">Log Out</a>
+        </div>
+      </li>
+
+      <li class="nav-item mt-1 ml-2" *ngIf="isUserLoggedIn != 'true'">
+        <a class="nav-link paragraph" (click)="loginScreen()" data-userType="UserLogin">
+          User Account
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <app-login-confirmation></app-login-confirmation>
+  </div>
+  <app-signin></app-signin>
+</nav>

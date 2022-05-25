@@ -1,0 +1,202 @@
+<!-- <app-user-expert-navbar class="navbarshow"></app-user-expert-navbar> -->
+<app-navbar></app-navbar>
+<section class="expert-box-model mt-5">
+    <div class="mb-3" (click)="back()">
+        <img src="../../assets/ggsvg/noun_Arrow Left_2682937.svg">
+        &nbsp;<span class="mt-1">Back</span>
+    </div>
+    <div class="row">
+        <div class="col-md-7 col-lg-8">
+            <h3 class="">Review and Pay</h3>
+            <p class="">Review your session and make the payment.</p>
+
+            <h5 class="mt-4">Describe your Query*</h5>
+            <p class="">Tell the expert what kind of question's you have in mind, this will help the expert for
+                preparing the right material for you.</p>
+            <textarea name="query" id="" cols="85" rows="5" required [(ngModel)]="query" placeholder="Write here"
+                class="mt-2 text-area">
+        </textarea>
+
+            <div class="mt-4" *ngIf="!isAdmin">
+                <hr class="mt-3">
+                <h6 class="text-left"><b>Attachments</b></h6>
+                <p class="text-left">Add documents.
+                </p>
+                <div class="row">
+                    <div class="dropzone" style="margin-left: 19px;
+                ">
+                        <i class="fa fa-plus upload-icon-profile" style="margin-top: calc(50% - 14px);"
+                            aria-hidden="true"></i>
+                        <input type="file" class="upload-input" (change)="onFileSelected($event)" />
+                    </div>
+                    <div *ngFor="let document of documents">
+                        <div class="dropzone ml-2">
+                            <img [src]="document.pic" alt="" width="100%" height="100%">
+                            <div class="delete-icon-div">
+                                <i class="fa fa-remove delete-icon" (click)="deleteImg(document.id_document)"
+                                    aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p *ngIf="imageError" class="text-danger">Error: Invalid File Size
+                    <br>File Size is greater than 400kb
+                </p>
+            </div>
+
+            <div class="mt-4">
+                <div>
+                    <h5 class="">Who’s joining?</h5>
+                    <div class="row mt-4" *ngIf="isAdmin">
+                        <div class="col-2">
+                            <img [src]="findUserProfile('')" alt="" class="rounded-circle" style="object-fit: cover;"
+                                width="55" height="55">
+                        </div>
+                        <div class="col-4 ml-n5">
+                            <select id="user" class="w-100 text-left admin-user mt-2" placeholder="user"
+                                (change)="onChange($event)">
+                                <option selected value="" class="slot-option" disabled>
+                                    Select user
+                                </option>
+                                <option *ngFor="let user of userAdminList" value="{{user.id_user}}">
+                                    {{user.full_name}}
+                                </option>
+                            </select>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="row mx-0 pt-3"
+                        [ngClass]="{ 'border-top': i == 0, 'border-bottom': i == 2, 'pb-1': i ==2}"
+                        *ngFor="let data of joiningList; let i=index">
+                        <div class="col-3 col-sm-2 col-xl-1 px-0">
+                            <img [src]="findUserProfile(data?.profession)" alt="" class="rounded-circle"
+                                style="object-fit: cover;" width="55" height="55">
+                        </div>
+                        <div class="col-8 col-sm-9 col-lg-10 col-xl-11 mt-2 border-bottom px-0"
+                            [ngClass]="{ 'border-bottom': i < 2}">
+                            <h6 class=""><b>{{data?.name}}</b></h6>
+                            <p class="small-text mt-n2">{{data?.profession}}</p>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <h5 class="mt-4">Languages</h5>
+                <p class="">This expert can speak in {{languages}}.</p>
+                <h5 class="mt-4">Review requirements</h5>
+                <p class="">
+                    You’ll need an internet connection with the ability to stream audio and video to
+                    participate along with a working laptop.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-5 col-lg-4 mb-5 h-75 cardshow" [ngClass]="cardshow ? 'show': 'hide'">
+            <div class="card box card-width">
+                <div class="card-body p-0">
+                    <div class="my-3" (click)="showResponsiveCard()">
+                        <img src="../../assets/ggsvg/noun_Arrow Left_2682937.svg">
+                    </div>
+                    <div class="row font-size14">
+                        <div class="col-12 col-xl-8">
+                            <h5 class="">{{expert.name}}</h5>
+                            <p class="mb-0" style="line-height: 24px;">{{education.degree }} in
+                                {{education.specialization}}</p>
+                            <p class="mb-0 mt-1">{{expert.total_experience}} Years Experience Overall</p>
+
+                        </div>
+                        <div class="text-right img-size col-md-6 col-xl-4 px-xl-0 mt-2 mt-xl-2">
+                            <img [src]="expertImgUrl" alt="" style="object-fit: cover;" class="w-100 h-100 rounded">
+                        </div>
+                    </div>
+                    <div class="ml-3">
+                        <div class="row flex-column">
+                            <div>
+                                <h6 class="mt-2">Looking for guidance in</h6>
+                            </div>
+                            <div *ngIf="selectedClass && selectRole">
+                                <span class="tags mt-2">Class {{selectedClass}}</span>
+                                <span class="tags ml-3 mt-2">{{selectRole}}</span>
+                            </div>
+                            <div *ngIf="!selectRole">
+                                <span class="tags mt-2">General</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <p>
+                    <h6 *ngIf="session.multi == 0" class="">{{formatSessionDate(session.date)}}</h6>
+                    <h6 *ngIf="session.multi == 1" class="">{{formatSessionDate(session.startDate)}} -
+                        {{formatSessionDate(session.endDate)}}</h6>
+                    <p class="" style="line-height: 20px;"> {{createTimeFormat(session.start_time)}} -
+                        {{createTimeFormat(session.end_time)}} <br>
+                        {{calculateSessionDuration(session.start_time,session.end_time, session.date)}} min session
+                    <p>
+                    </p>
+                    <hr>
+                    <div class="card-text">
+
+                        <div class="row font-size14">
+                            <p class="col-8 mb-0" style="color: black;">
+                                &#8377;{{price}} x {{count}} session
+                            </p>
+                            <p class="col-4 text-right mb-0" style="color: black;">
+                                &#8377;{{total}}
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="d-flex font-size14 mb-0 justify-content-between">
+                            <h5 class="text-left">Add coupon code </h5>
+                        </div>
+
+
+
+                        <div class="input-group mb-3 input-group-apply">
+                            <input type="text" class="form-control mt-2" placeholder="Enter code" [(ngModel)]="prmo">
+                            <div class="input-group-append">
+                                <button type='button' (click)="promo()"
+                                    class="btn small-buttons input-group-apply-btn">Apply</button>
+                            </div>
+                        </div>
+
+
+                        <div class="row font-size14  mt-3 mb-3" style="margin-bottom: -1rem!important;">
+                            <p class="text-left col-8" style="color: black;"> Coupon discount</p>
+
+                            <p class="col-4 text-right" style="color: black;">
+
+                                &#8377;{{discount}}
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="row font-size14" style="margin-bottom: -1rem!important;">
+                            <h5 class="col-8">
+                                Total
+                            </h5>
+                            <h5 class="col-4 text-right">
+                                &#8377;
+                                <span *ngIf="isPromoCodeApplied; else isNotPromoCodeApplied">
+                                    {{totalDiscount}}
+                                </span>
+                                <ng-template #isNotPromoCodeApplied>
+                                    {{total}}
+                                </ng-template>
+                            </h5>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="button" class="btn buttons w-100 nextBtn circularBold"
+                                (click)="confirmPayment()">Confirm & Pay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="fixed-btn">
+    <button type="button" class="btn buttons circularBold w-100 my-3" (click)="showResponsiveCard()">Review</button>
+</div>
+
+
+<app-footer></app-footer>

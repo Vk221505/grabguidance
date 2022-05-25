@@ -1,0 +1,147 @@
+a {
+    text-decoration: underline;
+}
+
+.errorMsg {
+    color: red;
+    display: inline-block;
+}
+
+.modal-content {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 400px !important;
+    pointer-events: auto !important;
+    background-color: #fff !important;
+    background-clip: padding-box !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    border-radius: 12px !important;
+    outline: 0 !important;
+    -webkit-border-radius: 12px !important;
+    -moz-border-radius: 12px !important;
+    -ms-border-radius: 12px !important;
+    -o-border-radius: 12px !important;
+}
+
+.backGround {
+    background-color: #000 !important;
+    min-height: 100vh !important;
+    padding: 100px 70px 0 70px;
+}
+
+.logog {
+    margin-bottom: 40px;
+    width: 190px;
+}
+
+h1 {
+    font-size: 40px !important;
+    line-height: 44px !important;
+    color: #fff !important;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px !important;
+    line-height: 23px !important;
+    color: #fff !important;
+}
+
+.log-img {
+    margin-top: 20px;
+}
+
+.log-img img {
+    width: 96px !important;
+    height: 96px !important;
+    margin: 10px;
+}
+
+.log-img p {
+    font-size: 14px !important;
+    line-height: 18px !important;
+    text-align: center;
+    width: 70%;
+}
+
+.small-text {
+    font-size: 16px !important;
+    color: #000 !important;
+}
+
+.from {
+    margin: 200px 140px;
+    box-shadow: 0 3px 13px #00000029;
+    border-radius: 12px !important;
+    -webkit-border-radius: 12px !important;
+    -moz-border-radius: 12px !important;
+    -ms-border-radius: 12px !important;
+    -o-border-radius: 12px !important;
+}
+
+
+/* .from form {
+      padding: 50px;
+  }
+  
+  .from form {
+      padding: 50px;
+  } */
+
+.top-form {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #00000029;
+}
+
+.top-form span {
+    padding: 0 50px 0 30px;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+
+/* Mobilesection */
+
+.section-login-mobile h1 {
+    font-size: 35px !important;
+}
+
+.section-login-mobile .log-img {
+    text-align: center;
+}
+
+.section-login-mobile .log-img p {
+    width: 100%;
+}
+
+.section-login-mobile {
+    display: none;
+}
+
+.last {
+    margin-bottom: 70px;
+}
+
+@media screen and (max-width: 575px) {
+    .from {
+        margin: 50px 20px;
+    }
+    .top-form span {
+        padding: 0 10px 0 10px;
+    }
+    .from form {
+        padding: 25px;
+    }
+    .section-login {
+        display: none !important;
+    }
+    .section-login-mobile .backGround {
+        padding: 140px 40px 0 40px;
+    }
+    .section-login-mobile {
+        display: block;
+    }
+}

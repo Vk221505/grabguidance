@@ -1,0 +1,18 @@
+a {
+    color: #000000;
+}
+
+.nav-link .active {
+    border-bottom: 4px solid #FF9500;
+    width: 113px;
+    margin-top: 16px!important;
+    outline: none!important;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: inherit!important;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}

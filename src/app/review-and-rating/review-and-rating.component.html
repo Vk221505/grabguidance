@@ -1,0 +1,75 @@
+<app-user-expert-navbar></app-user-expert-navbar>
+<section class="mt-5 text-center">
+  <div class="row mx-0">
+    <div class="offset-3 col-6">
+      <h3 *ngIf="userType == 'user'" class="">
+        How was your session? Rate your experience with {{expertName}}.
+      </h3>
+      <p *ngIf="userType == 'user'" class="mt-3 ml-3 mr-3">
+        You just checked out of Now, take a minute to reflect on
+        the experience and share a quick review. We value all the feedback, it help
+        us to give you even better experience next time.
+      </p>
+      <h3 *ngIf="userType == 'expert'" class="">
+        We hope you had a great session.
+      </h3>
+      <p *ngIf="userType == 'expert'">
+        You can rejoin the session or close it permanently.
+         You can’t rejoin once you are past the scheduled time. See you soon :)
+      </p>
+    </div>
+  </div>
+  <div class="row mx-0 justify-content-center">
+    <div class="mt-4">
+      <button class="btn buttons mr-3 ml-3" (click)="rejoin()">Rejoin</button>
+      <button *ngIf="userType=='expert'" class="btn buttons mr-3 ml-3" (click)="endSession()">END SESSION</button>
+      <button *ngIf="userType=='user'" class="btn buttons" (click)="continueWithFeedBack()">Continue with feedback</button>
+    </div>
+  </div>
+  <div class="row mx-0 justify-content-center">
+    <div *ngIf="showReviewBox" class="">
+      <div class="d-flex justify-content-center">
+        <fieldset class="rating mt-3">
+          <input type="radio" id="star5" name="rating" (click)="rating(5)" />
+          <label class="full" for="star5" title="5 stars" class="mr-3"></label>
+
+          <input type="radio" id="star4half" name="rating" (click)="rating(4.5)" />
+          <label class="half" for="star4half" title="4.5 stars"></label>
+
+          <input type="radio" id="star4" name="rating" (click)="rating(4)" />
+          <label class="full" for="star4" title="4 stars" class="margin-right5"></label>
+
+          <input type="radio" id="star3half" name="rating" (click)="rating(3.5)" />
+          <label class="half" for="star3half" title="3.5 stars"></label>
+
+          <input type="radio" id="star3" name="rating" (click)="rating(3)" />
+          <label class="full" for="star3" title="3 stars" class="margin-right5"></label>
+
+          <input type="radio" id="star2half" name="rating" (click)="rating(2.5)" />
+          <label class="half" for="star2half" title="2.5 stars"></label>
+
+          <input type="radio" id="star2" name="rating" (click)="rating(2)" />
+          <label class="full" for="star2" title="2 stars" class="margin-right5"></label>
+
+          <input type="radio" id="star1half" name="rating" (click)="rating(1.5)" />
+          <label class="half" for="star1half" title="1.5 stars"></label>
+
+          <input type="radio" id="star1" name="rating" (click)="rating(1)" />
+          <label class="full" for="star1" title="1 star" class="margin-right5"></label>
+
+          <input type="radio" class="fomr-control" id="starhalf" name="rating" (click)="rating(0.5)" />
+          <label class="half" for="starhalf" title="0.5 stars"></label>
+        </fieldset>
+      </div>
+      <div style="clear: both;"></div>
+      <div class="" style="width: 480px;">
+        <textarea name="" id="" cols="50" [(ngModel)]="feedback"
+        placeholder="Please give feedback about expert" class="w-100"></textarea>
+        <button type="button" class="btn buttons feedbackBtn" (click)="submitFeedBack()">
+          Submit Your Feedback
+        </button>
+      </div>
+    </div>
+  </div>
+
+</section>

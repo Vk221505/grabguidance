@@ -1,0 +1,32 @@
+<form [formGroup]="loginForm">
+    <div class="row w-100 mx-0 pl-0 w3-container w3-center w3-animate-zoom">
+        <div class="col-12 px-0">
+            <p-autoComplete formControlName="searchValue" name="searchValue" [suggestions]="results" (completeMethod)="autocompleteValue($event)" size="80" field="name" [inputStyle]="{'width':'100%'}" class="w-100" placeholder="search for Experts, Subjects" #autoCompleteObject
+                [ngClass]="{ 'input-error': submitted && loginForm.controls.searchValue.invalid }">
+                <ng-template let-option pTemplate="item">
+                    <div class="row mt-1 align-items-center justify-content-between" (click)="navigate(option)">
+                        <div class="col text-left">
+                            {{option.name}}
+                        </div>
+                        <div class="col small-text text-right">
+                            {{option.role}}
+                        </div>
+                    </div>
+                </ng-template>
+            </p-autoComplete>
+            <div class="">
+                <div class="search-icon-div text-center" (click)="search()">
+                    <i class="fa fa-search search-icon" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="col-1 px-0 select-position">
+                <select name="classDropDown" id="classDropDown" formControlName="classDropDown" class="form-control input-height" style="width: 100%!important; border-radius: 6px 0 0 6px!important; border: none; border-right: 1px solid #CECED2;" (change)="onChange($event)">
+                    <option value="" class="dropdown-items">Class</option>
+                    <option *ngFor="let class of classes" value="{{class.id_class}}-{{class.class_name}}"
+                        class="dropdown-items">
+                       {{class.class_name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</form>

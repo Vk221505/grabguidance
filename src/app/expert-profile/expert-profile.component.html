@@ -1,0 +1,102 @@
+
+<div *ngIf="spinnerFlag">
+  <div class="myOverlay text-center">
+    <div class="btn btn-static font-xl bg-light">
+      <span class="fa fa-spinner rotate"> </span> Processing request...
+    </div>
+  </div>
+</div>
+<section class="marginBoxModelForProfile padding-bottom-90">
+  <form [formGroup]="profileForm">
+    <h6 class="text-left ">Profile Details</h6>
+    <input type="text" class="education-inputs w-100 mt-3" placeholder="Name" formControlName="name"
+      [ngClass]="{'input-error': submitted && profileForm.controls.name.invalid}">
+    <select id="gender" class="w-100 mt-3 text-left" formControlName="gender" #ongender
+    [ngClass]="{'input-error': submitted && profileForm.controls.gender.invalid}">
+      <option selected value="" class="slot-option" disabled>
+        Select any
+      </option>
+      <option *ngFor="let value of genders" value="{{value.id_gender}}">{{value.gender_name}}
+      </option>
+    </select>
+
+    <div class="input-group mt-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text contactNumber-addon" id="basic-addon1"
+          [ngClass]="{'input-error': submitted && profileForm.controls.phNumber.invalid}">+91</span>
+      </div>
+      <input type="text" class="form-control contactnumber-input" placeholder="Contact Number"
+        aria-label="contactNumber" aria-describedby="basic-addon1" formControlName="phNumber"
+        [ngClass]="{'input-error': submitted && profileForm.controls.phNumber.invalid}">
+    </div>
+    <input type="email" class="education-inputs w-100 mt-3" placeholder="Email" formControlName="email"
+      [ngClass]="{'input-error': submitted && profileForm.controls.email.invalid}">
+      
+    <input type="text" class="education-inputs w-100 mt-3" placeholder="Address" formControlName="address"
+      [ngClass]="{'input-error': submitted && profileForm.controls.address.invalid}">
+    <!-- <p class="font-size12 grey8E circularBook text-left mt-2">We use this detail to generate invoices and use it
+            for tax purposes.</p> -->
+    <div>
+      <input type="text" class="education-inputs w-100 mt-3" placeholder="Pincode" formControlName="pincode"
+        [ngClass]="{'input-error': submitted && profileForm.controls.pincode.invalid}"
+        (change)="onChangePincode($event)">
+    </div>
+    <div class="text-left">     
+      <input type="text" name="city" id="city" placeholder="City" class="education-inputs mt-3 mr-1 w-50"
+        formControlName="city" [ngClass]="{'input-error': submitted && profileForm.controls.city.invalid}">
+     
+      <input type="text" name="state" id="state" placeholder="State" class="education-inputs mt-3 state-dropdown"
+        formControlName="state" [ngClass]="{'input-error': submitted && profileForm.controls.state.invalid}">
+        <div>
+          <input type="text" class="education-inputs w-100 mt-3" placeholder="Pan No." formControlName="pan"
+            >
+        </div>
+    </div>
+
+    <div>
+      <hr class="mt-4">
+      <h6 class="text-left mt-4">Liven up the listing with your photo</h6>
+      <p class="text-left">Upload a
+        photo to publish your listing – you can always edit it later. Remember a good quality photo will
+        make difference.</p>
+    </div>
+    <div class="row mt-4">
+      <div class="dropzone col-3" *ngIf="!showImg">
+        <button type="button" class="btn buttons upload-icon">Upload</button>
+        <input type="file" class="upload-input" (change)="onSelectImg($event)" />
+      </div>
+      <div class="col-4" *ngIf="showImg">
+        <img [src]="imageUrl" alt="" width="150" height="200" style="object-fit: cover;">
+        <diV>
+          <button type="button" class="btn mt-1 buttons" (click)="update.click()">Upload</button>
+          <input type="file" #update class="upload-input" (change)="onSelectImg($event)" />
+        </diV>
+      </div>
+      <div class="w-50 text-left ml-2 col-6">
+        <h6 class="">Tips for quality photos</h6>
+        <div class="small-text">
+          <ul class="small-text pl-3">
+            <li>Declutter your space.</li>
+            <li> Use natural daylight and avoid flash Shoot
+              from front in portrait mode Balance visible background and your face
+              & shoulders.</li>
+              <li>   Add photos which looks professional Recommended specs:
+                700 height x 400 width, 2 MB max.</li>
+          </ul>
+        </div>
+        <p *ngIf="imageError" class="text-danger">Error: Invalid Image
+          <br>Image Size is greater than 2MB
+        </p>
+      </div>
+    </div>
+  </form>
+</section>
+<footer class="footerBackAndNext bloating mt-5 text-center">
+  <div class="mt-2 pt-2">
+    <ng-container *ngIf="!isSignUp">
+      <button type="submit" class="btn buttons circularMedium nextBtn" (click)="onSubmit('exit')">Save and Exit</button>
+    </ng-container>
+    <button type="button" class="btn ml-3 circularMedium" [ngClass]="{isSignUp: 'buttons'}"
+      (click)="onSubmit('next')">Save & Next <span style="font-size: 25px;">&rarr;</span></button>
+  </div>
+</footer>

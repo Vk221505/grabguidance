@@ -1,0 +1,289 @@
+<app-admin-navbar></app-admin-navbar>
+<section class="expert-box-model mt-3">
+    <div>
+        <h3 class="">Hello team!</h3>
+        <p class="">You can manage all the sessions, users and experts from here.</p>
+
+        <div class="card main-card mt-4">
+            <div class="card-body">
+                <div class="card-deck">
+                    <ng-container class="row" *ngIf="currentSessions && currentSessions.length > 0">
+                        <div class="card upcoming-card col-4 px-0" (click)="upcomingSession(data)" *ngFor="let data of currentSessions | slice : 0: 3">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h6 class="mb-0 paragraph text-white">
+                                        {{ formatSessionDate(data.session_date) }}
+                                    </h6>
+                                    <span class="circularBook paragraph" style="color: #CECED2; line-height: 25px!important;">
+                    At {{createTimeFormat(data.session_start)}}, {{ calculateSessionDuration( data.session_start,
+                    data.session_end, data.session_date ) }}
+                    min session <br />
+                  </span>
+                                    <div class="mt-1">
+                                        <span class="mr-1 paragraph" style="color: #CECED2;">User:</span>
+                                        <span class="paragraph text-white" style="color: #CECED2; line-height: 25px!important;">{{
+                      data.user_name }}</span>
+                                    </div>
+                                    <div class="">
+                                        <span class="mr-1 paragraph" style="line-height: 25px!important; color: #CECED2;">Expert:</span>
+                                        <span class="paragraph text-white" style="line-height: 25px!important;">{{ data.expert_name
+                      }}</span>
+                                    </div>
+                                    <div class="row mt-1 mx-0">
+                                        <div class="col-12 text-left px-0">
+                                            <span *ngIf="data.class  && data.subject" class=" mr-1 paragraph" style="color: #CECED2;">Related
+                        to:</span>
+                                            <span *ngIf="data.class && data.class != 'null'" class="paragrap tags">{{ data.class }}</span>
+                                            <span *ngIf="data.subject && data.subject != 'null'" class="paragraph tags ml-2">{{ data.subject
+                        }}</span>
+                                            <span *ngIf="data.subject =='null' && data.subject == 'null'" class="paragraph tags">General</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container class="row" *ngIf="currentSessions && currentSessions.length == 0">
+                        <div class="card-text">
+                            <h6 class="card-title ml-3 mb-0 text-white">Upcoming Events</h6>
+                        </div>
+                    </ng-container>
+                    <ng-container class="row" *ngIf="!currentSessions">
+                        <div class="card-text">
+                            <h6 class="card-title ml-3 mb-0 text-white">Upcoming Events</h6>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <h3 class="mt-5">Business Summary</h3>
+    <p class="">Bird eye view of our current standing.</p>
+    <div class="card-deck mt-4">
+        <div class="card business-summary-card">
+            <div class="card-body">
+                <h5 class="card-title">Total</h5>
+                <div class="card-text mt-4">
+                    <div class="row">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Revenue</h6>
+                        </div>
+                        <div class="col text-right">
+                            <h6 class="paragraph mb-0">&#8377;{{totalTransaction?.totalAmount}}</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Sessions Booked</h6>
+                        </div>
+                        <div class="col text-right">
+                            <h6 class="paragraph mb-0">{{totalTransaction?.multiSessionCount + totalTransaction?.singleSessionCount}}
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Users</h6>
+                        </div>
+                        <div class="col text-right">
+                            <h6 class="paragraph mb-0">{{totalTransaction?.countUser}}</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Experts</h6>
+                        </div>
+                        <div class="col text-right">
+                            <h6 class="paragraph mb-0">{{totalTransaction?.countExpert}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card business-summary-card">
+            <div class="card-body">
+                <h5 class="">This Month</h5>
+                <div class="card-text mt-4">
+                    <div class="row">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Revenue</h6>
+                        </div>
+                        <div class="col text-right">
+                            <h6 class="paragraph mb-0">&#8377;{{currentMonthlyTrans?.totalAmount}}</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-1i">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Sessions Booked</h6>
+                        </div>
+                        <div class="col text-right">
+                            <div>
+                                <h6 class="paragraph mb-0">{{currentMonthlyTrans?.multiSessionCount + currentMonthlyTrans?.singleSessionCount}} <img (click)="downloadCurrentMonthSession()" src="../assets/ggsvg/download.svg" style="width: 18px;"></h6>
+                            </div>
+                            <!-- <a (click)="downloadCurrentMonthSession()" class="ml-2"><img src="../assets/ggsvg/download.svg"
+                class="img-position"></a> -->
+
+
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Users</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div>
+                                <h6 class="mb-0 paragraph mb-0">{{currentMonthlyTrans?.countUser}}</h6>
+                            </div>
+                            <a (click)="downloadCurrentMonthUser()" class="ml-2"><img src="../assets/ggsvg/download.svg" style="width: 18px;"></a>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Experts</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div>
+                                <h6 class="mb-0 paragraph mb-0">{{currentMonthlyTrans?.countExpert}}</h6>
+                            </div>
+                            <a class="ml-2" (click)="downloadCurrentMonthExpert()"><img src="../assets/ggsvg/download.svg" style="width: 18px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card business-summary-card">
+            <div class="card-body">
+                <h5 class="card-title">Last Month</h5>
+                <div class="card-text mt-4">
+                    <div class="row">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Revenue</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <h6 class="mb-0 paragraph mb-0">{{previousMonthkyTrans?.totalAmount}}</h6>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Sessions Booked</h6>
+                        </div>
+                        <div class="col text-right">
+                            <div>
+                                <h6 class="paragraph mb-0">{{previousMonthkyTrans?.multiSessionCount + previousMonthkyTrans?.singleSessionCount}} <img (click)="downloadPreviousMonthSession()" src="../assets/ggsvg/download.svg" style="width: 18px;"> </h6>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Users</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div>
+                                <h6 class="mb-0 paragraph mb-0">{{previousMonthkyTrans?.countUser}}</h6>
+                            </div>
+                            <a class="ml-2" (click)="downloadPreviousMonthUser()"><img style="width: 18px;" src="../assets/ggsvg/download.svg"></a>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col text-left">
+                            <h6 class="paragraph mb-0">Experts</h6>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            <div>
+                                <h6 class="mb-0 paragraph mb-0">{{previousMonthkyTrans?.countExpert}}</h6>
+                            </div>
+                            <a class="ml-2" (click)="downloadPreviousMonthExpert()"><img src="../assets/ggsvg/download.svg" style="width: 18px;"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="mt-5">Service Management</h3>
+    <p class="grey5F circularBook">You can manage the service offerings from here.</p>
+    <div class="card mt-4">
+        <div class="row mx-0 p-3 justify-content-between">
+            <div class="mt-1">
+                <h6 class="mb-0">Classes</h6>
+            </div>
+            <div class="">
+                <button *ngIf="!editClasses" class="btn small-buttons" (click)="editBoxes('class')">Edit</button>
+                <button *ngIf="editClasses" class="btn small-buttons" (click)="saveBoxes('class')">Save</button>
+            </div>
+        </div>
+        <div class="p-3" style="background-color: #F5F5F5;">
+            <span class="class-tag" *ngFor="let class of classes">{{class.class_name}}
+        <a><img class="cross" (click)="deleteBox('class', class)" src="../assets/ggsvg/cross.svg"></a>
+      </span>
+            <span *ngIf="editClasses">
+        <input class="edit-input" (keydown.Tab)="onKey($event, 'class')" #classInput>
+      </span>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="row mx-0 p-3 justify-content-between">
+            <div class="mt-1">
+                <h6 class="mb-0">Boards</h6>
+            </div>
+            <div class="">
+                <button *ngIf="!editBoards" class="btn small-buttons" (click)="editBoxes('board')">Edit</button>
+                <button *ngIf="editBoards" class="btn small-buttons" (click)="saveBoxes('board')">Save</button>
+            </div>
+        </div>
+        <div class="p-3" style="background-color: #F5F5F5;">
+            <span class="class-tag" *ngFor="let board of boards">{{board.board_name}}
+        <a><img class="cross" (click)="deleteBox('board', board)" src="../assets/ggsvg/cross.svg"></a>
+      </span>
+            <span *ngIf="editBoards">
+        <input class="edit-input" (keydown.Tab)="onKey($event, 'board')" #classInput>
+      </span>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="row mx-0 p-3 justify-content-between">
+            <div class="mt-1">
+                <h6 class="mb-0">Subject Guidance</h6>
+            </div>
+            <div class="">
+                <button *ngIf="!editSubjectGuidance" class="btn small-buttons" (click)="editBoxes('subjectGuidance')">Edit</button>
+                <button *ngIf="editSubjectGuidance" class="btn small-buttons" (click)="saveBoxes('subjectGuidance')">Save</button>
+            </div>
+        </div>
+        <div class="p-3" style="background-color: #F5F5F5;">
+            <span class="class-tag" *ngFor="let subject of subjectGuidance">{{subject.subject_name}}
+        <a><img class="cross" (click)="deleteBox('subjectGuidance', subject)" src="../assets/ggsvg/cross.svg"></a>
+      </span>
+            <span *ngIf="editSubjectGuidance">
+        <input class="edit-input" (keydown.Tab)="onKey($event, 'subjectGuidance')" #classInput>
+      </span>
+        </div>
+    </div>
+    <div class="card mt-4">
+        <div class="row mx-0 p-3 justify-content-between">
+            <div class="mt-1">
+                <h6 class="mb-0">Career Guidance</h6>
+            </div>
+            <div class="">
+                <button *ngIf="!editPersonalGuidance" class="btn small-buttons" (click)="editBoxes('personalGuidance')">Edit</button>
+                <button *ngIf="editPersonalGuidance" class="btn small-buttons" (click)="saveBoxes('personalGuidance')">Save</button>
+            </div>
+        </div>
+        <div class="p-3" style="background-color: #F5F5F5;">
+            <span class="class-tag" *ngFor="let subject of personalGuidance">{{subject.guidance_name}}
+        <a><img class="cross" (click)="deleteBox('personalGuidance', subject)" src="../assets/ggsvg/cross.svg"></a>
+      </span>
+            <span *ngIf="editPersonalGuidance">
+        <input class="edit-input" (keydown.Tab)="onKey($event, 'personalGuidance')" #classInput>
+      </span>
+        </div>
+    </div>
+</section>
+
+<footer class="mt-5">
+
+</footer>

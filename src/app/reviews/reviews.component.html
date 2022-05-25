@@ -1,0 +1,76 @@
+<section class="marginBoxModel10">
+    <div class="mt-4" *ngIf="reviewsData.length > 0">
+        <div class="row ml-2">
+            <i class="pi pi-star mr-2" style="font-size: 1em;color: #FFDF32;"></i>
+            <h6 class="circularMedium"><b>{{totalrating}} ({{reviewsData?.length}} reviews)</b></h6>
+        </div>
+
+        <div class="mt-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 my-2" *ngFor="let review of reviewsData | slice: 0: 0; let i = index">
+                    <div class="row">
+                        <div class="col-2">
+                            <img [src]="createImageUrl(review.user_pic)" style="object-fit: cover;" alt="" class="rounded-circle" width="55" height="55">
+                        </div>
+                        <div class="col-10">
+                            <h6 class="">{{review.user_name}}</h6>
+                            <p class="small-text mt-n2">{{review.review_date | date:'mediumDate'}}</p>
+                        </div>
+                    </div>
+                    <p class="mb-0" [ngClass]="{'show-less-review': getReviewShortDescription(i) && calculateStringData(review.review) > 17}">
+                        {{review.review}}
+                    </p>
+                    <a *ngIf="calculateStringData(review.review) > 17" (click)="toggleReviewShowMore(i)" class="orangeFF font-size14">
+            {{getReviewShortDescription(i)? 'Read more...': 'Read less'}}
+          </a>
+                </div>
+                <div class="col-lg-6 col-md-12" *ngFor="let review of reviewsData">
+                    <div class="row mt-4">
+                        <div class="col-2 mt-n1">
+                            <img [src]="createImageUrl(review.user_pic)" style="object-fit: cover;" alt="" class="rounded-circle" width="55" height="55">
+                        </div>
+                        <div class="col-10">
+                            <span class="circularMedium"><b>{{review.user_name}}</b></span> <br>
+                            <span class="circularBook grey5F">{{formatSessionDate(review.add_date)}}</span>
+                            <div class="circularBook grey5F font-size14" [ngClass]="{'show-less-review': showReviewShortDesc}">
+                                {{review.review}}
+                            </div>
+                            <a (click)="showReviewShortDesc=!showReviewShortDesc" class="orangeFF font-size14">
+                    {{showReviewShortDesc? 'Read more...': 'Read less'}}
+                  </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- <div class="mt-4">
+            <div class="row">
+                <div class="col-6" *ngFor="let review of reviewsData">
+                    <div class="row mt-4">
+                        <div class="col-2 mt-n1">
+                            <img [src]="createImageUrl(review.user_pic)" style="object-fit: cover;" alt="" class="rounded-circle" width="55" height="55">
+                        </div>
+                        <div class="col-10">
+                            <span class="circularMedium"><b>{{review.user_name}}</b></span> <br>
+                            <span class="circularBook grey5F">{{formatSessionDate(review.add_date)}}</span>
+                        </div>
+                    </div>
+                    <div class="circularBook grey5F mt-4 font-size14" [ngClass]="{'show-less-review': showReviewShortDesc}">
+                        {{review.review}}
+                    </div>
+                    <a (click)="showReviewShortDesc=!showReviewShortDesc" class="orangeFF font-size14">
+            {{showReviewShortDesc? 'Read more...': 'Read less'}}
+          </a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="jumbotron d-flex justify-content-center mt-5">
+        <p *ngIf="reviewsData.length == 0">You are yet to receive a review from a user</p>
+    </div>
+</section>

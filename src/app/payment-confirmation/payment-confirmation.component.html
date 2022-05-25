@@ -1,0 +1,41 @@
+<app-user-expert-navbar></app-user-expert-navbar>
+<section class="container">
+  <div class="row mt-5 justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <div class="text-center">
+        <img src="../assets/images/confirm.png" stylr="object-fit: cover" alt="" width="325px" />
+      </div>
+      <div class="mt-5">
+        <div>
+          <h3 class="">
+            <span class="green4C">Congratulations!</span> Your one-to-one
+            guidance session with {{ expert?.name }} is confirmed.
+          </h3>
+          <h6 class="mt-2">Make sure to keep your best face forward.</h6>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-10">
+            <button class="btn buttons" (click)="navigateUrl()">
+              Go To Sessions
+            </button>
+          </div>
+        </div>
+
+        <h6 class="mt-4">Review requirements</h6>
+        <p class="">
+          You’ll need an internet connection with the ability to stream
+          audio and video to participate along with a working laptop.
+        </p>
+        <!-- <h6 class="mt-4">Ethics & Behaviour</h6>
+              <p class="">
+                  Please be civilised. We have no abuse policy. Keep your behaviour civilised and language clean.
+                  Our experts will do everything to make you comfortable. Don’t get in to an argument over an
+                  issue with expert. We have a stringent user protection policy if you face any issue you can
+                  reach us directly. We assure you a comfortable and pleasant guidance experice.
+              </p> -->
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

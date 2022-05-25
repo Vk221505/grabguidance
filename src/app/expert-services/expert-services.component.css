@@ -1,0 +1,13 @@
+.services{
+    margin-left: 17rem;
+    margin-right: 17rem;
+}
+
+input[type=checkbox].checkboxsize {
+    transform: scale(1.5);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #CECED2;
+    border-radius: 5px;
+    opacity: 1;
+}
+

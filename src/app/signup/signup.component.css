@@ -1,0 +1,20 @@
+a{
+    text-decoration: underline;
+}
+
+.errorMsg{
+  color: red;
+  display: inline-block;
+}
+.modal-content {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  max-width:400px !important;
+  pointer-events: auto !important;
+  background-color: #fff !important;
+  background-clip: padding-box !important;
+  border: 1px solid rgba(0,0,0,.2) !important;
+  border-radius: 12px !important;
+  outline: 0 !important;
+}

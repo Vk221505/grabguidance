@@ -1,0 +1,123 @@
+a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.main-card {
+    border-radius: 10px;
+    background-color: black;
+}
+
+.card-title {
+    color: #FFFFFF;
+}
+
+.dashboard-questions {
+    margin-right: 5rem;
+}
+
+.row-expert {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -30px;
+    margin-right: -175px;
+}
+
+.cards {
+    width: 31%;
+}
+
+.ok-icon {
+    margin-top: -4.5rem;
+}
+
+.slot {
+    display: inline-block;
+    width: 30px;
+}
+
+.Img-Size {
+    height: 340px;
+    width: 275px;
+}
+
+.subject {
+    padding: 3px 10px;
+    border-radius: 10px;
+}
+
+.verified {
+    height: 19px;
+    margin-right: 5px;
+}
+
+.Img-Size {
+    height: 285px;
+    width: 230px;
+}
+
+.document {
+    height: 100px;
+    width: 100px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.box {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.empty-card {
+    height: 179px;
+    width: 334px;
+}
+
+table,
+th,
+td {
+    border: 0px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 2px;
+    text-align: left;
+    padding-bottom: 2px;
+}
+
+.ml-10 {
+    margin-left: 1.5rem;
+}
+
+.mx-0 {
+    flex-wrap: nowrap;
+}
+
+.ml-5 {
+    margin-left: 5rem!important;
+}
+
+@media (min-width:320px) and (max-width:600px) {
+    .mx-0 {
+        flex-wrap: wrap;
+    }
+    .px-0 {
+        margin-bottom: 2rem;
+        margin-left: -15px
+    }
+    .ml-5 {
+        margin-left: 0rem!important;
+    }
+}

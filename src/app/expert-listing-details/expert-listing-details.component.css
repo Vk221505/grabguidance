@@ -1,0 +1,45 @@
+textarea{
+    background: 0% 0% no-repeat padding-box padding-box rgb(240, 240, 240);
+    border-radius: 5px;
+    opacity: 1;
+    border-top: black;
+    border-right: black;
+    border-left: black;
+    border-bottom: 4px solid #FFDF32;
+}
+
+.marginBoxModel28{
+    margin-left: 28rem;
+    margin-right: 28rem;
+}
+
+.dropzone {
+	width: 100px;
+	height: 100px;
+	border: 1px dashed #999;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.upload-input {
+	position: relative;
+	top: -62px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.delete-icon-div{
+  position: relative;
+  bottom: 102px;
+  left: 39px;
+  cursor: pointer;
+}

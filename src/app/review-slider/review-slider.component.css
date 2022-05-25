@@ -1,0 +1,15 @@
+.carousel-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgb(0, 0, 0);
+  background-clip: border-box;
+  color: #FFDF32;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: 1rem;
+  cursor: pointer;
+  height: 280px;
+  margin-right: 15px;
+}

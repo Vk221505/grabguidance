@@ -1,0 +1,127 @@
+.black-bg {
+    background-color: black;
+    color: rgb(151, 135, 135);
+    width: 100%;
+}
+
+.dashboard-margin {
+    margin-left: 5.7rem;
+}
+
+a {
+    color: #000000;
+}
+
+.nav-link.active {
+    color: #FFDF32 !important;
+}
+
+.expert-navbar-boxModel {
+    padding: 0;
+}
+
+.navbar-toggler-icon {
+    display: none;
+}
+
+.expert-navbar-margins {
+    margin-left: 5rem;
+}
+
+.items-center-align {
+    margin-left: 10rem;
+}
+
+.margin-left {
+    margin-left: 7rem;
+    margin-top: 0px;
+}
+
+.navbar-nav {
+    margin-left: 0rem;
+}
+
+.nav-item {
+    position: relative;
+    top: 9px;
+}
+
+.dropdown {
+    margin-top: -8px;
+}
+
+.items-center-align {
+    margin-left: 0rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.navbar-toggler-icon i {
+    display: flex;
+    justify-content: space-between;
+    top: 14px;
+    position: absolute;
+    align-items: center;
+    right: 16px;
+    color: #fff;
+    font-size: 1.7rem;
+}
+
+@media screen and (min-width: 991px) and (max-width:1200px) {
+    .dashboard-margin {
+        margin-left: 0rem;
+    }
+    .navbar-nav {
+        margin-left: 0rem !important;
+    }
+    .navbar-nav li {
+        margin-left: 0rem !important;
+    }
+    .margin-left {
+        margin-left: 3rem !important;
+    }
+    .items-center-align {
+        margin-left: 8rem;
+    }
+}
+
+@media screen and (min-width:768) {
+    .navbar-nav li {
+        margin-right: -10px;
+    }
+    .items-center-align {
+        margin-left: 6rem;
+    }
+    .navbar-toggler-icon {
+        display: block;
+    }
+}
+
+@media (min-width:320px) and (max-width:600px) {
+    .navbar-toggler-icon {
+        display: block;
+    }
+    .dashboard-margin {
+        margin-left: -4rem;
+    }
+    .greyCE {
+        display: none;
+    }
+    .navbar-nav {
+        align-items: center;
+    }
+    .items-center-align {
+        left: -100px;
+    }
+    .margin-left {
+        margin-left: 1rem;
+        margin-top: 0px;
+        margin-bottom: 1rem;
+    }
+    .nav-link {
+        margin-left: -1rem !important;
+    }
+}

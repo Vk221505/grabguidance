@@ -1,0 +1,178 @@
+#agora_local {
+    height: 110px;
+    width: 180px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.local-stream-name {
+    display: inline-block;
+    position: absolute;
+    background: #3232329a;
+    color: #fff;
+    z-index: 100;
+    border-radius: 11px;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+.local-name-position {
+    bottom: 6px;
+    left: 6px;
+}
+
+.remote-name-position {
+    top: 2%;
+    left: 1%;
+}
+
+.video-off-screen {
+    position: absolute!important;
+    height: 100%!important;
+    width: 100%!important;
+    z-index: 1;
+    background-image: url("../../assets/agora-icons/user_video_thumbnail@2x.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.local-share {
+    height: 100vh;
+    width: 80%;
+    background: #101010;
+    object-fit: contain;
+}
+
+.remote-sharing {
+    height: 100vh;
+    width: 80%;
+    object-fit: contain!important;
+}
+
+.sharing-call>video {
+    object-fit: contain!important;
+}
+
+.main-div-sharing {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    float: right;
+    background: #000;
+}
+
+.agora-local-container {
+    top: 30px;
+    right: 30px;
+    display: inline-block;
+    z-index: 100;
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.agora-local-share-container #agora_local {
+    height: 180px;
+    width: 100%;
+}
+
+.remote-containers {
+    display: flex;
+}
+
+.remote_calls {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.remote-containers-sharing {
+    display: block;
+}
+
+.remote-containers-sharing div {
+    width: 100%;
+    height: 180px;
+    position: relative;
+}
+
+.remote-control {
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    z-index: 100;
+}
+
+.empty-remote {
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    background: #fff!important;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.off-video-row {
+    position: absolute;
+    z-index: 10;
+    height: 120px!important;
+    margin-top: 20%!important;
+    width: 100%;
+}
+
+.remote-call-video-off {
+    border-radius: 12px;
+    height: 120px!important;
+    width: 250px;
+    padding: 20px;
+    background: #fff!important;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.title {
+    position: absolute;
+    top: -30px;
+    left: 30%;
+}
+
+.icon {
+    font-size: 25px;
+}
+
+.ag-btn {
+    display: inline-block;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #495057;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.icon-img {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ag-btn:hover {
+    background: #495057!important;
+}
+
+.ag-btn-close {
+    background-color: red!important;
+}
+
+.ag-btn-close:hover {
+    background: #dc3545!important;
+}
+
+#agora_local div {
+    border-radius: 10px!important;
+}
+
+.bg-black {
+    background: #000;
+}

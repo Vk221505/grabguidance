@@ -1,0 +1,150 @@
+<div *ngIf="spinnerFlag">
+  <div class="myOverlay text-center">
+    <div class="btn btn-static font-xl bg-light">
+      <span class="fa fa-spinner rotate"> </span> Processing request...
+    </div>
+  </div>
+</div>
+<app-user-expert-navbar></app-user-expert-navbar>
+<section class="marginBoxModelForProfile padding-bottom">
+  <div class="text-center mt-4">
+    <h3 class="">Welcome {{ username }}</h3>
+    <p class="">
+      Edit your information here. We only take the information which is required to provide you the best experience. So,
+      share the right information here.
+    </p>
+  </div>
+  <form [formGroup]="userProfileForm">
+    <div class="mt-2">
+      <div class="">
+        <div class="">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-center">
+                <b class="circularBold">Edit Profile Details</b>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h6 class="mt-4">Profile Details</h6>
+      <p class="small-text">
+        GrabGuidance only shares profile information to experts after a
+        session is confirmed. No contact information is shared with anyone.
+      </p>
+
+      <input type="text" class="form-control w-100 mt-2 contactNumber-addon" placeholder="Name" formControlName="name"
+        [ngClass]="{
+          'input-error': submitted && userProfileForm.controls.name.invalid
+        }" />
+
+      <input type="email" class="form-control w-100 mt-3 contactNumber-addon" placeholder="Email"
+        formControlName="email" [ngClass]="{
+          'input-error': submitted && userProfileForm.controls.email.invalid
+        }" />
+
+      <div class="input-group mt-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text contactNumber-addon" id="basic-addon1" [ngClass]="{
+              'input-error':
+                submitted && userProfileForm.controls.phNumber.invalid
+            }">+91</span>
+        </div>
+        <input type="text" class="form-control contactNumber-addon" placeholder="Contact Number"
+          aria-label="contactNumber" aria-describedby="basic-addon1" formControlName="phNumber" [ngClass]="{
+            'input-error':
+              submitted && userProfileForm.controls.phNumber.invalid
+          }" />
+      </div>
+
+      <div class="w-100 mt-3 form-group">
+        <input type="text" placeholder="Date Of Birth" class="form-control contactNumber-addon" bsDatepicker
+          formControlName="dob" [bsConfig]="{
+            isAnimated: true,
+            dateInputFormat: 'YYYY-MM-DD',
+            containerClass: 'theme-orange'
+          }" [ngClass]="{
+            'input-error': submitted && userProfileForm.controls.dob.invalid
+          }" />
+      </div>
+
+      <select id="gender" class="w-100 mt-3 text-left " formControlName="gender" #ongender placeholder="Select gender"
+        [ngClass]="{
+          'input-error': submitted && userProfileForm.controls.gender.invalid}">
+        <option value="">Select Gender</option>
+        <option *ngFor="let value of genders" value="{{ value.id_gender }}">
+          {{ value.gender_name }}
+        </option>
+      </select>
+
+      <input type="text" class="education-inputs w-100 mt-3" placeholder="Address" formControlName="address"
+        [ngClass]="{'input-error': submitted && userProfileForm.controls.address.invalid}">
+      <!-- <p class="font-size12 grey8E circularBook text-left mt-2">We use this detail to generate invoices and use it
+            for tax purposes.</p> -->
+      <div>
+        <input type="text" class="education-inputs w-100 mt-3" placeholder="Pincode" formControlName="pincode"
+          [ngClass]="{'input-error': submitted && userProfileForm.controls.pincode.invalid}"
+          (change)="onChangePincode($event)">
+      </div>
+      <div class="text-left">
+        <input type="text" name="city" id="city" placeholder="City" class="education-inputs mt-3 mr-1 width-50"
+          formControlName="city" [ngClass]="{'input-error': submitted && userProfileForm.controls.city.invalid}">
+
+        <input type="text" name="state" id="state" placeholder="State" class="education-inputs mt-3 state-dropdown"
+          formControlName="state" [ngClass]="{'input-error': submitted && userProfileForm.controls.state.invalid}">
+      </div>
+      <div>
+        <input type="text" class="education-inputs w-100 mt-3" placeholder="GSTIN" formControlName="gstin">
+      </div>
+
+    </div>
+  </form>
+  <div class="mt-4 row mx-0 justify-content-center">
+    <div class="col-12 px-0">
+      <h6 class="">Your photographs</h6>
+    </div>
+    <div class="row mx-0 mt-4">
+      <div class="dropzone col-4" *ngIf="!showImg">
+        <button type="button" class="btn buttons upload-icon">Upload</button>
+        <input type="file" class="upload-input" (change)="onSelectImg($event)" />
+      </div>
+      <div class="col-6 col-sm-4 px-0" *ngIf="showImg">
+        <img [src]="imageUrl" alt="" style="object-fit: cover" width="150" height="200" />
+        <diV class="text-center">
+          <button type="button" class="btn mt-1 buttons" (click)="update.click()">
+            Upload
+          </button>
+          <input type="file" #update class="upload-input" (change)="onSelectImg($event)" />
+        </diV>
+      </div>
+      <div class="w-50 text-left col-6 col-sm-8 px-0">
+        <div>
+          <h6 class=""><b>Tips for quality photos</b></h6>
+        </div>
+        <div>
+          <div class="">
+            <ul class="small-text pl-3">
+              <li>Declutter your space.</li>
+              <li> Use natural daylight and avoid flash Shoot
+                from front in portrait mode Balance visible background and your face
+                & shoulders.</li>
+              <li> Add photos which looks professional Recommended specs:
+                700 height x 400 width, 2 MB max.</li>
+            </ul>
+          </div>
+          <p *ngIf="imageError" class="text-danger">Error: Invalid Image
+            <br>Image Size is greater than 2MB
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footerBackAndNext mt-5 text-center fixed-footer">
+  <div class="mt-3 pt-2">
+    <button type="button" class="btn buttons circularBold" type="button" (click)="save()">
+      Save Your Details
+    </button>
+  </div>
+</footer>

@@ -1,0 +1,114 @@
+<div *ngIf="isBrowser" [ngClass]="sharing ? 'main-div-sharing' : ''">
+    <div [ngClass]="
+      sharing ? 'agora-local-share-container' : 'agora-local-container'">
+        <div id="agora_local">
+            <div class="video-off-screen" *ngIf="localVideo"></div>
+            <span class="local-stream-name local-name-position">{{ localUserType != null ? localUserType + ":" : null }}
+        {{ localUserName }}</span>
+        </div>
+        <!-- <p class="mb-0 text-center text-dark">Abhinn(User)</p> -->
+    </div>
+    <div [ngClass]="sharing ? 'remote-containers-sharing' : 'remote-containers'">
+        <div class="remote_calls" *ngFor="let remote of remoteCalls; let i = index" [id]="remote.streamId">
+            <div class="video-off-screen" *ngIf="sharing" [ngClass]="remote.streamId" style="display: none"></div>
+            <div class="mt-5 off-video-row" [ngClass]="remote.streamId" *ngIf="!sharing" style="display: none">
+                <p class="text-white text-center">On the call !</p>
+                <div class="d-flex justify-content-center">
+                    <div class="remote-call-video-off">
+                        <div class="d-flex pt-3">
+                            <div class="">
+                                <img [src]="createImageUrl(remote.user?.pic)" alt="" class="rounded-circle" style="object-fit: contain" width="55" height="55" />
+                            </div>
+                            <div class="ml-2 mt-2">
+                                <h6 class="">{{ remote.user.name }}</h6>
+                                <p class="small-text mt-n2">
+                                    {{ remote.user.profession ? remote.user.profession : null }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="local-stream-name" [id]="i" [ngClass]="sharing ? 'local-name-position' : 'remote-name-position'">{{
+        remote.user.profession != null ? remote.user.profession + ":" : null }}{{ remote.user.name }}</span>
+        </div>
+    </div>
+</div>
+
+<div class="local-share" *ngIf="sharing && showSharingWindow && isBrowser">
+    <div class="row mt-5">
+        <div class="col-4 offset-4 remote-call-video-off" style="height: auto !important; margin-top: 30%">
+            <div class="row mx-0">
+                <div class="col-8">
+                    <h6 class="">Sharing your screen</h6>
+                    <p class="small-text mt-n1">presenting to everyone</p>
+                </div>
+                <div class="col-4">
+                    <!-- <button class="btn buttons mt-2" (click)="shareEnd()">Stop</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="remote-sharing" *ngIf="sharing && !showSharingWindow && isBrowser">
+    <div class="h-100 w-100 sharing-call" *ngFor="let share of shareCalls" [id]="share"></div>
+</div>
+
+<div class="w-100 h-100 bg-black" *ngIf="remoteCalls.length == 0 && !sharing && isBrowser">
+    <div *ngIf="remoteCalls.length == 0 && !sharing" id="NoOneOnCall" class="container" style="padding-top: 10%">
+        <div class="row mt-5">
+            <div class="col-6 offset-3 empty-remote">
+                <p class="title text-white">No one joined in this call yet!</p>
+                <div class="row mx-0 pt-3" *ngFor="let data of joiningList; let i = index">
+                    <div class="col-1 px-0">
+                        <img [src]="createImageUrl(data?.pic)" alt="" class="rounded-circle" style="object-fit: contain" width="55" height="55" />
+                    </div>
+                    <div class="col-11 mt-2 border-bottom" [ngClass]="{ 'border-bottom': i < 2 }">
+                        <h6 class="">{{ data.name }}</h6>
+                        <p class="small-text mt-n2">{{ data.profession }}</p>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center remote-control" *ngIf="isBrowser">
+    <span *ngIf="isAudioOn" class="ag-btn" title="Audio" (click)="audioOff()">
+    <div class="icon-img mx-auto">
+      <img src="../../assets/agora-icons/mic@2x.png" title="Audio" aria-hidden="true" class="h-100 w-100" />
+    </div>
+  </span>
+
+    <span *ngIf="!isAudioOn" class="ag-btn" title="Audio" (click)="audioOff()">
+    <div class="icon-img mx-auto">
+      <img src="../../assets/agora-icons/mic-off@2x.png" title="Audio" aria-hidden="true" class="h-100 w-100" />
+    </div>
+  </span>
+
+    <span *ngIf="isVideoOn" class="ag-btn" title="Exit" title="video" (click)="onOff()">
+    <div class="icon-img mx-auto">
+      <img src="../../assets/agora-icons/video@2x.png" title="video" aria-hidden="true" class="h-100 w-100" />
+    </div>
+  </span>
+
+    <span *ngIf="!isVideoOn" class="ag-btn" title="Exit" title="video" (click)="onOff()">
+    <div class="icon-img mx-auto">
+      <img src="../../assets/agora-icons/video-off@2x.png" title="video" class="h-100 w-100" />
+    </div>
+  </span>
+
+    <span class="ag-btn ag-btn-close" title="Exit" title="close" (click)="leave()">
+    <div class="icon-img mx-auto">
+      <img src="../../assets/agora-icons/close@2x.png" title="close" class="h-100 w-100" />
+    </div>
+  </span>
+
+    <span class="ag-btn" title="Exit" title="Share" (click)="screenShare(newChannelId, userId)">
+    <div class="icon-img mx-auto">
+      <img src="../../assets/agora-icons/share@2x.png" title="Share" class="h-100 w-100" />
+    </div>
+  </span>
+</div>

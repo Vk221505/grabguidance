@@ -1,0 +1,25 @@
+.main {
+   height: 100vh!important;
+   background-color: #f8f8f8;
+}
+
+.verticle-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-65%);
+  font-size: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.page-not-found{
+  font-size: 30px;
+  color: #c6c6c4!important;
+}
+
+.text {
+  color: #727776!important;
+  font-size: 50px;
+}

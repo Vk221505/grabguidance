@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link mr-5">
+                    <b class="circularBold" [ngClass]="currentRouteUrl('/expert/profile')"
+                     (click)="navigateUrl('/expert/profile')">Profile Details</b>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mr-5">
+                    <b class="circularBold" [ngClass]="currentRouteUrl('/expert/education')"
+                     (click)="navigateUrl('/expert/education')">Education & Experience</b>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mr-5">
+                    <b class="circularBold" [ngClass]="currentRouteUrl('/expert/services')"
+                    (click)="navigateUrl('/expert/services')">Services Offerings</b>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mr-5">
+                    <b class="circularBold" [ngClass]="currentRouteUrl('/expert/availability')"
+                    (click)="navigateUrl('/expert/availability')">Availability & Fees</b>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <b class="circularBold" [ngClass]="currentRouteUrl('/expert/listing')"
+                    (click)="navigateUrl('/expert/listing')">Listing Details</b>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

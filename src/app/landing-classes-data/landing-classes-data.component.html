@@ -1,0 +1,23 @@
+<div>
+    <div class="middle">
+        <p>&nbsp; Academic Guidance &nbsp;</p>
+    </div>
+    <div class="row justify-content-center">
+        <div *ngFor="let data of guidanceData">
+            <button (click)="searchExpert(data)" class="btn text-white" style="font-size: 14px;">{{data.subject_name}}</button>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="middle">
+            <p class="career">&nbsp; Career Guidance &nbsp;</p>
+        </div>
+        <div class="row justify-content-center">
+            <div *ngFor="let data of personalData">
+                <button (click)="searchGuidance(data)" class="btn text-white" style="font-size: 14px;">{{data.guidance_name}}</button>
+            </div>
+        </div>
+
+
+
+    </div>

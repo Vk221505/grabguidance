@@ -1,0 +1,142 @@
+<div *ngIf="spinnerFlag">
+    <div class="myOverlay text-center">
+        <div class="btn btn-static font-xl bg-light">
+            <span class="fa fa-spinner rotate"> </span> Processing request...
+        </div>
+    </div>
+</div>
+<section class="marginBoxModel25 padding-bottom-90">
+    <form [formGroup]="availabilityForm">
+        <div>
+            <h6 class="text-left">Guidance Fees</h6>
+            <p class="text-left">
+                Please mention your hourly price which you want to quote. The 40 Mins and 20 Mins session’s price is
+                automatically calculated with a premium of 10% and 25% respectively. Please note that GrabGuidance will
+                deduct 30% service fee from this price.
+            </p>
+            <div class="text-left mt-4">
+                <div class="w-50 ml-2">
+                    <p-slider [(ngModel)]="guidanceFees" formControlName="guidanceFee" [min]="250" [max]="2500"
+                        [step]="50" (onChange)="onChangeFee(guidanceFees)"></p-slider>
+                </div>
+                <div class="mt-4 row ml-1">
+                    <div class="mr-5">
+                        <span class="grey8E circularBook">60 Min</span><br>
+                        <!-- <h5 class="circularBold" *ngIf="!guidanceFeeChanged">&#8377;250</h5> -->
+                        <h5 class="circularBold">&#8377;{{sixtyMinFee | number: '1.0-0'}}
+                        </h5>
+                    </div>
+                    <div class="mr-5">
+                        <span class="grey8E circularBook">40 Min (Auto)</span><br>
+                        <!-- <h5 class="circularBold" *ngIf="!guidanceFeeChanged">&#8377;183</h5> -->
+                        <h5 class="circularBold">&#8377;{{fortyMinFee | number: '1.0-0'}}
+                        </h5>
+                    </div>
+                    <div class="mr-5">
+                        <span class="grey8E circularBook">20 Min (Auto)</span><br>
+                        <!-- <h5 class="circularBold" *ngIf="!guidanceFeeChanged">&#8377;104</h5> -->
+                        <h5 class="circularBold">&#8377;{{twentyMinFee | number: '1.0-0'}}
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="mt-5">
+                <h6 class="text-left">Available Days</h6>
+                <p class="text-left">
+                    Please choose your available days and time slots to show your availability on your profile for
+                    students to book you. Regular updating of this is highly recommended for showing the updated
+                    availability of yours.
+                </p>
+                <div class="row">
+                  <div class="col-2">
+                    <label class="circularBook"><b>Days</b></label>
+                  </div>
+                  <div class="col-10">
+                     <div class="row">
+                       <div class="col-5">
+                        <label class="circularBook"><b>Slot 1</b></label>
+                       </div>
+                       <div class="col-5">
+                        <label class="circularBook"><b>Slot 2</b></label>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+                  <div formArrayName="slots">
+                    <div class="row mt-3" [formGroupName]="i" *ngFor="let slot of slotsForm.controls; let i=index">
+                      <div class="col-2">
+                        <a class="nav-link py-1" data-toggle="tab" role="tab" id="20_tab" aria-selected="true">
+                          <span class="paragraph"><b style="color:black;">{{getWeekDays(i)}}</b></span> <br>
+                        </a>
+                     </div>
+                      <div class="col-10">
+                        <div class="row">
+                          <div class="col-5">
+                            <div class="row">
+                                <div class="col-6 px-1">
+                                    <select name="" id="" class="slot-select border-radius-left w-100"
+                                        formControlName="weekDaySession1From" (change)="onSelection(onSelection1From.value, i)" #onSelection1From>
+                                        <option selected value="" class="slot-option">
+                                            From
+                                        </option>
+                                        <option *ngFor="let value of formatTimeArray(getSessionOneFromValues(i))" value="{{value}}">{{value}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-6 pl-0 pr-2">
+                                    <select id="weekDaySession1To" #onSelection1To class="slot-select border-radius-right w-100"
+                                        formControlName="weekDaySession1To" [attr.disabled]=" ">
+                                        <option selected value="">
+                                            To
+                                        </option>
+                                        <option *ngFor="let value of formatTimeArray(getSessionOneToValues(i))" value="{{value}}">{{value}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-5">
+
+                              <div class="row">
+                                  <div class="col-6 pl-2 pr-1">
+                                      <select name="" id="" class="slot-select border-radius-left w-100"
+                                          formControlName="weekDaySession2From"
+                                          (change)="onSelection2(onSelectionFrom2.value)" #onSelectionFrom2>
+                                          <option selected value="">
+                                              From
+                                          </option>
+                                          <option *ngFor="let value of formatTimeArray(getSessionTwoFromValues(i))" value="{{value}}">{{value}}
+                                          </option>
+                                      </select>
+                                  </div>
+                                  <div class="col-6 pl-0 pr-1">
+                                      <select name="" id="" class="slot-select border-radius-right w-100"
+                                           #onSelection2To
+                                          formControlName="weekDaySession2To">
+                                          <option selected value="" >
+                                              To
+                                          </option>
+                                          <option *ngFor="let value of formatTimeArray(getSessionTwoToValues(i))" value="{{value}}">{{value}}
+                                          </option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </form>
+</section>
+<footer class="footerBackAndNext bloating mt-5 text-center">
+  <div class="mt-2 pt-2">
+      <button class="btn circularMedium" (click)="back()"><span style="font-size: 25px;">&larr;</span>
+          Back</button>
+      <button type="button" *ngIf="!isSignUp" class="btn buttons ml-3 circularMedium" (click)="onSubmit('exit')">Save and Exit</button>
+      <button class="btn ml-3 circularMedium" type="submit" (click)="onSubmit('next')">Save & Next <span style="font-size: 25px;">&rarr;</span></button>
+  </div>
+</footer>

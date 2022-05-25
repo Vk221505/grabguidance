@@ -1,0 +1,64 @@
+<div *ngIf="spinnerFlag">
+    <div class="myOverlay text-center">
+        <div class="btn btn-static font-xl bg-light">
+            <span class="fa fa-spinner rotate"> </span> Processing request...
+        </div>
+    </div>
+</div>
+<section class="marginBoxModel28 padding-bottom-90">
+    <form [formGroup]="listingForm">
+        <div>
+            <h6 class="text-left"><b>Add something about yourself</b></h6>
+            <p class="text-left">Describe yourself in detail along with your achievements
+               and skill set that sets you apart from others.</p>
+            <textarea name="" id="" cols="85" rows="5" placeholder="Write here" formControlName="description"
+                [ngClass]="{'input-error': submitted && listingForm.controls.description.invalid}">
+            </textarea>
+            <hr class="mt-4">
+            <h6 class="text-left mt-4"><b>Language you are proficient in</b></h6>
+            <p class="text-left">You should be able to read, write, and speak in this
+                language. Only add languages you’d be comfortable hosting in.</p>
+            <div class="text-left">
+                <p-multiSelect [options]="primaryLang" defaultLabel="Select a Primary Lang" optionLabel="languages"
+                    name="primaryLanguage" formControlName="primaryLanguage" [filter]="false" [showToggleAll]="false"></p-multiSelect>
+            </div>
+            <h6 class="text-left mt-4"><b>Comfortable in teaching 'Specially abled' users</b></h6>
+            <p class="text-left">People with disability needs a special way of teaching.
+               If you are proficient in handling such learners only then select the option to guide them. </p>
+            <div class="text-left">
+                <p-multiSelect [options]="secondaryLang" formControlName="secondaryLanguage"
+                    [showHeader] = 'false'
+                    defaultLabel="Select a Secondary Lang" optionLabel="languages" name="secondaryLanguage" [filter]="true" [showToggleAll]="false">
+                </p-multiSelect>
+            </div>
+        </div>
+    </form>
+    <div class="mt-4">
+      <hr class="mt-3">
+            <h6 class="text-left"><b>Documents</b></h6>
+            <p class="text-left">Upload the following docs - ID Proof, Pan Card, Resume, Highest Qualification Certificate.</p>
+            <div class="row">
+                <div class="dropzone">
+                  <i class="fa fa-plus upload-icon-profile" style="margin-top: calc(50% - 14px);" aria-hidden="true"></i>
+                  <input type="file" class="upload-input" (change)="onFileSelected($event)"/>
+                </div>
+                <div *ngFor="let document of documents">
+                  <div class="dropzone ml-2" >
+                    <img [src]="document.pic" alt="" width="100%" height="100%">
+                    <div class="delete-icon-div" (click)="deleteImg(document.id_document)">
+                        <i class="fa fa-remove delete-icon" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+             </div>
+             <p *ngIf="imageError"class="text-danger">Error: Invalid File Size
+              <br>File Size is greater than 1MB</p>
+        </div>
+</section>
+<footer class="footerBackAndNext bloating mt-5 text-center">
+    <div class="mt-2 pt-2">
+        <button type="button" class="btn circularMedium" (click)="back()"><span
+                style="font-size: 25px;">&larr;</span> Back</button>
+        <button type="button" class="btn buttons ml-5 circularMedium nextBtn" (click)="publishListing()">Save and Exit</button>
+    </div>
+</footer>

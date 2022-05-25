@@ -1,0 +1,167 @@
+textarea{
+  background: 0% 0% no-repeat padding-box padding-box rgb(240, 240, 240);
+  border-radius: 5px;
+  opacity: 1;
+  border-top: black;
+  border-right: black;
+  border-left: black;
+  border-bottom: 4px solid #FFDF32;
+}
+.mb-3{
+  cursor:pointer;
+}
+.image-icon{
+  border-radius: 20px;
+}
+.expert-box-model {
+  margin-left: 11rem;
+    margin-right: 11rem;
+}
+
+.dropzone {
+width: 100px;
+height: 100px;
+border: 1px dashed #999;
+border-radius: 3px;
+text-align: center;
+}
+.upload-input {
+position: relative;
+top: -62px;
+left: 0;
+width: 100%;
+height: 100%;
+opacity: 0;
+}
+.img-size {
+  width: 90px;
+  height: 110px;
+}
+
+.admin-user{
+ border: 1px solid lightgrey;
+  padding: 5px!important;
+}
+
+.subject {
+padding: 4px 10px;
+border-radius: 13px;
+opacity: 0.6;
+}
+
+.box {
+border: 1px solid rgb(221, 221, 221);
+border-radius: 12px;
+padding: 24px;
+box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.text-area {
+padding: 20px;
+width: 100%;
+}
+
+.fixed-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 300;
+  display: none;
+  background: white;
+  border-top: 1px solid;
+  padding: 0 16px;
+  border-top: 1px solid rgb(221, 221, 221);
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16p
+}
+
+.input-group-apply-btn {
+  margin-top: 7px;
+  height: 46px;
+}
+
+.navbarshow {
+  display: block;
+}
+.my-3 img{
+  display:none;
+}
+
+@media screen and (max-width: 1200px) {
+   .expert-box-model {
+    margin-left: 3.785rem;
+    margin-right: 3.785rem;
+   }
+  
+}
+
+@media screen and (max-width: 992px) {
+  .expert-box-model {
+   margin-left: 1.785rem;
+   margin-right: 1.785rem;
+  }
+  .mb-3{
+    margin-top: 105px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cardshow.show {
+    display: block;
+    transition: 1s linear;
+  }
+ 
+  .my-3 img{
+    display:block;
+  }
+  .cardshow.hide {
+    display: none;
+    transition: 1s linear;
+  }
+
+  .fixed-btn {
+    display: block;
+  }
+
+  .box {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 0px;
+    padding: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    overflow: auto;
+    z-index: 500;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  }
+
+  .card-width {
+     max-width: 100vw;
+     margin-top: 85px;
+  }
+
+  .img-size {
+    width: 150px;
+    height: 170px;
+  }
+
+  .navbarshow {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .cardshow.show {
+    display: block;
+    transition: 1s linear;
+  }
+.mb-3{
+  margin-top: 115px;
+}
+  .cardshow.hide {
+    display: none;
+    transition: 1s linear;
+  }
+}

@@ -1,0 +1,48 @@
+<div *ngIf="spinnerFlag">
+  <div class="myOverlay text-center">
+      <div class="btn btn-static font-xl bg-light">
+          <span class="fa fa-spinner rotate"> </span> Logging in, please wait...
+      </div>
+  </div>
+</div>
+
+<section>
+  <div id="loginConfirmModal" class="modal fade m-sm-5" role="dialog" aria-labelledby="dialog-sizes-name2"
+    data-backdrop="static">
+<div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h6 class="ml-5 my-0">Help us to confirm it’s really you</h6>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body text-center" style="padding: 26px;">
+            <form [formGroup]="OTPForm">
+                <div>
+                    <p class="text-left" style="line-height: 24px; color: black;">
+                        Your account security is important to us. That’s why we texted your code to +91XXXXX<span id="hideNumner"></span>
+                    </p>
+                    <p class="text-center mt-4">Enter your security code</p>
+                    <div class="row justify-content-center">
+                        <div class="form-group col-2 px-2" *ngFor="let txt of formInput; index as i">
+                          <input #formRow type="text" formControlName="{{txt}}" class="form-control"
+                          maxlength="1" (keyup)="keyUpEvent($event, i)">
+                        </div>
+                    </div>
+                    <p class="text-center mb-1" style="color: black;">
+                        Didn’t get the code?
+                        <a (click)="resend()" class="circularMedium" style="color: black;">Resend code</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn circularMedium d-flex p-0" style="color: black;" (click)="back()">
+            <span><img src="../assets/ggsvg/back.svg" style="width: 30px;"></span> <span class="mt-1">BACK</span>
+          </button>
+        </div>
+    </div>
+</div>
+</div>
+</section>

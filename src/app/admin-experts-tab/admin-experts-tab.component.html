@@ -1,0 +1,131 @@
+<app-admin-navbar></app-admin-navbar>
+<section class="mt-4 mx-3">
+    <div>
+        <span class="circularBlack font-size26"><b>Total Experts ({{totalExpert}})</b></span>
+        <a><img src="../assets/ggsvg/download.svg" style="width: 30px;" class="ml-2" (click)="downloadExperts()"></a><br>
+        <span class="circularBook grey5F font-size16">Last created {{latestCreatedDate}}</span>
+    </div>
+    <div class="mt-4">
+        <p-table #dt [columns]="cols" [value]="resultSet" [paginator]="true" [style]="{'overflow': 'inherit'}" [paginator]="true" [rows]="25" [rowHover]="true" totalRecords="{{totalRecords}}" class="noWrapDataTable" autoLayout="true" styleClass="p-datatable-striped"
+            [resizableColumns]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field" [style]="{'font-size': '12px',
+                                  'color': '#566881',
+                                  'width': col.width,
+                                  'font-family': 'CircularBook'}">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                        <input pInputText type="text" style="width: 100%;" (input)="dt.filter($event.target.value, col.field, 'contains')" />
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+
+            <!-- Table Data -->
+            <ng-template pTemplate="body" let-rowData let-columns="columns" let-ri="rowIndex">
+                <tr>
+                    <td *ngFor="let col of columns" [style]="{'font-size': '14px', 'color': '#171E27', 'font-family': 'CircularBook'}">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td>
+                        <ng-template #popContent style="width: 155px;">
+                            <a class="black17">
+                                <div class="row" (click)="editUser(rowData['expertId'])">
+                                    <div class="col">
+                                        <span>Dashboard</span>
+                                    </div>
+                                    <div class="col text-right">
+                                        <img src="../assets/ggsvg/editprofile.svg" style="height: 18px;" aria-hidden="true">
+                                    </div>
+                                </div>
+                            </a>
+                            <a *ngIf="rowData['status'] != 'Archieved'" class="black17" (click)="openDeleteExpert(rowData['expertId'] ,rowData['status'])">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <span>Delete</span>
+                                    </div>
+                                    <div class="col text-right">
+                                        <img src="../assets/ggsvg/delete.svg" style="height: 18px;" aria-hidden="true">
+                                    </div>
+                                </div>
+                            </a>
+                            <a *ngIf="rowData['status'] == 'Archieved'" class="black17" (click)="openDeleteExpert(rowData['expertId'] , rowData['status'])">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <span>UnArchive</span>
+                                    </div>
+                                    <div class="col text-right">
+                                        <img src="../assets/ggsvg/delete.svg" style="height: 18px;" aria-hidden="true">
+                                    </div>
+                                </div>
+                            </a>
+                            <a *ngIf="rowData['status'] == 'Not Approved'" class="black17" (click)="openApproveExpert(rowData['expertId'])">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <span>Approve</span>
+                                    </div>
+                                    <div class="col text-right">
+                                        <img src="../assets/ggsvg/approve.svg" style="height: 18px;" aria-hidden="true">
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="black17">
+                                <div class="row mt-3" (click)="viewProfile(rowData['expertId'],rowData['userName'])">
+                                    <div class="col">
+                                        <span>profile</span>
+                                    </div>
+                                    <div class="col text-right">
+                                        <img src="../assets/ggsvg/profile.svg" style="height: 18px;" aria-hidden="true">
+                                    </div>
+                                </div>
+                            </a>
+                        </ng-template>
+
+                        <button type="button" class="popover-button" [ngbPopover]="popContent" placement="left">
+                            <i class="fa fa-ellipsis-h ml-3 ellipsis-icon" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</section>
+
+<section>
+    <div id="resheduleSessionFinal" class="modal fade m-5" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name2" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-margin-left mb-0">{{selectedheading}}</h5>
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mx-0">
+                        <div class="col-8">
+                            <h6 class="">{{selectedExpertName}}</h6>
+                            <p class=" mb-0">{{selectedExpertDegree}} in {{selecxtedExpertSpec}}</p>
+                            <p class=" mb-0">{{selcectedExpertTotalExperience}} Years Experience Overall</p>
+
+                        </div>
+                        <div class="col-4 img-size">
+                            <img [src]="imgUrl" alt="" tyle="object-fit: cover;" class="w-100 h-100 m-0 rounded">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn buttons w-100" (click)="submit(); refresh();">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

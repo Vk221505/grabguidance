@@ -1,0 +1,164 @@
+<section class="marginBoxModel10 mt-5">
+    <div>
+        <h3 class="">Welcome {{userProfile?.full_name | titlecase}}</h3>
+        <p class="">You can manage your profile details and bookings from here.</p>
+        <div class="card main-card mt-4">
+            <div class="card-body">
+                <h6 class="card-title ml-3 text-white">Upcoming Events</h6>
+                <div class="card-deck">
+                    <ng-container class="row" *ngIf="upcomingEvent && upcomingEvent.length > 0">
+                        <div class="card upcoming-card col-lg-4 col-md-12 col-sm-12" style="height: auto!important;" *ngFor="let data of upcomingEvent | slice : 0: 3">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h6 class="mb-0 paragraph text-white">
+                                        {{ formatSessionDate(data.session_date) }}
+                                    </h6>
+                                    <span class="circularBook paragraph" style="color: #CECED2; line-height: 25px!important;">
+                    At {{createTimeFormat(data.session_start)}}, {{ calculateSessionDuration( data.session_start,
+                        data.session_end, data.session_date ) }} min session <br />
+                  </span>
+                                    <div class="mt-1">
+                                        <span class="mr-1 paragraph" style="line-height: 25px!important; color: #CECED2;">Expert:</span>
+                                        <span class="paragraph text-white" style="line-height: 25px!important;">{{ data.expert_name
+                      }}</span>
+                                    </div>
+                                    <!-- <div class="mt-1">
+                    <span class="paragraph mr-1">With</span>
+                    <span class="paragraph">{{data.expert_name}}</span>
+                  </div> -->
+                                    <!-- <div class="row mt-1 mx-0">
+                    <div class="col-12 text-left px-0">
+                      <span *ngIf="data.class  && data.subject" class=" mr-1 paragraph" style="color: #CECED2;">Related to:</span>
+                      <span *ngIf="data.class && data.class != 'null'" class="paragrap tags">{{ data.class }}</span>
+                      <span *ngIf="data.subject && data.subject != 'null'" class="paragraph tags ml-2">{{ data.subject }}</span>
+                      <span *ngIf="data.subject =='null' && data.subject == 'null'" class="paragraph tags">General</span>
+                    </div>
+                  </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container class="row" *ngIf="upcomingEvent && upcomingEvent.length == 0">
+                        <div class="card upcoming-card col-4" style="height: auto!important;" *ngFor="let data of upcomingEvent | slice : 0: 3">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <h6 class="text-white">No Upcoming events</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-5">
+            <div class="row ml-n4 mr-n5">
+                <div class="col-7">
+                    <div class="mt-3">
+                        <h6 class="text-left"><b>Personal Details</b></h6>
+                        <p class="small-text">
+                            GrabGuidance only shares profile information to experts after a reservation is confirmed. No contact information is shared with anyone.
+                        </p>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="">
+                                        <b>Name</b>
+                                    </td>
+                                    <td class="paragraph">
+                                        {{userProfile?.full_name}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <b>Gender</b>
+                                    </td>
+                                    <td class="paragraph">
+                                        {{getGender(userProfile?.id_gender)}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <b>Date of Birth</b>
+                                    </td>
+                                    <td class="paragraph">
+                                        {{formatDate(userProfile?.date_of_birth)}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <b>Email</b>
+                                    </td>
+                                    <td class="paragraph">
+                                        {{userProfile?.user_email}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <b>Phone</b>
+                                    </td>
+                                    <td class="paragraph">
+                                        {{userProfile?.user_mobile}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <b>GSTIN</b>
+                                    </td>
+                                    <td class="paragraph">
+                                        {{userProfile?.gstin}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="">
+                                        <b>Address</b>
+                                    </td>
+                                    <td class="paragraph">
+                                        {{userProfile?.address}},{{userProfile?.city}},{{userProfile?.state}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="mt-4">
+                            <button type="button" class="btn buttons circularBold" (click)="editUserInfo()">Edit your
+                Info</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="favouriteExperts && favouriteExperts.length > 0">
+                <hr class="mt-5 mb-5">
+                <div class="col-7">
+                    <h6 class="text-left">Saved Experts</h6>
+                </div>
+                <div class="col-12">
+                    <div class="row ml-n4">
+                        <div class="col-medium-20 mt-3" id="savedExpert" *ngFor="let data of favouriteExperts">
+                            <div class="main-card">
+                                <div class="card-body">
+                                    <img [src]="createImageUrl(data.pic)" (click)="gotoProfile(data.id, data.name)" class="rounded card-img" />
+                                    <img src="../assets/ggsvg/like.svg" class="favourite-selected" aria-hidden="true" (click)="removeFavourite(data)" />
+                                    <div class="font-size12 circularBook" style="margin-top: 10px !important">
+                                        <i class="pi pi-star icon-style"></i>
+                                        <span class="mr-1 small-text" style="color: black">{{
+                      data.rating.rating
+                      }}</span>
+                                        <span class="small-text">({{ data.rating.review }})</span>
+                                        <span style="font-size: 6px" class="mr-1 ml-1">&bull;</span>
+                                        <span class="small-text">{{ data.place }}</span>
+                                    </div>
+                                    <h6 class="m-6">{{ data.name | titlecase }}</h6>
+                                    <p class="m-6" style="line-height: 24px">
+                                        {{ data.education.degree | titlecase }} in {{ data.education.specialization }} <br /> {{ data.total_experience }} Years Experience Overall <br />
+                                    </p>
+                                    <p class="m-6">
+                                        <b style="color: black">From &#x20B9; {{ data.ratePerSession }}</b>/Session
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,20 @@
+<ngx-slick-carousel class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let slide of reviews" class="slide">
+            <div class="card carousel-card">
+              <div class="card-body">
+                <div class="d-flex justify-content-center">
+                </div>
+                <p class="text-white mt-3">
+                  {{slide.comment}}
+                </p>
+                <div class="mt-3 text-white" style="line-height: 12px;">
+                    <h6 class=""class="mb-1 text-white">{{slide.name}}</h6>
+                    <p class="small-text text-center text-white">{{slide.class}}</p>
+                </div>
+
+            </div>
+            </div>
+          </div>
+</ngx-slick-carousel>
